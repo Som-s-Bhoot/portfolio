@@ -98,7 +98,7 @@ export default function Hero() {
               </h1>
             </div>
             <div className="overflow-hidden mt-[-0.02em]">
-              <h1 className="hero-name text-gray-900" style={{ perspective: '600px' }}>
+              <h1 className="hero-name text-gray-900 whitespace-nowrap" style={{ perspective: '600px' }}>
                 {splitChars('CHAKRAVARTY')}
               </h1>
             </div>
