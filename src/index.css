@@ -19,15 +19,7 @@
 }
 
 /* ── Reset & Base ── */
-* {
-  cursor: none;
-}
-
-@media (pointer: coarse) {
-  * {
-    cursor: auto;
-  }
-}
+/* Custom cursor disabled - using default cursor */
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -62,38 +54,9 @@ body {
   color: white;
 }
 
-/* ── Custom Cursor ── */
+/* ── Custom Cursor (disabled) ── */
 .custom-cursor {
-  width: 16px;
-  height: 16px;
-  border: 1.5px solid #111827;
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-              height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-              border-color 0.3s ease,
-              background-color 0.3s ease;
-  transform: translate(-50%, -50%);
-}
-
-.custom-cursor.hovering {
-  width: 48px;
-  height: 48px;
-  background-color: #111827;
-  border-color: #111827;
-  opacity: 0.5;
-  mix-blend-mode: normal;
-}
-
-@media (pointer: coarse) {
-  .custom-cursor {
-    display: none !important;
-  }
+  display: none !important;
 }
 
 /* ── Grain Overlay ── */
@@ -340,5 +303,54 @@ section[id] {
   .pill-nav-btn {
     width: 34px;
     height: 34px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE ENHANCEMENTS
+══════════════════════════════════════════════════════════════ */
+
+/* Better hero name sizing on small screens */
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: clamp(2.2rem, 12vw, 3rem);
+  }
+  
+  .display-medium {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  
+  .display-large {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+}
+
+/* Improve readability on mobile */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px; /* Prevent zoom on input focus */
+  }
+  
+  /* Tighter horizontal padding on very small screens */
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+  }
+  
+  /* Ensure text is readable */
+  p, li {
+    line-height: 1.7;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-name {
+    font-size: clamp(2.5rem, 8vw, 5rem);
   }
 }
