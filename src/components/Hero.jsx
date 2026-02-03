@@ -157,7 +157,7 @@ export default function Hero() {
         </div>
 
         {/* Credential badges */}
-        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-gray-400 text-[10px] tracking-[0.25em] uppercase">
+        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-orange-500 text-[10px] tracking-[0.25em] uppercase">
           <span>Carnegie Mellon HCI '14</span>
           <span>·</span>
           <span>Ex-Director of Product</span>
