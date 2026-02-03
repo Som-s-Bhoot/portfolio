@@ -97,7 +97,7 @@ export default function Services() {
     <section id="services" ref={sectionRef} className="py-32 md:py-44 bg-[#F9FAFB] relative">
       <div className="w-full px-6 md:px-10">
         <div ref={titleRef} className="mb-16 md:mb-24">
-          <p className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-4">What I Do</p>
+          <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-4">What I Do</p>
           <h2 className="display-medium text-gray-900">How I can help.</h2>
           <p className="text-gray-500 text-lg md:text-xl mt-6 max-w-2xl leading-relaxed">
             I work at the intersection of product thinking, design craft, and AI capability. 

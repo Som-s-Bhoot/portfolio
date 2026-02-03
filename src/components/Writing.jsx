@@ -110,7 +110,7 @@ export default function Writing() {
       <div className="w-full px-6 md:px-10">
         <div ref={titleRef} className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
           <div>
-            <p className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-4">Writing</p>
+            <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-4">Writing</p>
             <h2 className="display-medium text-ink">Thinking out loud.</h2>
             <p className="text-ink-light text-base md:text-lg mt-4 max-w-xl leading-relaxed">
               I write about product craft, UX philosophy, identity, and life. Conversational but substantive — 

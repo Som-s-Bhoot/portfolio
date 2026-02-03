@@ -79,7 +79,7 @@ export default function About() {
       <div className="w-full px-6 md:px-10">
         {/* Section label */}
         <div ref={titleRef} className="mb-16 md:mb-24">
-          <p className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-4">About</p>
+          <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-4">About</p>
           <h2 className="display-medium text-gray-900">The arc.</h2>
         </div>
 
@@ -124,7 +124,7 @@ export default function About() {
 
         {/* Career Timeline */}
         <div ref={timelineRef} className="mt-24 md:mt-32 md:ml-[15%] lg:ml-[20%] max-w-4xl">
-          <h3 className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-10">Career Journey</h3>
+          <h3 className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-10">Career Journey</h3>
           <div className="space-y-0">
             {timeline.map((item) => (
               <div key={item.year} className="timeline-item grid md:grid-cols-12 gap-4 py-6 border-b border-gray-200 first:border-t first:border-gray-200">
@@ -144,7 +144,7 @@ export default function About() {
 
         {/* Skills */}
         <div ref={skillsRef} className="mt-20 md:mt-28 md:ml-[15%] lg:ml-[20%] max-w-4xl">
-          <h3 className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-8">Skills & Tools</h3>
+          <h3 className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-8">Skills & Tools</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
               <span key={skill} className="skill-tag text-xs px-4 py-2 rounded-full border border-gray-200 text-gray-500 hover:border-gray-900 hover:text-gray-900 transition-colors duration-300">

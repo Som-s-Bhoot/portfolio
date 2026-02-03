@@ -265,7 +265,7 @@ export default function CaseStudy() {
       <div className="w-full px-6 md:px-10">
         {/* Section Header */}
         <div className="mb-12">
-          <p className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-6">Featured Work</p>
+          <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-6">Featured Work</p>
           
           {/* Tabbed Navigation */}
           <div className="flex flex-wrap gap-3">

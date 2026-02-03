@@ -276,7 +276,7 @@ export default function Adventures() {
     <section id="adventures" ref={sectionRef} className="py-32 md:py-44 relative overflow-hidden bg-hero-bg">
       <div className="w-full px-6 md:px-10 relative z-10">
         <div ref={titleRef} className="mb-16 md:mb-20">
-          <p className="text-white text-xs tracking-[0.35em] uppercase font-semibold mb-4">Beyond Work</p>
+          <p className="text-orange-400 text-xs tracking-[0.35em] uppercase font-semibold mb-4">Beyond Work</p>
           <h2 className="display-medium text-hero-text">Life off-screen.</h2>
           <p className="text-hero-text/40 text-base md:text-lg mt-4 max-w-xl leading-relaxed">
             When I'm not building products, I'm on a motorcycle heading somewhere remote,

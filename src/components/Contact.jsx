@@ -38,7 +38,7 @@ export default function Contact() {
   return (
     <section id="contact" ref={sectionRef} className="py-32 md:py-44 bg-surface relative overflow-hidden">
       <div className="relative w-full px-6 md:px-10 text-center">
-        <p className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-6">Get in Touch</p>
+        <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-6">Get in Touch</p>
 
         <h2 ref={titleRef} className="display-large text-ink mb-6">
           LET&apos;S TALK
