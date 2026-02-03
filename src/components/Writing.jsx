@@ -106,7 +106,7 @@ export default function Writing() {
   }, [])
 
   return (
-    <section id="writing" ref={sectionRef} className="py-32 md:py-44 bg-surface-warm relative">
+    <section id="writing" ref={sectionRef} className="py-20 md:py-28 bg-surface-warm relative">
       <div className="w-full px-6 md:px-10">
         <div ref={titleRef} className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
           <div>

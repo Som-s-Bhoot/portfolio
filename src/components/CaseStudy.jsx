@@ -261,7 +261,7 @@ export default function CaseStudy() {
   const activeWork = featuredWorks.find((w) => w.id === activeTab)
 
   return (
-    <section id="work" ref={sectionRef} className="py-32 md:py-44 bg-white relative overflow-hidden">
+    <section id="work" ref={sectionRef} className="py-20 md:py-28 bg-white relative overflow-hidden">
       <div className="w-full px-6 md:px-10">
         {/* Section Header */}
         <div className="mb-12">

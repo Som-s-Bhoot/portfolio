@@ -94,7 +94,7 @@ export default function Services() {
   }
 
   return (
-    <section id="services" ref={sectionRef} className="py-32 md:py-44 bg-[#F9FAFB] relative">
+    <section id="services" ref={sectionRef} className="py-20 md:py-28 bg-[#F9FAFB] relative">
       <div className="w-full px-6 md:px-10">
         <div ref={titleRef} className="mb-16 md:mb-24">
           <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-4">What I Do</p>

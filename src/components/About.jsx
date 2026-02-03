@@ -75,7 +75,7 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={sectionRef} className="py-32 md:py-44 bg-white relative">
+    <section id="about" ref={sectionRef} className="py-20 md:py-28 bg-white relative">
       <div className="w-full px-6 md:px-10">
         {/* Section label */}
         <div ref={titleRef} className="mb-16 md:mb-24">
