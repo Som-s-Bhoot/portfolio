@@ -149,7 +149,7 @@ export default function CaseStudy() {
           <div ref={wpRef} className="group">
             <div className="mb-6">
               <span className="text-[10px] tracking-[0.2em] uppercase text-gray-400 font-semibold">Whitepaper</span>
-              <h2 className="display-medium text-gray-900 mt-2 text-3xl md:text-4xl lg:text-[2.5rem] leading-tight">
+              <h2 className="display-medium text-gray-900 mt-2">
                 The Tripartite Architecture of Product Value
               </h2>
               <p className="text-gray-500 text-sm md:text-base max-w-lg mt-4 leading-relaxed">
