@@ -4,14 +4,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const features = [
+const mcFeatures = [
   { icon: '✦', label: 'AI Agent', desc: 'Built-in AI that collaborates on tasks, creates content, and automates workflows' },
   { icon: '◫', label: 'Kanban Board', desc: 'Drag-and-drop task management with customizable boards and real-time updates' },
   { icon: '⟐', label: 'Real-Time Sync', desc: 'Cross-platform notifications via Telegram, push, and in-app channels' },
   { icon: '◎', label: 'Collaborative', desc: 'Multi-user workspace with role-based access, comments, and shared context' },
 ]
 
-const techStack = ['React 19', 'Supabase', 'Tailwind CSS', 'Vite', 'AI / LLM', 'Edge Functions']
+const mcTechStack = ['React 19', 'Supabase', 'Tailwind CSS', 'Vite', 'AI / LLM', 'Edge Functions']
+
+const wpTopics = [
+  { icon: '◉', label: 'Actual Value', desc: 'Functional utility, reliability, and efficiency — the measurable outcomes' },
+  { icon: '◎', label: 'Perceived Value', desc: 'Brand perception, UX quality, and emotional resonance' },
+  { icon: '◈', label: 'Relative Value', desc: 'Competitive positioning and market context dynamics' },
+]
 
 const otherProjects = [
   {
@@ -34,8 +40,8 @@ const otherProjects = [
 export default function CaseStudy() {
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
-  const screenshotRef = useRef(null)
-  const contentRef = useRef(null)
+  const mcRef = useRef(null)
+  const wpRef = useRef(null)
   const otherRef = useRef(null)
 
   useEffect(() => {
@@ -45,17 +51,17 @@ export default function CaseStudy() {
         scrollTrigger: { trigger: titleRef.current, start: 'top 85%', toggleActions: 'play none none reverse' },
       })
 
-      if (screenshotRef.current) {
-        gsap.to(screenshotRef.current, {
-          y: -60, ease: 'none',
-          scrollTrigger: { trigger: screenshotRef.current, start: 'top bottom', end: 'bottom top', scrub: 1 },
+      if (mcRef.current) {
+        gsap.from(mcRef.current, {
+          y: 60, opacity: 0, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: mcRef.current, start: 'top 85%', toggleActions: 'play none none reverse' },
         })
       }
 
-      if (contentRef.current) {
-        gsap.from(contentRef.current.children, {
-          y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15,
-          scrollTrigger: { trigger: contentRef.current, start: 'top 85%', toggleActions: 'play none none reverse' },
+      if (wpRef.current) {
+        gsap.from(wpRef.current, {
+          y: 60, opacity: 0, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: wpRef.current, start: 'top 85%', toggleActions: 'play none none reverse' },
         })
       }
 
@@ -73,92 +79,148 @@ export default function CaseStudy() {
   return (
     <section id="work" ref={sectionRef} className="py-32 md:py-44 bg-white relative overflow-hidden">
       <div className="w-full px-6 md:px-10">
-        <p className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-6">Featured Work</p>
+        <p ref={titleRef} className="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-16">Featured Work</p>
 
-        <h2 ref={titleRef} className="display-large text-gray-900 mb-8 md:mb-12">
-          Mission<br />Control
-        </h2>
-        
-        <p className="text-gray-500 text-sm md:text-base max-w-xl mb-16 md:mb-24 leading-relaxed">
-          A collaborative task management platform built from the ground up with AI at its core. 
-          Mission Control isn't just another project board — it's where human intent meets AI capability.
-        </p>
+        {/* Two Featured Works Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-24 md:mb-32">
+          
+          {/* ═══════════════════════════════════════════════════════════════
+              MISSION CONTROL
+          ═══════════════════════════════════════════════════════════════ */}
+          <div ref={mcRef} className="group">
+            <div className="mb-6">
+              <span className="text-[10px] tracking-[0.2em] uppercase text-gray-400 font-semibold">Product</span>
+              <h2 className="display-medium text-gray-900 mt-2">Mission Control</h2>
+              <p className="text-gray-500 text-sm md:text-base max-w-lg mt-4 leading-relaxed">
+                A collaborative task management platform built from the ground up with AI at its core. 
+                Where human intent meets AI capability.
+              </p>
+            </div>
 
-        {/* Main layout */}
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
-          {/* Screenshot Collage */}
-          <div className="md:col-span-7 lg:col-span-8">
-            <div ref={screenshotRef} className="space-y-4">
-              {/* Top: Kanban (full width, larger) */}
-              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-                <img 
-                  src="/mc-kanban.png" 
-                  alt="Mission Control Tasks — Kanban board with Capture, Processing, Developing, and Archive columns" 
-                  className="w-full h-auto block"
-                />
-              </div>
-              {/* Bottom row: Documents + Overview */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-                  <img 
-                    src="/mc-documents.png" 
-                    alt="Mission Control Documents — document list with tags, search, and favorites" 
-                    className="w-full h-auto block"
-                  />
+            {/* Screenshot */}
+            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm mb-8 group-hover:shadow-lg transition-shadow duration-300">
+              <img 
+                src="/mc-kanban.png" 
+                alt="Mission Control Kanban board" 
+                className="w-full h-auto block"
+              />
+            </div>
+
+            {/* Features */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {mcFeatures.map((f) => (
+                <div key={f.label} className="flex gap-3">
+                  <span className="text-gray-900 text-sm mt-0.5 shrink-0">{f.icon}</span>
+                  <div>
+                    <p className="text-gray-900 text-xs font-medium">{f.label}</p>
+                    <p className="text-gray-400 text-xs mt-0.5 leading-relaxed">{f.desc}</p>
+                  </div>
                 </div>
-                <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-                  <img 
-                    src="/mc-overview.png" 
-                    alt="Mission Control Overview — dashboard with markets, calendar, tasks, email, and news widgets" 
-                    className="w-full h-auto block"
-                  />
-                </div>
+              ))}
+            </div>
+
+            {/* CTA & Tech */}
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="https://mission-control-inky.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-gray-700 transition-colors"
+                data-cursor-hover
+              >
+                View Live App
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+              <div className="flex flex-wrap gap-1.5">
+                {mcTechStack.slice(0, 4).map((tech) => (
+                  <span key={tech} className="text-[9px] px-2 py-1 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Description + Features */}
-          <div ref={contentRef} className="md:col-span-5 lg:col-span-4 flex flex-col justify-center">
-            {/* Features with descriptions */}
-            <div className="space-y-6 mb-10">
-              {features.map((f) => (
-                <div key={f.label} className="flex gap-4">
-                  <span className="text-gray-900 text-lg mt-0.5 shrink-0">{f.icon}</span>
+          {/* ═══════════════════════════════════════════════════════════════
+              WHITEPAPER
+          ═══════════════════════════════════════════════════════════════ */}
+          <div ref={wpRef} className="group">
+            <div className="mb-6">
+              <span className="text-[10px] tracking-[0.2em] uppercase text-gray-400 font-semibold">Whitepaper</span>
+              <h2 className="display-medium text-gray-900 mt-2 text-3xl md:text-4xl lg:text-[2.5rem] leading-tight">
+                The Tripartite Architecture of Product Value
+              </h2>
+              <p className="text-gray-500 text-sm md:text-base max-w-lg mt-4 leading-relaxed">
+                A definitive analysis of Actual, Perceived, and Relative Value drivers in Strategic Product Management.
+              </p>
+            </div>
+
+            {/* PDF Cover */}
+            <a 
+              href="/tripartite-whitepaper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-2xl overflow-hidden border border-gray-200 shadow-sm mb-8 group-hover:shadow-lg transition-all duration-300 hover:border-gray-300"
+              data-cursor-hover
+            >
+              <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-8">
+                <img 
+                  src="/whitepaper-cover.png" 
+                  alt="The Tripartite Architecture of Product Value - Whitepaper Cover" 
+                  className="w-full max-w-sm mx-auto rounded-lg shadow-lg group-hover:scale-[1.02] transition-transform duration-500"
+                />
+                {/* Overlay hint */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-4 py-2 rounded-full text-xs text-gray-900 shadow-lg flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Read PDF
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            {/* Key Topics */}
+            <div className="space-y-4 mb-8">
+              {wpTopics.map((t) => (
+                <div key={t.label} className="flex gap-3">
+                  <span className="text-gray-900 text-sm mt-0.5 shrink-0">{t.icon}</span>
                   <div>
-                    <p className="text-gray-900 text-sm font-medium">{f.label}</p>
-                    <p className="text-gray-500 text-sm mt-1 leading-relaxed">{f.desc}</p>
+                    <p className="text-gray-900 text-xs font-medium">{t.label}</p>
+                    <p className="text-gray-400 text-xs mt-0.5 leading-relaxed">{t.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* CTA */}
-            <a
-              href="https://mission-control-inky.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-gray-900 text-sm tracking-[0.15em] uppercase group mb-8"
-              data-cursor-hover
-            >
-              <span className="group-hover:text-gray-500 transition-colors duration-300">View Live App</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
-            </a>
-
-            {/* Tech stack */}
-            <div className="flex flex-wrap gap-2">
-              {techStack.map((tech) => (
-                <span key={tech} className="text-[10px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
-                  {tech}
-                </span>
-              ))}
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="/tripartite-whitepaper.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-gray-700 transition-colors"
+                data-cursor-hover
+              >
+                Download PDF
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </a>
+              <div className="flex flex-wrap gap-1.5">
+                <span className="text-[9px] px-2 py-1 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">Product Strategy</span>
+                <span className="text-[9px] px-2 py-1 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">Value Framework</span>
+                <span className="text-[9px] px-2 py-1 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">AI-Assisted</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Other Projects */}
-        <div ref={otherRef} className="mt-24 md:mt-32">
+        <div ref={otherRef}>
           <h3 className="text-gray-500 text-xs tracking-[0.35em] uppercase font-semibold mb-10">Other Projects</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {otherProjects.map((project) => (
