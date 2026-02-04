@@ -65,9 +65,9 @@ const adventures = [
 ]
 
 const hobbies = [
-  { label: 'Adventure Motorcycling', detail: 'BMW GS 1300 · Life goal: ride around the world' },
+  { label: 'Adventure Motorcycling', detail: 'Life goal: ride around the world' },
   { label: 'Mountaineering', detail: 'Kilimanjaro · Mont Blanc · EBC' },
-  { label: 'Strength Training', detail: 'Home gym · Hate cardio · Working on consistency' },
+  { label: 'Strength Training', detail: 'Hate cardio · Working on consistency' },
   { label: 'Chess', detail: 'Regular player · Strategy thinking' },
   { label: '3D Printing', detail: 'Bambu Lab A1 · Hobby projects & prototypes' },
   { label: 'Woodworking & Pottery', detail: 'Learned from proper teachers · Not active lately' },

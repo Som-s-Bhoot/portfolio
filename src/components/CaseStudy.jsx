@@ -92,6 +92,32 @@ const featuredWorks = [
     ],
     tags: ['Node.js', 'Claude API', 'Telegram', 'Supabase', 'MCP'],
   },
+  {
+    id: 'pulse-case-study',
+    title: 'PULSE — AI Disrupts Inventory',
+    type: 'Case Study',
+    capabilities: [
+      { icon: '🧠', label: 'Strategy' },
+      { icon: '⚡', label: 'AI' },
+    ],
+    description: 'A strategic teardown of the $5B inventory management market. Not AI bolted onto legacy software — an AI that IS the interface, handling 80% of decisions autonomously.',
+    mockupImage: '/pulse-mockup.png',
+    insight: {
+      title: 'The AI-First Difference',
+      levels: [
+        { label: 'Traditional', desc: 'You navigate menus, check dashboards', color: 'gray' },
+        { label: 'AI-Enhanced', desc: 'AI suggests in sidebar, highlights anomalies', color: 'blue' },
+        { label: 'AI-First (Pulse)', desc: 'AI IS the interface, handles 80% of decisions', color: 'purple' },
+      ],
+    },
+    features: [
+      { icon: '💬', label: 'Conversation, Not Navigation', desc: 'Primary interface is natural language. No training required.' },
+      { icon: '🔔', label: 'Proactive, Not Reactive', desc: 'Monitors, predicts, and alerts — doesn\'t wait to be asked.' },
+      { icon: '🤖', label: 'Autonomous with Guardrails', desc: 'Define your rules once. Pulse handles the rest.' },
+      { icon: '🎯', label: 'Context-Aware Intelligence', desc: 'Understands your business, not just your inventory.' },
+    ],
+    tags: ['Product Strategy', 'AI Architecture', 'Market Analysis', 'UX Concept'],
+  },
 ]
 
 const otherProjects = [
@@ -351,6 +377,78 @@ function BhootContent({ work }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   PULSE CASE STUDY CONTENT
+═══════════════════════════════════════════════════════════════ */
+function PulseContent({ work }) {
+  return (
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      {/* Mockup Image */}
+      <div>
+        <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-[#0a0a0a]">
+          <img
+            src={work.mockupImage}
+            alt="PULSE AI Inventory Mockup"
+            className="w-full h-auto block"
+          />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div>
+        <CapabilityBadges capabilities={work.capabilities} />
+        <h2 className="display-medium text-gray-900 mb-4">{work.title}</h2>
+        <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
+          {work.description}
+        </p>
+
+        {/* AI Evolution Insight */}
+        <div className="mb-8 p-5 bg-gray-50 rounded-xl border border-gray-100">
+          <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">{work.insight.title}</p>
+          <div className="space-y-3">
+            {work.insight.levels.map((level, idx) => (
+              <div key={level.label} className="flex items-center gap-3">
+                <div className={`w-2 h-2 rounded-full ${
+                  level.color === 'purple' ? 'bg-purple-500' : 
+                  level.color === 'blue' ? 'bg-blue-400' : 'bg-gray-300'
+                }`} />
+                <div className="flex-1">
+                  <span className={`text-sm font-medium ${
+                    level.color === 'purple' ? 'text-purple-700' : 'text-gray-700'
+                  }`}>{level.label}</span>
+                  <span className="text-gray-400 text-sm ml-2">— {level.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Core Principles */}
+        <div className="space-y-4 mb-8">
+          {work.features.map((f) => (
+            <div key={f.label} className="flex gap-4">
+              <span className="text-gray-900 text-base mt-0.5 shrink-0">{f.icon}</span>
+              <div>
+                <p className="text-gray-900 text-sm font-medium">{f.label}</p>
+                <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2">
+          {work.tags.map((tag) => (
+            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════
    MAIN COMPONENT
 ═══════════════════════════════════════════════════════════════ */
 export default function CaseStudy() {
@@ -392,6 +490,8 @@ export default function CaseStudy() {
         return <MissionControlContent work={activeWork} />
       case 'bhoot-ai':
         return <BhootContent work={activeWork} />
+      case 'pulse-case-study':
+        return <PulseContent work={activeWork} />
       default:
         return <WhitepaperContent work={activeWork} />
     }

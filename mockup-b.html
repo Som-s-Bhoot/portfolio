@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B — Centered Stack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .hero-name { font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; }
+  </style>
+</head>
+<body>
+  <section class="min-h-screen bg-[#F9FAFB] flex flex-col items-center justify-center text-center px-6">
+    <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl mb-10">
+      <img src="/headshot.png" alt="Som" class="w-full h-full object-cover object-[center_25%]">
+    </div>
+    <h1 class="hero-name text-gray-900">SOM CHAKRAVARTY</h1>
+    <p class="text-gray-900 text-sm tracking-[0.4em] uppercase font-semibold mt-8">Product × UX × AI</p>
+    <p class="text-gray-500 text-base mt-5 max-w-xl leading-relaxed">
+      Director-level Product Leader with 18 years across UX design, product management, and AI. Carnegie Mellon HCI. Building from Bangalore.
+    </p>
+    <div class="mt-10 flex gap-4">
+      <a href="#" class="px-8 py-3.5 bg-black text-white text-sm font-semibold rounded-full">Get in Touch</a>
+      <a href="#" class="px-8 py-3.5 border border-gray-300 text-gray-600 text-sm font-medium rounded-full">LinkedIn</a>
+    </div>
+    <div class="mt-8 flex gap-4 text-orange-500 text-[10px] tracking-[0.25em] uppercase">
+      <span>Carnegie Mellon HCI '14</span><span>·</span><span>Bangalore, India</span>
+    </div>
+  </section>
+</body>
+</html>

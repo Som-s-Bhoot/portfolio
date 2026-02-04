@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A — Current Layout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .hero-name { font-size: clamp(3rem, 9vw, 8rem); font-weight: 900; line-height: 0.88; letter-spacing: -0.03em; }
+  </style>
+</head>
+<body>
+  <section class="min-h-screen bg-[#F9FAFB] flex flex-col justify-center px-10">
+    <div class="flex items-start gap-6">
+      <div class="w-40 h-40 rounded-2xl overflow-hidden border border-gray-200 shadow-lg flex-shrink-0">
+        <img src="/headshot.png" alt="Som" class="w-full h-full object-cover object-[center_25%]">
+      </div>
+      <div>
+        <h1 class="hero-name text-gray-900">SOM</h1>
+        <h1 class="hero-name text-gray-900">CHAKRAVARTY</h1>
+      </div>
+    </div>
+    <div class="mt-12 grid md:grid-cols-3 gap-10 max-w-5xl">
+      <div>
+        <p class="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-3">Product × UX × AI</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Director-level Product Leader with 18 years across UX design, product management, and AI.</p>
+      </div>
+      <div>
+        <p class="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-3">Background</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Carnegie Mellon HCI. 9 years UX + 9 years Product. Enterprise SaaS, AI solutions.</p>
+      </div>
+      <div>
+        <p class="text-gray-900 text-xs tracking-[0.35em] uppercase font-semibold mb-3">Currently</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Building AI-powered infrastructure from Bangalore. Exploring what's next.</p>
+      </div>
+    </div>
+    <div class="mt-10 flex gap-4">
+      <a href="#" class="px-8 py-3.5 bg-black text-white text-sm font-semibold rounded-full">Get in Touch</a>
+      <a href="#" class="px-8 py-3.5 border border-gray-300 text-gray-600 text-sm font-medium rounded-full">LinkedIn</a>
+    </div>
+    <div class="mt-8 flex gap-4 text-orange-500 text-[10px] tracking-[0.25em] uppercase">
+      <span>Carnegie Mellon HCI '14</span><span>·</span><span>Ex-Director of Product</span><span>·</span><span>Bangalore, India</span>
+    </div>
+  </section>
+</body>
+</html>
