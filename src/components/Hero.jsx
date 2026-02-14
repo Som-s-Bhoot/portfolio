@@ -104,7 +104,7 @@ export default function Hero() {
             ref={taglineRef}
             className="text-xs tracking-[0.4em] uppercase font-semibold mb-6 md:mb-8"
           >
-            <span className="bg-gradient-to-r from-teal-400 via-purple-400 to-rose-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-400 via-indigo-400 to-rose-400 bg-clip-text text-transparent">
               Product × UX × AI
             </span>
           </p>
@@ -115,12 +115,12 @@ export default function Hero() {
               {/* Name */}
               <div ref={nameRef}>
                 <div className="overflow-hidden">
-                  <h1 className="hero-name text-white" style={{ perspective: '600px' }}>
+                  <h1 className="hero-name text-gray-100" style={{ perspective: '600px' }}>
                     {splitChars('SOM')}
                   </h1>
                 </div>
                 <div className="overflow-hidden mt-[-0.02em]">
-                  <h1 className="hero-name text-white whitespace-nowrap" style={{ perspective: '600px' }}>
+                  <h1 className="hero-name text-gray-100 whitespace-nowrap" style={{ perspective: '600px' }}>
                     {splitChars('CHAKRAVARTY')}
                   </h1>
                 </div>

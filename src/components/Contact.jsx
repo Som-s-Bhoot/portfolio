@@ -36,15 +36,15 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative overflow-hidden">
-      <div className="relative w-full px-6 md:px-10 text-center">
+    <section id="contact" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative overflow-hidden">
+      <div className="relative w-full px-6 md:px-10 text-center max-w-6xl mx-auto">
         <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-6">Get in Touch</p>
 
-        <h2 ref={titleRef} className="display-large text-white mb-6">
+        <h2 ref={titleRef} className="display-large text-gray-100 mb-6">
           LET&apos;S TALK
         </h2>
 
-        <p className="text-[#888] text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-12">
+        <p className="text-[#888] text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-12">
           Whether it's product strategy, a new app idea, a UX challenge, or AI integration — 
           I'd love to hear about it. Open to fractional roles, consulting, and collaborations.
         </p>

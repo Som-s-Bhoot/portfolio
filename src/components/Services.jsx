@@ -94,12 +94,12 @@ export default function Services() {
   }
 
   return (
-    <section id="services" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative">
-      <div className="w-full px-6 md:px-10">
-        <div ref={titleRef} className="mb-16 md:mb-24">
+    <section id="services" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative">
+      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
+        <div ref={titleRef} className="mb-10 md:mb-14">
           <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">What I Do</p>
-          <h2 className="display-medium text-white">How I can help.</h2>
-          <p className="text-[#888] text-lg md:text-xl mt-6 max-w-2xl leading-relaxed">
+          <h2 className="display-medium text-gray-100">How I can help.</h2>
+          <p className="text-[#888] text-lg md:text-xl mt-6 max-w-2xl leading-[1.75]">
             I work at the intersection of product thinking, design craft, and AI capability. 
             Whether you need strategic leadership or hands-on building — I do both.
           </p>

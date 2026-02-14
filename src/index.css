@@ -89,7 +89,7 @@ section[id] {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 5.5rem);
+  font-size: clamp(2rem, 7vw, 6rem);
   line-height: 0.88;
   letter-spacing: -0.04em;
   font-weight: 800;
@@ -105,7 +105,7 @@ section[id] {
 
 .display-medium {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
   line-height: 1;
   letter-spacing: -0.03em;
   font-weight: 800;
@@ -310,10 +310,11 @@ section[id] {
 
 /* ── Glass-morphism card ── */
 .glass-card {
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
   border: 1px solid rgba(99, 102, 241, 0.15);
   border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.05);
 }
 
 /* ── Headshot glow ── */
@@ -325,7 +326,7 @@ section[id] {
   content: '';
   position: absolute;
   inset: -20px;
-  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.2) 40%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.6) 0%, rgba(168, 85, 247, 0.4) 40%, transparent 70%);
   border-radius: 1.5rem;
   z-index: -1;
   filter: blur(20px);

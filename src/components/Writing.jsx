@@ -106,13 +106,13 @@ export default function Writing() {
   }, [])
 
   return (
-    <section id="writing" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative">
-      <div className="w-full px-6 md:px-10">
+    <section id="writing" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative">
+      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         <div ref={titleRef} className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
           <div>
             <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Writing</p>
-            <h2 className="display-medium text-white">Thinking out loud.</h2>
-            <p className="text-[#888] text-base md:text-lg mt-4 max-w-xl leading-relaxed">
+            <h2 className="display-medium text-gray-100">Thinking out loud.</h2>
+            <p className="text-[#888] text-base md:text-lg mt-4 max-w-xl leading-[1.75]">
               I write about product craft, UX philosophy, identity, and life. Conversational but substantive — 
               musing rather than lecturing, with analogies from motorcycles and symphonies.
             </p>

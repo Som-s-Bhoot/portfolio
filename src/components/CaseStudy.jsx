@@ -157,7 +157,7 @@ function MissionControlContent({ work }) {
 
       <div className="lg:col-span-5 flex flex-col justify-center">
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
         <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         <div className="space-y-5 mb-8">
@@ -185,7 +185,7 @@ function MissionControlContent({ work }) {
           )}
           <div className="flex flex-wrap gap-2">
             {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
+              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
             ))}
           </div>
         </div>
@@ -219,7 +219,7 @@ function WhitepaperContent({ work }) {
 
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
         <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         <div className="space-y-5 mb-8">
@@ -245,7 +245,7 @@ function WhitepaperContent({ work }) {
           </a>
           <div className="flex flex-wrap gap-2">
             {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
+              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
             ))}
           </div>
         </div>
@@ -293,7 +293,7 @@ function BhootContent({ work }) {
 
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
         <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         <div className="space-y-5 mb-8">
@@ -310,7 +310,7 @@ function BhootContent({ work }) {
 
         <div className="flex flex-wrap gap-2">
           {work.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
+            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
           ))}
         </div>
       </div>
@@ -332,7 +332,7 @@ function PulseContent({ work }) {
 
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
         <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         {/* AI Evolution Insight */}
@@ -370,7 +370,7 @@ function PulseContent({ work }) {
 
         <div className="flex flex-wrap gap-2">
           {work.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
+            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
           ))}
         </div>
       </div>
@@ -426,8 +426,8 @@ export default function CaseStudy() {
   }
 
   return (
-    <section id="work" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative overflow-hidden">
-      <div className="w-full px-6 md:px-10">
+    <section id="work" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative overflow-hidden">
+      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-6">
@@ -454,7 +454,7 @@ export default function CaseStudy() {
         </div>
 
         {/* Active Work Content */}
-        <div ref={contentRef} className="mb-24 md:mb-32">
+        <div ref={contentRef} className="mb-14 md:mb-20">
           {renderContent()}
         </div>
 
@@ -468,7 +468,7 @@ export default function CaseStudy() {
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="text-[10px] px-3 py-1 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{t}</span>
+                    <span key={t} className="text-[10px] px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{t}</span>
                   ))}
                 </div>
               </div>

@@ -75,11 +75,11 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative">
-      <div className="w-full px-6 md:px-10">
-        <div ref={titleRef} className="mb-16 md:mb-24">
+    <section id="about" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative">
+      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
+        <div ref={titleRef} className="mb-10 md:mb-14">
           <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">About</p>
-          <h2 className="display-medium text-white">The arc.</h2>
+          <h2 className="display-medium text-gray-100">The arc.</h2>
         </div>
 
         <div className="md:ml-[15%] lg:ml-[20%] max-w-4xl space-y-8">
@@ -93,7 +93,7 @@ export default function About() {
           </p>
 
           <p ref={(el) => (linesRef.current[1] = el)}
-            className="text-[#888] text-lg md:text-xl leading-relaxed">
+            className="text-[#888] text-lg md:text-xl leading-[1.75]">
             This unusual career arc — from pixels to product-market fit to
             machine learning pipelines — gives me a rare perspective. I don't just
             understand what to build; I understand <em>how</em> it should feel,{' '}
@@ -101,7 +101,7 @@ export default function About() {
           </p>
 
           <p ref={(el) => (linesRef.current[2] = el)}
-            className="text-[#888] text-lg md:text-xl leading-relaxed">
+            className="text-[#888] text-lg md:text-xl leading-[1.75]">
             I hold an MS in Human-Computer Interaction from Carnegie Mellon
             University. Currently on a deliberate career break in Bangalore,
             building AI-powered infrastructure and exploring what's next.
@@ -110,7 +110,7 @@ export default function About() {
 
         {/* Metrics row */}
         <div ref={metricsRef}
-          className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 md:ml-[15%] lg:ml-[20%] max-w-4xl">
+          className="mt-14 md:mt-18 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 md:ml-[15%] lg:ml-[20%] max-w-4xl">
           {metrics.map((m) => (
             <div key={m.label} className="metric-item glass-card p-6">
               <p className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-none">{m.value}</p>
@@ -121,7 +121,7 @@ export default function About() {
         </div>
 
         {/* Career Timeline */}
-        <div ref={timelineRef} className="mt-24 md:mt-32 md:ml-[15%] lg:ml-[20%] max-w-4xl">
+        <div ref={timelineRef} className="mt-16 md:mt-20 md:ml-[15%] lg:ml-[20%] max-w-4xl">
           <h3 className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-10">Career Journey</h3>
           <div className="space-y-0">
             {timeline.map((item) => (
@@ -141,7 +141,7 @@ export default function About() {
         </div>
 
         {/* Skills */}
-        <div ref={skillsRef} className="mt-20 md:mt-28 md:ml-[15%] lg:ml-[20%] max-w-4xl">
+        <div ref={skillsRef} className="mt-14 md:mt-18 md:ml-[15%] lg:ml-[20%] max-w-4xl">
           <h3 className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-8">Skills & Tools</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (

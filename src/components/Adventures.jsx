@@ -273,11 +273,11 @@ export default function Adventures() {
   }, [])
 
   return (
-    <section id="adventures" ref={sectionRef} className="py-20 md:py-28 relative overflow-hidden bg-hero-bg">
+    <section id="adventures" ref={sectionRef} className="py-16 md:py-20 relative overflow-hidden bg-hero-bg">
       <div className="w-full px-6 md:px-10 relative z-10">
-        <div ref={titleRef} className="mb-16 md:mb-20">
+        <div ref={titleRef} className="mb-10 md:mb-14">
           <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Beyond Work</p>
-          <h2 className="display-medium text-hero-text">Life off-screen.</h2>
+          <h2 className="display-medium text-gray-100">Life off-screen.</h2>
           <p className="text-hero-text/40 text-base md:text-lg mt-4 max-w-xl leading-relaxed">
             When I'm not building products, I'm on a motorcycle heading somewhere remote,
             climbing something tall, or tinkering with hardware in the workshop.
@@ -285,7 +285,7 @@ export default function Adventures() {
         </div>
 
         {/* ── Adventure Cards Grid ── */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 md:mb-28 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16 max-w-6xl mx-auto">
           {adventures.map((adventure, index) => (
             <AdventureCard key={adventure.id} adventure={adventure} index={index} />
           ))}
