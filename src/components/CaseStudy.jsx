@@ -138,7 +138,7 @@ const otherProjects = [
 ═══════════════════════════════════════════════════════════════ */
 function MissionControlContent({ work }) {
   return (
-    <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
       <div className="lg:col-span-8">
         <div className="space-y-4">
           <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
