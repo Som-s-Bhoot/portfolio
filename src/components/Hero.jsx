@@ -173,7 +173,7 @@ export default function Hero() {
             <div className="headshot-glow flex-shrink-0 rotate-3 translate-y-4">
               <div 
                 ref={headshotRef}
-                className="w-56 h-72 md:w-64 md:h-80 lg:w-72 lg:h-96 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                className="w-56 h-72 md:w-64 md:h-80 lg:w-72 lg:h-96 rounded-2xl overflow-hidden"
               >
                 <img 
                   src="/headshot.png" 
