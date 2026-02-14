@@ -279,7 +279,7 @@ export default function Adventures() {
   return (
     <section id="adventures" ref={sectionRef} className="py-16 md:py-20 relative overflow-hidden bg-hero-bg">
       <div className="w-full px-6 md:px-10 relative z-10">
-        <div ref={titleRef} className="mb-10 md:mb-14">
+        <div ref={titleRef} className="mb-10 md:mb-14 max-w-6xl mx-auto">
           <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Beyond Work</p>
           <h2 className="display-medium text-gray-100">Life off-screen.</h2>
           <p className="text-hero-text/40 text-base md:text-lg mt-4 max-w-xl leading-relaxed">
