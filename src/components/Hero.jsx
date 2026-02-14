@@ -173,7 +173,8 @@ export default function Hero() {
             <div className="headshot-glow flex-shrink-0 rotate-3 translate-y-4">
               <div 
                 ref={headshotRef}
-                className="w-56 h-72 md:w-64 md:h-80 lg:w-72 lg:h-96 rounded-2xl overflow-hidden"
+                className="w-56 h-72 md:w-64 md:h-80 lg:w-72 lg:h-96 rounded-2xl overflow-hidden relative"
+                style={{ background: 'linear-gradient(160deg, #0c1f2b 0%, #122a38 30%, #183848 60%, #0f2530 100%)' }}
               >
                 <img 
                   src="/headshot.png" 
