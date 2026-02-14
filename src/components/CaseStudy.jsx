@@ -463,10 +463,10 @@ export default function CaseStudy() {
           <h3 className="text-gray-500 text-xs tracking-[0.35em] uppercase font-semibold mb-10">Other Projects</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {otherProjects.map((project) => (
-              <div key={project.title} className="project-card glass-card p-6 hover:border-[#6366f1]/30 transition-colors duration-300">
+              <div key={project.title} className="project-card glass-card p-6 hover:border-[#6366f1]/30 transition-colors duration-300 h-full flex flex-col">
                 <h4 className="font-bold text-xl text-white mb-3 tracking-tight">{project.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.desc}</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">{project.desc}</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tech.map((t) => (
                     <span key={t} className="text-[10px] px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{t}</span>
                   ))}
