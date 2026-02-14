@@ -141,14 +141,14 @@ function MissionControlContent({ work }) {
     <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
       <div className="lg:col-span-7">
         <div className="space-y-4">
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+          <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
             <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block shadow-2xl" />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+            <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
               <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block shadow-2xl" />
             </div>
-            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+            <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
               <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block shadow-2xl" />
             </div>
           </div>
@@ -204,7 +204,7 @@ function WhitepaperContent({ work }) {
         <a href={work.cta.url} target="_blank" rel="noopener noreferrer" className="block group" data-cursor-hover>
           <div className="relative bg-gradient-to-br from-[#111827] to-[#1f2937] rounded-2xl p-8 md:p-12 overflow-hidden">
             <img src={work.coverImage} alt="Whitepaper Cover"
-              className="w-full max-w-md mx-auto rounded-lg shadow-2xl group-hover:scale-[1.02] transition-transform duration-500" />
+              className="w-full max-w-md mx-auto rounded-sm shadow-2xl group-hover:scale-[1.02] transition-transform duration-500" />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <span className="bg-[#6366f1] px-5 py-2.5 rounded-full text-xs text-white shadow-lg flex items-center gap-2 font-medium">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
