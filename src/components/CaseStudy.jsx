@@ -138,55 +138,61 @@ const otherProjects = [
 ═══════════════════════════════════════════════════════════════ */
 function MissionControlContent({ work }) {
   return (
-    <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-      <div className="lg:col-span-7">
-        <div className="space-y-4">
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-            <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block shadow-2xl" />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-              <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block shadow-2xl" />
+    <div className="rounded-2xl bg-[#12162B] border border-white/5 shadow-[0_0_80px_rgba(99,102,241,0.06)] p-8 md:p-12">
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        {/* Left: Device mockups */}
+        <div className="relative">
+          <div className="space-y-4">
+            <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/40">
+              <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block" />
             </div>
-            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-              <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block shadow-2xl" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="lg:col-span-5 flex flex-col justify-center">
-        <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
-
-        <div className="space-y-5 mb-8">
-          {work.features.map((f) => (
-            <div key={f.label} className="flex gap-4">
-              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
-              <div>
-                <p className="text-white text-sm font-medium">{f.label}</p>
-                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-xl overflow-hidden shadow-xl shadow-black/30">
+                <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-xl shadow-black/30">
+                <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block" />
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4">
-          {work.cta && (
-            <a href={work.cta.url} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#6366f1] text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-[#4f46e5] transition-colors"
-              data-cursor-hover>
-              {work.cta.label}
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
-            </a>
-          )}
-          <div className="flex flex-wrap gap-2">
-            {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
+        {/* Right: Content */}
+        <div className="flex flex-col justify-center">
+          <p className="text-[#6366f1] text-[10px] tracking-[0.2em] uppercase font-semibold mb-4">
+            {work.capabilities.map(c => c.label).join(' · ')}
+          </p>
+          <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
+          <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
+
+          <div className="space-y-5 mb-8">
+            {work.features.map((f) => (
+              <div key={f.label} className="flex gap-4">
+                <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+                <div>
+                  <p className="text-white text-sm font-medium">{f.label}</p>
+                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                </div>
+              </div>
             ))}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            {work.cta && (
+              <a href={work.cta.url} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#6366f1] text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-[#4f46e5] transition-colors"
+                data-cursor-hover>
+                {work.cta.label}
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            )}
+            <div className="flex flex-wrap gap-2">
+              {work.tags.map((tag) => (
+                <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 tracking-wider uppercase">{tag}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -430,8 +436,8 @@ export default function CaseStudy() {
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-4 mb-6">
-            <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold">Featured Work</p>
+          <div className="flex items-center gap-6 mb-6">
+            <h2 className="font-serif text-3xl md:text-[40px] font-bold text-white tracking-tight whitespace-nowrap">Featured Work</h2>
             <div className="flex-1 h-px bg-gradient-to-r from-[#6366f1]/40 to-transparent" />
           </div>
           
