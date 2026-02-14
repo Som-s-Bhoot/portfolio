@@ -139,6 +139,10 @@ function AdventureCard({ adventure, index }) {
               alt={adventure.name}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
+            {/* Category badge */}
+            <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white text-[10px] tracking-wider uppercase font-medium">
+              {typeLabel[adventure.type]}
+            </div>
             {/* Play button overlay - only for YouTube videos */}
             {adventure.youtubeId && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">

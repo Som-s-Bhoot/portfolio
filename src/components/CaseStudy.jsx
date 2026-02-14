@@ -142,14 +142,14 @@ function MissionControlContent({ work }) {
       <div className="lg:col-span-7">
         <div className="space-y-4">
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-            <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block" />
+            <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block shadow-2xl" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-              <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block" />
+              <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block shadow-2xl" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-              <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block" />
+              <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block shadow-2xl" />
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ function MissionControlContent({ work }) {
       <div className="lg:col-span-5 flex flex-col justify-center">
         <CapabilityBadges capabilities={work.capabilities} />
         <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
+        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
@@ -220,7 +220,7 @@ function WhitepaperContent({ work }) {
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
         <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
+        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
@@ -294,7 +294,7 @@ function BhootContent({ work }) {
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
         <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
+        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
@@ -326,14 +326,14 @@ function PulseContent({ work }) {
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
       <div>
         <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg bg-[#0a0a0a]">
-          <img src={work.mockupImage} alt="PULSE AI Inventory Mockup" className="w-full h-auto block" />
+          <img src={work.mockupImage} alt="PULSE AI Inventory Mockup" className="w-full h-auto block shadow-2xl" />
         </div>
       </div>
 
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
         <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
+        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         {/* AI Evolution Insight */}
         <div className="mb-8 p-5 glass-card">

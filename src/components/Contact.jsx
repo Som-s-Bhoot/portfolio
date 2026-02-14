@@ -44,7 +44,7 @@ export default function Contact() {
           LET&apos;S TALK
         </h2>
 
-        <p className="text-[#888] text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-12">
+        <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-12">
           Whether it's product strategy, a new app idea, a UX challenge, or AI integration — 
           I'd love to hear about it. Open to fractional roles, consulting, and collaborations.
         </p>

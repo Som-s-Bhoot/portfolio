@@ -75,7 +75,7 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative">
+    <section id="about" ref={sectionRef} className="py-12 md:py-16 bg-[#0a0a0f] relative">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         <div ref={titleRef} className="mb-10 md:mb-14">
           <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">About</p>
@@ -93,7 +93,7 @@ export default function About() {
           </p>
 
           <p ref={(el) => (linesRef.current[1] = el)}
-            className="text-[#888] text-lg md:text-xl leading-[1.75]">
+            className="text-gray-400 text-lg md:text-xl leading-[1.75]">
             This unusual career arc — from pixels to product-market fit to
             machine learning pipelines — gives me a rare perspective. I don't just
             understand what to build; I understand <em>how</em> it should feel,{' '}
@@ -101,7 +101,7 @@ export default function About() {
           </p>
 
           <p ref={(el) => (linesRef.current[2] = el)}
-            className="text-[#888] text-lg md:text-xl leading-[1.75]">
+            className="text-gray-400 text-lg md:text-xl leading-[1.75]">
             I hold an MS in Human-Computer Interaction from Carnegie Mellon
             University. Currently on a deliberate career break in Bangalore,
             building AI-powered infrastructure and exploring what's next.

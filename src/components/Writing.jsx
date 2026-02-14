@@ -112,7 +112,7 @@ export default function Writing() {
           <div>
             <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Writing</p>
             <h2 className="display-medium text-gray-100">Thinking out loud.</h2>
-            <p className="text-[#888] text-base md:text-lg mt-4 max-w-xl leading-[1.75]">
+            <p className="text-gray-400 text-base md:text-lg mt-4 max-w-xl leading-[1.75]">
               I write about product craft, UX philosophy, identity, and life. Conversational but substantive — 
               musing rather than lecturing, with analogies from motorcycles and symphonies.
             </p>

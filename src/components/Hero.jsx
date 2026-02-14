@@ -85,7 +85,7 @@ export default function Hero() {
     ))
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-[#0a0a0f] flex items-center overflow-hidden pt-24 md:pt-20">
+    <section ref={containerRef} className="relative min-h-[85vh] bg-[#0a0a0f] flex items-center overflow-hidden pt-24 md:pt-20">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-16 relative">
         
         {/* Large background watermark */}
@@ -129,7 +129,7 @@ export default function Hero() {
               {/* Description */}
               <p 
                 ref={contentRef}
-                className="text-[#888] text-base md:text-lg leading-relaxed max-w-lg mt-8 md:mt-10"
+                className="text-gray-400 text-base md:text-lg leading-relaxed max-w-lg mt-8 md:mt-10"
               >
                 Director-level Product Leader with 18 years across UX design, product management, and AI. Carnegie Mellon HCI '14. Currently building AI-powered infrastructure from Bangalore.
               </p>
