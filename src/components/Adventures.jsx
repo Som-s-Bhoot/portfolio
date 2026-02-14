@@ -131,7 +131,7 @@ function AdventureCard({ adventure, index }) {
   const CardContent = (
     <>
       {/* Thumbnail */}
-      <div className="relative aspect-video bg-gray-800 rounded-none overflow-hidden mb-4">
+      <div className="relative aspect-video bg-gray-800 rounded-xl overflow-hidden mb-4">
         {thumbnailUrl ? (
           <>
             <img

@@ -138,24 +138,24 @@ const otherProjects = [
 ═══════════════════════════════════════════════════════════════ */
 function MissionControlContent({ work }) {
   return (
-    <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-      <div className="lg:col-span-7">
+    <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+      <div className="lg:col-span-8">
         <div className="space-y-4">
-          <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+          <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
             <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block shadow-2xl" />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+            <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
               <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block shadow-2xl" />
             </div>
-            <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+            <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
               <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block shadow-2xl" />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="lg:col-span-5 flex flex-col justify-center">
+      <div className="lg:col-span-4 flex flex-col justify-center">
         <CapabilityBadges capabilities={work.capabilities} />
         <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
