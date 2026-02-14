@@ -75,27 +75,25 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 md:py-28 bg-white relative">
+    <section id="about" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative">
       <div className="w-full px-6 md:px-10">
-        {/* Section label */}
         <div ref={titleRef} className="mb-16 md:mb-24">
-          <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-4">About</p>
-          <h2 className="display-medium text-gray-900">The arc.</h2>
+          <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">About</p>
+          <h2 className="display-medium text-white">The arc.</h2>
         </div>
 
-        {/* Main bio text — asymmetric */}
         <div className="md:ml-[15%] lg:ml-[20%] max-w-4xl space-y-8">
           <p ref={(el) => (linesRef.current[0] = el)}
-            className="font-bold text-2xl md:text-3xl lg:text-[2.2rem] text-gray-900 leading-[1.4] tracking-tight">
+            className="font-bold text-2xl md:text-3xl lg:text-[2.2rem] text-white leading-[1.4] tracking-tight">
             I've spent 18 years building and shaping digital products — first as a{' '}
-            <span className="underline decoration-gray-300 underline-offset-4">UX designer</span> obsessing over every
-            interaction, then as a <span className="underline decoration-gray-300 underline-offset-4">product leader</span>{' '}
+            <span className="underline decoration-[#6366f1]/40 underline-offset-4">UX designer</span> obsessing over every
+            interaction, then as a <span className="underline decoration-[#6366f1]/40 underline-offset-4">product leader</span>{' '}
             driving strategy at the director level, and now as an{' '}
-            <span className="underline decoration-gray-300 underline-offset-4">AI builder</span> crafting the next wave of intelligent tools.
+            <span className="underline decoration-[#6366f1]/40 underline-offset-4">AI builder</span> crafting the next wave of intelligent tools.
           </p>
 
           <p ref={(el) => (linesRef.current[1] = el)}
-            className="text-gray-500 text-lg md:text-xl leading-relaxed">
+            className="text-[#888] text-lg md:text-xl leading-relaxed">
             This unusual career arc — from pixels to product-market fit to
             machine learning pipelines — gives me a rare perspective. I don't just
             understand what to build; I understand <em>how</em> it should feel,{' '}
@@ -103,7 +101,7 @@ export default function About() {
           </p>
 
           <p ref={(el) => (linesRef.current[2] = el)}
-            className="text-gray-500 text-lg md:text-xl leading-relaxed">
+            className="text-[#888] text-lg md:text-xl leading-relaxed">
             I hold an MS in Human-Computer Interaction from Carnegie Mellon
             University. Currently on a deliberate career break in Bangalore,
             building AI-powered infrastructure and exploring what's next.
@@ -114,25 +112,25 @@ export default function About() {
         <div ref={metricsRef}
           className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 md:ml-[15%] lg:ml-[20%] max-w-4xl">
           {metrics.map((m) => (
-            <div key={m.label} className="metric-item bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-              <p className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-gray-900 tracking-tight leading-none">{m.value}</p>
-              {m.unit && <p className="text-gray-400 text-xs tracking-[0.2em] uppercase mt-2">{m.unit}</p>}
-              <p className="text-gray-500 text-sm mt-1">{m.label}</p>
+            <div key={m.label} className="metric-item glass-card p-6">
+              <p className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-none">{m.value}</p>
+              {m.unit && <p className="text-gray-500 text-xs tracking-[0.2em] uppercase mt-2">{m.unit}</p>}
+              <p className="text-gray-400 text-sm mt-1">{m.label}</p>
             </div>
           ))}
         </div>
 
         {/* Career Timeline */}
         <div ref={timelineRef} className="mt-24 md:mt-32 md:ml-[15%] lg:ml-[20%] max-w-4xl">
-          <h3 className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-10">Career Journey</h3>
+          <h3 className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-10">Career Journey</h3>
           <div className="space-y-0">
             {timeline.map((item) => (
-              <div key={item.year} className="timeline-item grid md:grid-cols-12 gap-4 py-6 border-b border-gray-200 first:border-t first:border-gray-200">
+              <div key={item.year} className="timeline-item grid md:grid-cols-12 gap-4 py-6 border-b border-[#1f2937] first:border-t first:border-[#1f2937]">
                 <div className="md:col-span-3">
-                  <p className="text-gray-900 text-sm font-mono tracking-wide font-semibold">{item.year}</p>
+                  <p className="text-white text-sm font-mono tracking-wide font-semibold">{item.year}</p>
                 </div>
                 <div className="md:col-span-3">
-                  <p className="text-gray-900 font-medium text-sm">{item.role}</p>
+                  <p className="text-white/80 font-medium text-sm">{item.role}</p>
                 </div>
                 <div className="md:col-span-6">
                   <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
@@ -144,10 +142,10 @@ export default function About() {
 
         {/* Skills */}
         <div ref={skillsRef} className="mt-20 md:mt-28 md:ml-[15%] lg:ml-[20%] max-w-4xl">
-          <h3 className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-8">Skills & Tools</h3>
+          <h3 className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-8">Skills & Tools</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <span key={skill} className="skill-tag text-xs px-4 py-2 rounded-full border border-gray-200 text-gray-500 hover:border-gray-900 hover:text-gray-900 transition-colors duration-300">
+              <span key={skill} className="skill-tag text-xs px-4 py-2 rounded-full border border-[#1f2937] text-gray-400 hover:border-[#6366f1] hover:text-[#6366f1] transition-colors duration-300">
                 {skill}
               </span>
             ))}

@@ -15,7 +15,7 @@ function CapabilityBadges({ capabilities }) {
       {capabilities.map((cap) => (
         <span
           key={cap.label}
-          className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-gray-50 text-gray-600 tracking-wider uppercase border border-gray-100"
+          className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-white/5 text-gray-400 tracking-wider uppercase border border-white/10"
         >
           <span>{cap.icon}</span>
           {cap.label}
@@ -139,68 +139,44 @@ const otherProjects = [
 function MissionControlContent({ work }) {
   return (
     <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-      {/* Screenshot Collage */}
       <div className="lg:col-span-7">
         <div className="space-y-4">
-          {/* Top: Kanban (full width, larger) */}
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
-            <img
-              src={work.images[0].src}
-              alt={work.images[0].alt}
-              className="w-full h-auto block"
-            />
+          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+            <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block" />
           </div>
-          {/* Bottom row: Documents + Overview */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
-              <img
-                src={work.images[1].src}
-                alt={work.images[1].alt}
-                className="w-full h-auto block"
-              />
+            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+              <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block" />
             </div>
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
-              <img
-                src={work.images[2].src}
-                alt={work.images[2].alt}
-                className="w-full h-auto block"
-              />
+            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+              <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Content */}
       <div className="lg:col-span-5 flex flex-col justify-center">
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-900 mb-4">{work.title}</h2>
-        <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-          {work.description}
-        </p>
+        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
-        {/* Features */}
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-gray-900 text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-gray-900 text-sm font-medium">{f.label}</p>
-                <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-white text-sm font-medium">{f.label}</p>
+                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA & Tags */}
         <div className="flex flex-wrap items-center gap-4">
           {work.cta && (
-            <a
-              href={work.cta.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-gray-700 transition-colors"
-              data-cursor-hover
-            >
+            <a href={work.cta.url} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#6366f1] text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-[#4f46e5] transition-colors"
+              data-cursor-hover>
               {work.cta.label}
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -209,9 +185,7 @@ function MissionControlContent({ work }) {
           )}
           <div className="flex flex-wrap gap-2">
             {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
-                {tag}
-              </span>
+              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
             ))}
           </div>
         </div>
@@ -226,23 +200,13 @@ function MissionControlContent({ work }) {
 function WhitepaperContent({ work }) {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      {/* PDF Cover */}
       <div>
-        <a
-          href={work.cta.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block group"
-          data-cursor-hover
-        >
-          <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 md:p-12 overflow-hidden">
-            <img
-              src={work.coverImage}
-              alt="Whitepaper Cover"
-              className="w-full max-w-md mx-auto rounded-lg shadow-2xl group-hover:scale-[1.02] transition-transform duration-500"
-            />
+        <a href={work.cta.url} target="_blank" rel="noopener noreferrer" className="block group" data-cursor-hover>
+          <div className="relative bg-gradient-to-br from-[#111827] to-[#1f2937] rounded-2xl p-8 md:p-12 overflow-hidden">
+            <img src={work.coverImage} alt="Whitepaper Cover"
+              className="w-full max-w-md mx-auto rounded-lg shadow-2xl group-hover:scale-[1.02] transition-transform duration-500" />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="bg-white px-5 py-2.5 rounded-full text-xs text-gray-900 shadow-lg flex items-center gap-2 font-medium">
+              <span className="bg-[#6366f1] px-5 py-2.5 rounded-full text-xs text-white shadow-lg flex items-center gap-2 font-medium">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -253,36 +217,27 @@ function WhitepaperContent({ work }) {
         </a>
       </div>
 
-      {/* Content */}
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-900 mb-4">{work.title}</h2>
-        <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-          {work.description}
-        </p>
+        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
-        {/* Key Topics */}
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-gray-900 text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-gray-900 text-sm font-medium">{f.label}</p>
-                <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-white text-sm font-medium">{f.label}</p>
+                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA & Tags */}
         <div className="flex flex-wrap items-center gap-4">
-          <a
-            href={work.cta.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-gray-700 transition-colors"
-            data-cursor-hover
-          >
+          <a href={work.cta.url} target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#6366f1] text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-[#4f46e5] transition-colors"
+            data-cursor-hover>
             {work.cta.label}
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -290,9 +245,7 @@ function WhitepaperContent({ work }) {
           </a>
           <div className="flex flex-wrap gap-2">
             {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
-                {tag}
-              </span>
+              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
             ))}
           </div>
         </div>
@@ -307,9 +260,8 @@ function WhitepaperContent({ work }) {
 function BhootContent({ work }) {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-      {/* Architecture Diagram */}
       <div>
-        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-10 text-white">
+        <div className="bg-gradient-to-br from-[#111827] to-[#0a0a0f] rounded-2xl p-8 md:p-10 text-white border border-white/10">
           <div className="text-center mb-8">
             <span className="text-5xl mb-3 block">👻</span>
             <h3 className="text-lg font-semibold tracking-tight">Bhoot Architecture</h3>
@@ -318,13 +270,10 @@ function BhootContent({ work }) {
           <div className="space-y-4">
             {work.architecture.map((tier, idx) => (
               <div key={tier.layer}>
-                <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-2">{tier.layer}</p>
+                <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">{tier.layer}</p>
                 <div className="flex flex-wrap gap-2">
                   {tier.items.map((item) => (
-                    <span
-                      key={item}
-                      className="text-xs px-3 py-1.5 rounded-lg bg-white/10 text-gray-200 border border-white/5"
-                    >
+                    <span key={item} className="text-xs px-3 py-1.5 rounded-lg bg-white/10 text-gray-300 border border-white/5">
                       {item}
                     </span>
                   ))}
@@ -342,33 +291,26 @@ function BhootContent({ work }) {
         </div>
       </div>
 
-      {/* Content */}
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-900 mb-4">{work.title}</h2>
-        <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-          {work.description}
-        </p>
+        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
-        {/* Features */}
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-gray-900 text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-gray-900 text-sm font-medium">{f.label}</p>
-                <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-white text-sm font-medium">{f.label}</p>
+                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2">
           {work.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
-              {tag}
-            </span>
+            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
           ))}
         </div>
       </div>
@@ -382,65 +324,53 @@ function BhootContent({ work }) {
 function PulseContent({ work }) {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-      {/* Mockup Image */}
       <div>
-        <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-[#0a0a0a]">
-          <img
-            src={work.mockupImage}
-            alt="PULSE AI Inventory Mockup"
-            className="w-full h-auto block"
-          />
+        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg bg-[#0a0a0a]">
+          <img src={work.mockupImage} alt="PULSE AI Inventory Mockup" className="w-full h-auto block" />
         </div>
       </div>
 
-      {/* Content */}
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-900 mb-4">{work.title}</h2>
-        <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-          {work.description}
-        </p>
+        <h2 className="display-medium text-white mb-4">{work.title}</h2>
+        <p className="text-[#888] text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
 
         {/* AI Evolution Insight */}
-        <div className="mb-8 p-5 bg-gray-50 rounded-xl border border-gray-100">
-          <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">{work.insight.title}</p>
+        <div className="mb-8 p-5 glass-card">
+          <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">{work.insight.title}</p>
           <div className="space-y-3">
-            {work.insight.levels.map((level, idx) => (
+            {work.insight.levels.map((level) => (
               <div key={level.label} className="flex items-center gap-3">
                 <div className={`w-2 h-2 rounded-full ${
                   level.color === 'purple' ? 'bg-purple-500' : 
-                  level.color === 'blue' ? 'bg-blue-400' : 'bg-gray-300'
+                  level.color === 'blue' ? 'bg-blue-400' : 'bg-gray-500'
                 }`} />
                 <div className="flex-1">
                   <span className={`text-sm font-medium ${
-                    level.color === 'purple' ? 'text-purple-700' : 'text-gray-700'
+                    level.color === 'purple' ? 'text-purple-400' : 'text-gray-300'
                   }`}>{level.label}</span>
-                  <span className="text-gray-400 text-sm ml-2">— {level.desc}</span>
+                  <span className="text-gray-500 text-sm ml-2">— {level.desc}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Core Principles */}
         <div className="space-y-4 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-gray-900 text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-gray-900 text-sm font-medium">{f.label}</p>
-                <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-white text-sm font-medium">{f.label}</p>
+                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2">
           {work.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
-              {tag}
-            </span>
+            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{tag}</span>
           ))}
         </div>
       </div>
@@ -470,7 +400,6 @@ export default function CaseStudy() {
     return () => ctx.revert()
   }, [])
 
-  // Animate content on tab change
   useEffect(() => {
     if (contentRef.current) {
       gsap.fromTo(
@@ -483,7 +412,6 @@ export default function CaseStudy() {
 
   const activeWork = featuredWorks.find((w) => w.id === activeTab)
 
-  // Render the appropriate content component based on active tab
   const renderContent = () => {
     switch (activeWork.id) {
       case 'mission-control':
@@ -498,13 +426,15 @@ export default function CaseStudy() {
   }
 
   return (
-    <section id="work" ref={sectionRef} className="py-20 md:py-28 bg-white relative overflow-hidden">
+    <section id="work" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative overflow-hidden">
       <div className="w-full px-6 md:px-10">
         {/* Section Header */}
         <div className="mb-12">
-          <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-6">Featured Work</p>
+          <div className="flex items-center gap-4 mb-6">
+            <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold">Featured Work</p>
+            <div className="flex-1 h-px bg-gradient-to-r from-[#6366f1]/40 to-transparent" />
+          </div>
           
-          {/* Tabbed Navigation */}
           <div className="flex flex-wrap gap-3">
             {featuredWorks.map((work) => (
               <button
@@ -512,8 +442,8 @@ export default function CaseStudy() {
                 onClick={() => setActiveTab(work.id)}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeTab === work.id
-                    ? 'bg-gray-900 text-white'
-                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700'
+                    ? 'bg-[#6366f1] text-white'
+                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
                 }`}
                 data-cursor-hover
               >
@@ -529,16 +459,16 @@ export default function CaseStudy() {
         </div>
 
         {/* Other Projects */}
-        <div ref={otherRef} className="pt-16 border-t border-gray-200">
+        <div ref={otherRef} className="pt-16 border-t border-[#1f2937]">
           <h3 className="text-gray-500 text-xs tracking-[0.35em] uppercase font-semibold mb-10">Other Projects</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {otherProjects.map((project) => (
-              <div key={project.title} className="project-card bg-white border border-gray-200 rounded-2xl p-6 hover:border-gray-400 transition-colors duration-300 shadow-sm">
-                <h4 className="font-bold text-xl text-gray-900 mb-3 tracking-tight">{project.title}</h4>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{project.desc}</p>
+              <div key={project.title} className="project-card glass-card p-6 hover:border-[#6366f1]/30 transition-colors duration-300">
+                <h4 className="font-bold text-xl text-white mb-3 tracking-tight">{project.title}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="text-[10px] px-3 py-1 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">{t}</span>
+                    <span key={t} className="text-[10px] px-3 py-1 rounded-full border border-[#1f2937] text-gray-500 tracking-wider uppercase">{t}</span>
                   ))}
                 </div>
               </div>

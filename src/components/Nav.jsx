@@ -15,7 +15,6 @@ export default function Nav() {
   const [activeSection, setActiveSection] = useState('#')
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  // Track active section via IntersectionObserver
   useEffect(() => {
     const sectionIds = ['about', 'services', 'work', 'writing', 'adventures', 'contact']
     const observers = []
@@ -40,7 +39,6 @@ export default function Nav() {
       }
     })
 
-    // Detect when at the very top (home)
     const onScroll = () => {
       if (window.scrollY < 200) {
         setActiveSection('#')
@@ -54,7 +52,6 @@ export default function Nav() {
     }
   }, [])
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -90,21 +87,21 @@ export default function Nav() {
         })}
       </nav>
 
-      {/* Mobile: hamburger toggle + pill nav overlay */}
+      {/* Mobile: hamburger toggle */}
       <div className="sm:hidden fixed top-4 right-4 z-50">
         <button
-          className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-lg flex flex-col justify-center items-center gap-1"
+          className="w-10 h-10 rounded-full bg-[#111827] border border-[#1f2937] shadow-lg flex flex-col justify-center items-center gap-1"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           data-cursor-hover
         >
           <span
-            className={`block h-[1.5px] w-4 bg-gray-900 transition-all duration-300 ${
+            className={`block h-[1.5px] w-4 bg-white transition-all duration-300 ${
               mobileOpen ? 'rotate-45 translate-y-[3px]' : ''
             }`}
           />
           <span
-            className={`block h-[1.5px] w-4 bg-gray-900 transition-all duration-300 ${
+            className={`block h-[1.5px] w-4 bg-white transition-all duration-300 ${
               mobileOpen ? '-rotate-45 -translate-y-[3px]' : ''
             }`}
           />
@@ -113,7 +110,6 @@ export default function Nav() {
 
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${mobileOpen ? 'open' : ''}`}>
-        {/* Pill nav centered on mobile overlay */}
         <div className="flex flex-wrap justify-center gap-3 mb-10 w-full">
           {links.map((link) => {
             const Icon = link.icon
@@ -125,8 +121,8 @@ export default function Nav() {
                 onClick={() => handleClick(link.href)}
                 className={`w-14 h-14 rounded-full flex flex-col items-center justify-center gap-1 border transition-colors duration-200 ${
                   isActive
-                    ? 'bg-black text-white border-black'
-                    : 'bg-white text-gray-500 border-gray-200 hover:bg-gray-100'
+                    ? 'bg-[#6366f1] text-white border-[#6366f1]'
+                    : 'bg-[#111827] text-gray-400 border-[#1f2937] hover:bg-[#1f2937]'
                 }`}
                 aria-label={link.label}
                 data-cursor-hover
@@ -136,14 +132,13 @@ export default function Nav() {
             )
           })}
         </div>
-        {/* Labels below icons */}
         <div className="flex flex-col items-center gap-2 w-full">
           {links.map((link) => (
             <a
               key={`label-${link.href}`}
               href={link.href}
               onClick={() => handleClick(link.href)}
-              className="text-gray-900 text-lg font-semibold tracking-tight hover:text-gray-500 transition-colors"
+              className="text-white text-lg font-semibold tracking-tight hover:text-[#6366f1] transition-colors"
             >
               {link.label}
             </a>

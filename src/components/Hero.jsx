@@ -14,7 +14,6 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.3 })
 
-      // Watermark fade in
       if (watermarkRef.current) {
         tl.from(watermarkRef.current, {
           opacity: 0,
@@ -24,7 +23,6 @@ export default function Hero() {
         })
       }
 
-      // Tagline
       if (taglineRef.current) {
         tl.from(taglineRef.current, {
           y: 20,
@@ -34,7 +32,6 @@ export default function Hero() {
         }, '-=0.8')
       }
 
-      // Name chars entrance
       if (nameRef.current) {
         const chars = nameRef.current.querySelectorAll('.hero-char')
         tl.from(chars, {
@@ -47,7 +44,6 @@ export default function Hero() {
         }, '-=0.4')
       }
 
-      // Content
       if (contentRef.current) {
         tl.from(contentRef.current, {
           y: 30,
@@ -57,7 +53,6 @@ export default function Hero() {
         }, '-=0.5')
       }
 
-      // CTA buttons
       if (ctaRef.current) {
         tl.from(ctaRef.current.children, {
           y: 20,
@@ -68,7 +63,6 @@ export default function Hero() {
         }, '-=0.4')
       }
 
-      // Headshot with tilt
       if (headshotRef.current) {
         tl.from(headshotRef.current, {
           x: 100,
@@ -91,14 +85,14 @@ export default function Hero() {
     ))
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-[#F9FAFB] flex items-center overflow-hidden pt-24 md:pt-20">
+    <section ref={containerRef} className="relative min-h-screen bg-[#0a0a0f] flex items-center overflow-hidden pt-24 md:pt-20">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-16 relative">
         
         {/* Large background watermark */}
         <div 
           ref={watermarkRef}
-          className="absolute top-1/2 -translate-y-1/2 right-0 text-[12rem] md:text-[16rem] lg:text-[20rem] font-black text-gray-100 leading-none select-none pointer-events-none"
-          style={{ letterSpacing: '-0.05em' }}
+          className="absolute top-1/2 -translate-y-1/2 right-0 text-[12rem] md:text-[16rem] lg:text-[20rem] font-black leading-none select-none pointer-events-none"
+          style={{ letterSpacing: '-0.05em', color: 'rgba(99, 102, 241, 0.05)' }}
         >
           SC
         </div>
@@ -108,9 +102,11 @@ export default function Hero() {
           {/* Tagline */}
           <p 
             ref={taglineRef}
-            className="text-orange-500 text-xs tracking-[0.4em] uppercase font-semibold mb-6 md:mb-8"
+            className="text-xs tracking-[0.4em] uppercase font-semibold mb-6 md:mb-8"
           >
-            Product × UX × AI
+            <span className="bg-gradient-to-r from-teal-400 via-purple-400 to-rose-400 bg-clip-text text-transparent">
+              Product × UX × AI
+            </span>
           </p>
 
           <div className="flex gap-6 md:gap-10 items-start flex-wrap lg:flex-nowrap">
@@ -119,12 +115,12 @@ export default function Hero() {
               {/* Name */}
               <div ref={nameRef}>
                 <div className="overflow-hidden">
-                  <h1 className="hero-name text-gray-900" style={{ perspective: '600px' }}>
+                  <h1 className="hero-name text-white" style={{ perspective: '600px' }}>
                     {splitChars('SOM')}
                   </h1>
                 </div>
                 <div className="overflow-hidden mt-[-0.02em]">
-                  <h1 className="hero-name text-gray-900 whitespace-nowrap" style={{ perspective: '600px' }}>
+                  <h1 className="hero-name text-white whitespace-nowrap" style={{ perspective: '600px' }}>
                     {splitChars('CHAKRAVARTY')}
                   </h1>
                 </div>
@@ -133,7 +129,7 @@ export default function Hero() {
               {/* Description */}
               <p 
                 ref={contentRef}
-                className="text-gray-500 text-base md:text-lg leading-relaxed max-w-lg mt-8 md:mt-10"
+                className="text-[#888] text-base md:text-lg leading-relaxed max-w-lg mt-8 md:mt-10"
               >
                 Director-level Product Leader with 18 years across UX design, product management, and AI. Carnegie Mellon HCI '14. Currently building AI-powered infrastructure from Bangalore.
               </p>
@@ -142,7 +138,7 @@ export default function Hero() {
               <div ref={ctaRef} className="mt-8 md:mt-10 flex flex-wrap gap-4">
                 <a
                   href="#contact"
-                  className="inline-flex items-center px-8 py-3.5 bg-black text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors tracking-wide"
+                  className="inline-flex items-center px-8 py-3.5 bg-[#6366f1] text-white text-sm font-semibold rounded-full hover:bg-[#4f46e5] transition-colors tracking-wide"
                   data-cursor-hover
                 >
                   Get in Touch
@@ -151,7 +147,7 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/somchakravarty/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-gray-200 text-gray-500 text-sm font-medium rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors tracking-wide"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/70 text-sm font-medium rounded-full hover:border-white hover:text-white transition-colors tracking-wide"
                   data-cursor-hover
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -162,7 +158,7 @@ export default function Hero() {
               </div>
 
               {/* Credential badges */}
-              <div className="mt-8 md:mt-10 flex flex-wrap gap-x-6 gap-y-2 text-orange-500 text-[10px] tracking-[0.25em] uppercase">
+              <div className="mt-8 md:mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[#6366f1]/70 text-[10px] tracking-[0.25em] uppercase">
                 <span>Carnegie Mellon HCI '14</span>
                 <span>·</span>
                 <span>Ex-Director of Product</span>
@@ -173,17 +169,19 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Right: Floating tilted headshot */}
-            <div 
-              ref={headshotRef}
-              className="w-56 h-72 md:w-64 md:h-80 lg:w-72 lg:h-96 rounded-2xl overflow-hidden border border-gray-200 shadow-2xl flex-shrink-0 rotate-3 translate-y-4"
-            >
-              <img 
-                src="/headshot.png" 
-                alt="Som Chakravarty" 
-                className="w-full h-full object-cover object-[center_25%]"
-                loading="eager"
-              />
+            {/* Right: Floating tilted headshot with glow */}
+            <div className="headshot-glow flex-shrink-0 rotate-3 translate-y-4">
+              <div 
+                ref={headshotRef}
+                className="w-56 h-72 md:w-64 md:h-80 lg:w-72 lg:h-96 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+              >
+                <img 
+                  src="/headshot.png" 
+                  alt="Som Chakravarty" 
+                  className="w-full h-full object-cover object-[center_25%]"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +189,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-        <span className="text-gray-400 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+        <span className="text-gray-500 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
         <div className="scroll-indicator" />
       </div>
     </section>

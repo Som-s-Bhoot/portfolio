@@ -72,12 +72,12 @@ const articles = [
 ]
 
 const categoryColors = {
-  Life: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20',
-  Product: 'bg-blue-500/10 text-blue-600 border-blue-500/20',
-  Philosophy: 'bg-purple-500/10 text-purple-600 border-purple-500/20',
-  Work: 'bg-amber-500/10 text-amber-600 border-amber-500/20',
-  UX: 'bg-pink-500/10 text-pink-600 border-pink-500/20',
-  Strategy: 'bg-slate-500/10 text-slate-600 border-slate-500/20',
+  Life: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+  Product: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+  Philosophy: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+  Work: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+  UX: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
+  Strategy: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
 }
 
 export default function Writing() {
@@ -106,13 +106,13 @@ export default function Writing() {
   }, [])
 
   return (
-    <section id="writing" ref={sectionRef} className="py-20 md:py-28 bg-surface-warm relative">
+    <section id="writing" ref={sectionRef} className="py-20 md:py-28 bg-[#0a0a0f] relative">
       <div className="w-full px-6 md:px-10">
         <div ref={titleRef} className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
           <div>
-            <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-semibold mb-4">Writing</p>
-            <h2 className="display-medium text-ink">Thinking out loud.</h2>
-            <p className="text-ink-light text-base md:text-lg mt-4 max-w-xl leading-relaxed">
+            <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Writing</p>
+            <h2 className="display-medium text-white">Thinking out loud.</h2>
+            <p className="text-[#888] text-base md:text-lg mt-4 max-w-xl leading-relaxed">
               I write about product craft, UX philosophy, identity, and life. Conversational but substantive — 
               musing rather than lecturing, with analogies from motorcycles and symphonies.
             </p>
@@ -121,7 +121,7 @@ export default function Writing() {
             href="https://www.linkedin.com/in/somchakravarty/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-900 transition-colors duration-300 tracking-[0.15em] uppercase mt-4 md:mt-0"
+            className="hidden md:inline-flex items-center gap-2 text-xs text-gray-500 hover:text-[#6366f1] transition-colors duration-300 tracking-[0.15em] uppercase mt-4 md:mt-0"
             data-cursor-hover
           >
             All on LinkedIn
@@ -140,7 +140,7 @@ export default function Writing() {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:border-gray-300 transition-all duration-300 hover:-translate-y-1"
+              className="group block glass-card overflow-hidden hover:border-[#6366f1]/30 transition-all duration-300 hover:-translate-y-1"
               data-cursor-hover
             >
               {/* Image preview */}
@@ -150,28 +150,24 @@ export default function Writing() {
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                {/* Category tag overlaid on image */}
-                <span className={`absolute top-3 left-3 text-[10px] tracking-[0.15em] uppercase font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm bg-white/90 ${categoryColors[article.category]}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <span className={`absolute top-3 left-3 text-[10px] tracking-[0.15em] uppercase font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm ${categoryColors[article.category]}`}>
                   {article.category}
                 </span>
               </div>
               
               <div className="p-5">
-                {/* Title */}
-                <h3 className="font-bold text-lg text-gray-900 leading-snug tracking-tight group-hover:text-gray-700 transition-colors mb-2">
+                <h3 className="font-bold text-lg text-white leading-snug tracking-tight group-hover:text-[#6366f1] transition-colors mb-2">
                   {article.title}
                 </h3>
                 
-                {/* Excerpt */}
                 <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
                   {article.excerpt}
                 </p>
                 
-                {/* Footer */}
-                <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span className="text-gray-400 text-xs tracking-wide">{article.date}</span>
-                  <span className="text-gray-400 group-hover:text-gray-900 transition-colors">
+                <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                  <span className="text-gray-600 text-xs tracking-wide">{article.date}</span>
+                  <span className="text-gray-600 group-hover:text-[#6366f1] transition-colors">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
@@ -184,7 +180,7 @@ export default function Writing() {
 
         <div className="mt-12 md:hidden text-center">
           <a href="https://www.linkedin.com/in/somchakravarty/" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-gray-900 font-medium">
+            className="inline-flex items-center gap-1 text-sm text-[#6366f1] font-medium">
             All articles on LinkedIn →
           </a>
         </div>
