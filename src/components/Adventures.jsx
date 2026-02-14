@@ -109,14 +109,17 @@ function PhotoCard({ adventure, aspect, index }) {
             <span className="text-xs tracking-wider uppercase">Coming Soon</span>
           </div>
         )}
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         {/* Category badge */}
-        <div className="absolute bottom-3 left-3 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-sm text-white/90 text-[10px] tracking-widest uppercase font-medium">
+        <div className="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-sm text-white/90 text-[10px] tracking-widest uppercase font-medium">
           {adventure.category}
         </div>
+        {/* Adventure name inside card */}
+        <h4 className="absolute bottom-4 left-4 right-4 font-bold text-lg text-white tracking-tight">
+          {adventure.name}
+        </h4>
       </div>
-      <h4 className="font-bold text-lg text-hero-text mt-3 tracking-tight group-hover:text-white transition-colors">
-        {adventure.name}
-      </h4>
     </Wrapper>
   )
 }

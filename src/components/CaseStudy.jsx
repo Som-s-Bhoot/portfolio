@@ -389,9 +389,10 @@ function PulseContent({ work }) {
 ═══════════════════════════════════════════════════════════════ */
 export default function CaseStudy() {
   const sectionRef = useRef(null)
-  const [activeTab, setActiveTab] = useState(featuredWorks[0].id)
   const contentRef = useRef(null)
   const otherRef = useRef(null)
+
+  const missionControl = featuredWorks.find((w) => w.id === 'mission-control')
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -406,31 +407,6 @@ export default function CaseStudy() {
     return () => ctx.revert()
   }, [])
 
-  useEffect(() => {
-    if (contentRef.current) {
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
-      )
-    }
-  }, [activeTab])
-
-  const activeWork = featuredWorks.find((w) => w.id === activeTab)
-
-  const renderContent = () => {
-    switch (activeWork.id) {
-      case 'mission-control':
-        return <MissionControlContent work={activeWork} />
-      case 'bhoot-ai':
-        return <BhootContent work={activeWork} />
-      case 'pulse-case-study':
-        return <PulseContent work={activeWork} />
-      default:
-        return <WhitepaperContent work={activeWork} />
-    }
-  }
-
   return (
     <section id="work" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative overflow-hidden">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
@@ -441,27 +417,11 @@ export default function CaseStudy() {
             <div className="flex-1 h-px bg-gradient-to-r from-[#6366f1]/40 to-transparent" />
           </div>
           
-          <div className="flex flex-wrap gap-3">
-            {featuredWorks.map((work) => (
-              <button
-                key={work.id}
-                onClick={() => setActiveTab(work.id)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeTab === work.id
-                    ? 'bg-[#6366f1] text-white'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
-                }`}
-                data-cursor-hover
-              >
-                {work.type === 'Product' ? work.title : work.type}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* Active Work Content */}
+        {/* Featured Project — Mission Control */}
         <div ref={contentRef} className="mb-14 md:mb-20">
-          {renderContent()}
+          <MissionControlContent work={missionControl} />
         </div>
 
         {/* Other Projects */}
