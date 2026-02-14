@@ -131,7 +131,7 @@ function AdventureCard({ adventure, index }) {
   const CardContent = (
     <>
       {/* Thumbnail */}
-      <div className="relative aspect-video bg-gray-800 rounded-xl overflow-hidden mb-4">
+      <div className="relative aspect-video bg-gray-800 rounded-none overflow-hidden mb-4">
         {thumbnailUrl ? (
           <>
             <img
@@ -225,7 +225,7 @@ function AdventureCard({ adventure, index }) {
         href={adventure.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="adventure-card group block bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-4 transition-all duration-300"
+        className="adventure-card group block bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-none p-4 transition-all duration-300"
         data-cursor-hover
       >
         {CardContent}
@@ -236,7 +236,7 @@ function AdventureCard({ adventure, index }) {
   return (
     <div
       ref={cardRef}
-      className="adventure-card group block bg-white/5 border border-white/10 rounded-2xl p-4"
+      className="adventure-card group block bg-white/5 border border-white/10 rounded-none p-4"
     >
       {CardContent}
     </div>
