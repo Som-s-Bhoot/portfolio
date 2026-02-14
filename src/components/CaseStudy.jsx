@@ -129,7 +129,7 @@ const otherProjects = [
   {
     title: 'Arduino/RPi Projects',
     desc: 'Hardware tinkering — sensor systems, home automation, 3D-printed enclosures on a Bambu Lab A1.',
-    tech: ['Arduino', 'Raspberry Pi', '3D Printing', 'C++'],
+    tech: ['Arduino', 'Raspberry Pi', '3D Printing'],
   },
 ]
 
