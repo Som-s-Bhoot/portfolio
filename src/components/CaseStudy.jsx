@@ -586,11 +586,7 @@ export default function CaseStudy() {
     return () => ctx.revert()
   }, [])
 
-  // Re-trigger fade on tab change using a key-based remount + CSS animation
-  const [fadeKey, setFadeKey] = useState(0)
-  useEffect(() => {
-    setFadeKey((k) => k + 1)
-  }, [activeTab])
+
 
   const activeWork = featuredWorks.find((w) => w.id === activeTab)
 
@@ -638,7 +634,7 @@ export default function CaseStudy() {
         </div>
 
         {/* Active Work Content */}
-        <div key={fadeKey} className="mb-14 md:mb-20 animate-fade-in">
+        <div className="mb-14 md:mb-20">
           {renderContent()}
         </div>
 
