@@ -140,7 +140,7 @@ export default function Hero() {
           ref={contentRef}
           className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-lg mt-8 md:mt-10"
         >
-          Director-level Product Leader with 18 years across UX design, product management, and AI. Carnegie Mellon HCI '14. Currently building AI-powered infrastructure from Bangalore.
+          Product Leader with 18 years across UX design, product management, and AI. Carnegie Mellon HCI '14. Currently building AI-powered infrastructure from Bangalore.
         </p>
 
         {/* CTA buttons */}
