@@ -93,6 +93,45 @@ const featuredWorks = [
     tags: ['Node.js', 'Claude API', 'Telegram', 'Supabase', 'MCP'],
   },
   {
+    id: 'cognx',
+    title: 'CognX',
+    type: 'CognX',
+    capabilities: [
+      { icon: '🧠', label: 'Strategy' },
+      { icon: '⚡', label: 'AI' },
+      { icon: '💻', label: 'Engineering' },
+    ],
+    description: 'Built a full AI-native SaaS product from zero to production in 6 weeks — then killed it. CognX was an AI Chief of Staff that lived inside Slack, turning scattered conversations into structured work items, proactive alerts, and intelligent briefs. The decision to stop wasn\'t failure — it was the strategic clarity to recognize when the moat doesn\'t hold.',
+    images: [
+      { src: '/cognx-morning-brief.png', alt: 'CognX Morning Brief — automated daily digest', size: 'large' },
+      { src: '/cognx-contextual-qa.png', alt: 'CognX Contextual Q&A with citations', size: 'small' },
+      { src: '/cognx-onboarding.png', alt: 'CognX Onboarding — integrations setup', size: 'small' },
+      { src: '/cognx-welcome.png', alt: 'CognX Welcome — workspace analysis', size: 'small' },
+    ],
+    timeline: [
+      { phase: 'Week 1–2', text: 'Foundation — OAuth, Slack integration, RAG pipeline, document ingestion', stat: '3 phases shipped', color: 'green' },
+      { phase: 'Week 3–4', text: 'Graph-augmented RAG, work item materialization, billing with Paddle', stat: '275 tests', color: 'blue' },
+      { phase: 'Week 5', text: '10X Sprint — 8 features overnight. Conversation memory, proactive alerts, query router', stat: '488+ tests · 0 regressions', color: 'orange' },
+      { phase: 'Week 6', text: 'Iron Dome — 66 E2E tests, 36 DeepEval evals, stabilization, accuracy upgrades', stat: '693 total tests', color: 'purple' },
+      { phase: 'Decision', text: 'Killed with conviction — platform AI owns the data and distribution', stat: null, color: 'red' },
+    ],
+    insight: {
+      title: 'Why I Killed It',
+      levels: [
+        { label: 'Built in 6 weeks', desc: 'Speed is no longer a moat — AI levels the field', color: 'green' },
+        { label: 'Platform AI launching', desc: 'Data owners win; middleware gets squeezed', color: 'blue' },
+        { label: 'Kill decision', desc: 'Strategic clarity > sunk cost fallacy', color: 'purple' },
+      ],
+    },
+    features: [
+      { icon: '🏗️', label: 'Zero to Production in 6 Weeks', desc: 'Sole PM and technical architect. Shipped OAuth, billing, RAG pipeline, graph-augmented search, 10 Inngest functions, 693 tests — with a 10-agent AI dev team orchestrated end-to-end.' },
+      { icon: '🤖', label: 'AI-Native Architecture', desc: 'Not AI bolted onto CRUD. Conversation memory, proactive alerts, structured query routing, intelligent scope resolution — the AI was the product interface.' },
+      { icon: '🛡️', label: 'Iron Dome Quality System', desc: '66-test E2E suite spanning auth, billing, integrations, RAG, security, and performance — plus 36 DeepEval tests for RAG quality and red-team probing.' },
+      { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.' },
+    ],
+    tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
+  },
+  {
     id: 'pulse-case-study',
     title: 'PULSE — AI Disrupts Inventory',
     type: 'Case Study',
@@ -319,6 +358,155 @@ function BhootContent({ work }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   COGNX CONTENT
+═══════════════════════════════════════════════════════════════ */
+function CognXContent({ work }) {
+  const timelineColors = {
+    green: '#22c55e',
+    blue: '#3b82f6',
+    orange: '#f97316',
+    purple: '#a855f7',
+    red: '#ef4444',
+  }
+
+  const insightColors = {
+    green: { dot: '#22c55e', text: '#374151' },
+    blue: { dot: '#3b82f6', text: '#374151' },
+    purple: { dot: '#a855f7', text: '#7c3aed' },
+  }
+
+  return (
+    <div className="space-y-16">
+      {/* Top: Screenshot Collage */}
+      <div>
+        <div className="space-y-4">
+          {/* Hero: Morning Brief (full width) */}
+          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <img
+              src={work.images[0].src}
+              alt={work.images[0].alt}
+              className="w-full h-auto block"
+            />
+          </div>
+          {/* Bottom row: 3 screens */}
+          <div className="grid grid-cols-3 gap-4">
+            {work.images.slice(1).map((img) => (
+              <div key={img.alt} className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-auto block"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom: Timeline + Content side by side */}
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        {/* Left: Timeline Card */}
+        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-10 text-white">
+          <div className="text-center mb-8">
+            <span className="text-5xl mb-3 block">🧠</span>
+            <h3 className="text-lg font-semibold tracking-tight">Build Timeline</h3>
+          </div>
+
+          <div className="space-y-0">
+            {work.timeline.map((step, idx) => (
+              <div key={step.phase} className="flex items-start gap-4 relative pb-5">
+                {/* Dot + Line */}
+                <div className="flex flex-col items-center shrink-0">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full mt-1.5"
+                    style={{ background: timelineColors[step.color] }}
+                  />
+                  {idx < work.timeline.length - 1 && (
+                    <div className="w-0.5 flex-1 mt-1 bg-white/10" style={{ minHeight: '2rem' }} />
+                  )}
+                </div>
+                {/* Content */}
+                <div className="pb-1">
+                  <p className="text-[10px] text-gray-400 uppercase tracking-[0.15em] mb-0.5">{step.phase}</p>
+                  <p className="text-[13px] text-gray-200 leading-relaxed">{step.text}</p>
+                  {step.stat && (
+                    <span className="inline-block text-[11px] px-2.5 py-1 rounded-lg bg-white/8 text-gray-400 border border-white/5 mt-1.5">
+                      {step.stat}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Kill stamp */}
+          <div className="mt-4 pt-5 border-t border-white/10 text-center">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.1em] uppercase text-red-400 px-5 py-2 border border-red-400/30 rounded-full bg-red-400/8">
+              ⚰️ Killed — Strategic Exit
+            </span>
+          </div>
+        </div>
+
+        {/* Right: Content */}
+        <div>
+          <CapabilityBadges capabilities={work.capabilities} />
+          <h2 className="display-medium text-gray-900 mb-4">{work.title}</h2>
+          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
+            {work.description}
+          </p>
+
+          {/* Features */}
+          <div className="space-y-5 mb-8">
+            {work.features.map((f) => (
+              <div key={f.label} className="flex gap-4">
+                <span className="text-gray-900 text-base mt-0.5 shrink-0">{f.icon}</span>
+                <div>
+                  <p className="text-gray-900 text-sm font-medium">{f.label}</p>
+                  <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Insight Block */}
+          <div className="mb-8 p-5 bg-gray-50 rounded-xl border border-gray-100">
+            <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">{work.insight.title}</p>
+            <div className="space-y-3">
+              {work.insight.levels.map((level) => (
+                <div key={level.label} className="flex items-center gap-3">
+                  <div
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ background: insightColors[level.color]?.dot }}
+                  />
+                  <div className="flex-1">
+                    <span
+                      className="text-sm font-medium"
+                      style={{ color: insightColors[level.color]?.text }}
+                    >
+                      {level.label}
+                    </span>
+                    <span className="text-gray-400 text-sm ml-2">— {level.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2">
+            {work.tags.map((tag) => (
+              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PULSE CASE STUDY CONTENT
 ═══════════════════════════════════════════════════════════════ */
 function PulseContent({ work }) {
@@ -418,6 +606,8 @@ export default function CaseStudy() {
         return <MissionControlContent work={activeWork} />
       case 'bhoot-ai':
         return <BhootContent work={activeWork} />
+      case 'cognx':
+        return <CognXContent work={activeWork} />
       case 'pulse-case-study':
         return <PulseContent work={activeWork} />
       default:
