@@ -30,6 +30,45 @@ function CapabilityBadges({ capabilities }) {
 ═══════════════════════════════════════════════════════════════ */
 const featuredWorks = [
   {
+    id: 'cognx',
+    title: 'CognX',
+    type: 'CognX',
+    capabilities: [
+      { icon: '🧠', label: 'Strategy' },
+      { icon: '⚡', label: 'AI' },
+      { icon: '💻', label: 'Engineering' },
+    ],
+    description: 'Built a full AI-native SaaS product from zero to production in 6 weeks — then killed it. CognX was an AI Chief of Staff that lived inside Slack, turning scattered conversations into structured work items, proactive alerts, and intelligent briefs. The decision to stop wasn\'t failure — it was the strategic clarity to recognize when the moat doesn\'t hold.',
+    images: [
+      { src: '/cognx-morning-brief.png', alt: 'CognX Morning Brief — automated daily digest', size: 'large' },
+      { src: '/cognx-contextual-qa.png', alt: 'CognX Contextual Q&A with citations', size: 'small' },
+      { src: '/cognx-onboarding.png', alt: 'CognX Onboarding — integrations setup', size: 'small' },
+      { src: '/cognx-welcome.png', alt: 'CognX Welcome — workspace analysis', size: 'small' },
+    ],
+    timeline: [
+      { phase: 'Week 1–2', text: 'Foundation — OAuth, Slack integration, RAG pipeline, document ingestion', stat: '3 phases shipped', color: 'green' },
+      { phase: 'Week 3–4', text: 'Graph-augmented RAG, work item materialization, billing with Paddle', stat: '275 tests', color: 'blue' },
+      { phase: 'Week 5', text: '10X Sprint — 8 features overnight. Conversation memory, proactive alerts, query router', stat: '488+ tests · 0 regressions', color: 'orange' },
+      { phase: 'Week 6', text: 'Iron Dome — 66 E2E tests, 36 DeepEval evals, stabilization, accuracy upgrades', stat: '693 total tests', color: 'purple' },
+      { phase: 'Decision', text: 'Killed with conviction — platform AI owns the data and distribution', stat: null, color: 'red' },
+    ],
+    insight: {
+      title: 'Why I Killed It',
+      levels: [
+        { label: 'Built in 6 weeks', desc: 'Speed is no longer a moat — AI levels the field', color: 'green' },
+        { label: 'Platform AI launching', desc: 'Data owners win; middleware gets squeezed', color: 'blue' },
+        { label: 'Kill decision', desc: 'Strategic clarity > sunk cost fallacy', color: 'purple' },
+      ],
+    },
+    features: [
+      { icon: '🏗️', label: 'Zero to Production in 6 Weeks', desc: 'Sole PM and technical architect. Shipped OAuth, billing, RAG pipeline, graph-augmented search, 10 Inngest functions, 693 tests — with a 10-agent AI dev team orchestrated end-to-end.' },
+      { icon: '🤖', label: 'AI-Native Architecture', desc: 'Not AI bolted onto CRUD. Conversation memory, proactive alerts, structured query routing, intelligent scope resolution — the AI was the product interface.' },
+      { icon: '🛡️', label: 'Iron Dome Quality System', desc: '66-test E2E suite spanning auth, billing, integrations, RAG, security, and performance — plus 36 DeepEval tests for RAG quality and red-team probing.' },
+      { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.' },
+    ],
+    tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
+  },,
+  {
     id: 'mission-control',
     title: 'Mission Control',
     type: 'Product',
@@ -93,48 +132,9 @@ const featuredWorks = [
     tags: ['Node.js', 'Claude API', 'Telegram', 'Supabase', 'MCP'],
   },
   {
-    id: 'cognx',
-    title: 'CognX',
-    type: 'CognX',
-    capabilities: [
-      { icon: '🧠', label: 'Strategy' },
-      { icon: '⚡', label: 'AI' },
-      { icon: '💻', label: 'Engineering' },
-    ],
-    description: 'Built a full AI-native SaaS product from zero to production in 6 weeks — then killed it. CognX was an AI Chief of Staff that lived inside Slack, turning scattered conversations into structured work items, proactive alerts, and intelligent briefs. The decision to stop wasn\'t failure — it was the strategic clarity to recognize when the moat doesn\'t hold.',
-    images: [
-      { src: '/cognx-morning-brief.png', alt: 'CognX Morning Brief — automated daily digest', size: 'large' },
-      { src: '/cognx-contextual-qa.png', alt: 'CognX Contextual Q&A with citations', size: 'small' },
-      { src: '/cognx-onboarding.png', alt: 'CognX Onboarding — integrations setup', size: 'small' },
-      { src: '/cognx-welcome.png', alt: 'CognX Welcome — workspace analysis', size: 'small' },
-    ],
-    timeline: [
-      { phase: 'Week 1–2', text: 'Foundation — OAuth, Slack integration, RAG pipeline, document ingestion', stat: '3 phases shipped', color: 'green' },
-      { phase: 'Week 3–4', text: 'Graph-augmented RAG, work item materialization, billing with Paddle', stat: '275 tests', color: 'blue' },
-      { phase: 'Week 5', text: '10X Sprint — 8 features overnight. Conversation memory, proactive alerts, query router', stat: '488+ tests · 0 regressions', color: 'orange' },
-      { phase: 'Week 6', text: 'Iron Dome — 66 E2E tests, 36 DeepEval evals, stabilization, accuracy upgrades', stat: '693 total tests', color: 'purple' },
-      { phase: 'Decision', text: 'Killed with conviction — platform AI owns the data and distribution', stat: null, color: 'red' },
-    ],
-    insight: {
-      title: 'Why I Killed It',
-      levels: [
-        { label: 'Built in 6 weeks', desc: 'Speed is no longer a moat — AI levels the field', color: 'green' },
-        { label: 'Platform AI launching', desc: 'Data owners win; middleware gets squeezed', color: 'blue' },
-        { label: 'Kill decision', desc: 'Strategic clarity > sunk cost fallacy', color: 'purple' },
-      ],
-    },
-    features: [
-      { icon: '🏗️', label: 'Zero to Production in 6 Weeks', desc: 'Sole PM and technical architect. Shipped OAuth, billing, RAG pipeline, graph-augmented search, 10 Inngest functions, 693 tests — with a 10-agent AI dev team orchestrated end-to-end.' },
-      { icon: '🤖', label: 'AI-Native Architecture', desc: 'Not AI bolted onto CRUD. Conversation memory, proactive alerts, structured query routing, intelligent scope resolution — the AI was the product interface.' },
-      { icon: '🛡️', label: 'Iron Dome Quality System', desc: '66-test E2E suite spanning auth, billing, integrations, RAG, security, and performance — plus 36 DeepEval tests for RAG quality and red-team probing.' },
-      { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.' },
-    ],
-    tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
-  },
-  {
     id: 'pulse-case-study',
     title: 'PULSE — AI Disrupts Inventory',
-    type: 'Case Study',
+    type: 'Pulse',
     capabilities: [
       { icon: '🧠', label: 'Strategy' },
       { icon: '⚡', label: 'AI' },
