@@ -67,7 +67,7 @@ const featuredWorks = [
       { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.' },
     ],
     tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
-  },,
+  },
   {
     id: 'mission-control',
     title: 'Mission Control',
