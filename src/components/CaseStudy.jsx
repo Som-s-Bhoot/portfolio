@@ -571,7 +571,6 @@ function PulseContent({ work }) {
 export default function CaseStudy() {
   const sectionRef = useRef(null)
   const [activeTab, setActiveTab] = useState(featuredWorks[0].id)
-  const contentRef = useRef(null)
   const otherRef = useRef(null)
 
   useEffect(() => {
@@ -587,14 +586,10 @@ export default function CaseStudy() {
     return () => ctx.revert()
   }, [])
 
+  // Re-trigger fade on tab change using a key-based remount + CSS animation
+  const [fadeKey, setFadeKey] = useState(0)
   useEffect(() => {
-    if (contentRef.current) {
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
-      )
-    }
+    setFadeKey((k) => k + 1)
   }, [activeTab])
 
   const activeWork = featuredWorks.find((w) => w.id === activeTab)
@@ -643,7 +638,7 @@ export default function CaseStudy() {
         </div>
 
         {/* Active Work Content */}
-        <div ref={contentRef} className="mb-14 md:mb-20">
+        <div key={fadeKey} className="mb-14 md:mb-20 animate-fade-in">
           {renderContent()}
         </div>
 
