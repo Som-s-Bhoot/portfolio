@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CognX Case Study — Portfolio Mockup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background: #F9FAFB;
+      color: #111827;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: #111827; color: white; }
+
+    /* ── Section ── */
+    .section {
+      padding: 5rem 2.5rem;
+      background: white;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    /* ── Section Header ── */
+    .section-label {
+      color: #f97316;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Tab Bar ── */
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+    .tab {
+      padding: 0.625rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tab-inactive { background: #F3F4F6; color: #6B7280; }
+    .tab-active { background: #111827; color: white; }
+
+    /* ── Grid Layout ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ── Timeline Visual (Left Side) ── */
+    .timeline-card {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      color: white;
+    }
+    .timeline-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .timeline-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+    .timeline-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; }
+
+    .timeline-phase {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .dot-green { background: #22c55e; }
+    .dot-blue { background: #3b82f6; }
+    .dot-orange { background: #f97316; }
+    .dot-purple { background: #a855f7; }
+    .dot-red { background: #ef4444; }
+
+    .timeline-line {
+      position: absolute;
+      left: 4px;
+      top: 18px;
+      width: 2px;
+      height: calc(100% + 0.5rem);
+      background: rgba(255,255,255,0.1);
+    }
+    .timeline-phase:last-child .timeline-line { display: none; }
+
+    .phase-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.125rem;
+    }
+    .phase-text {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+    .phase-stat {
+      display: inline-block;
+      font-size: 0.6875rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.5rem;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-top: 0.25rem;
+    }
+
+    /* Kill stamp */
+    .kill-stamp {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .kill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ef4444;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 9999px;
+      background: rgba(239,68,68,0.08);
+    }
+
+    /* ── Capability Badges ── */
+    .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.625rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: #F9FAFB;
+      color: #6B7280;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid #F3F4F6;
+    }
+
+    /* ── Title ── */
+    .work-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    /* ── Description ── */
+    .work-desc {
+      color: #6B7280;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 32rem;
+    }
+
+    /* ── Feature List ── */
+    .features { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem; }
+    .feature {
+      display: flex;
+      gap: 1rem;
+    }
+    .feature-icon {
+      font-size: 1rem;
+      margin-top: 0.125rem;
+      flex-shrink: 0;
+    }
+    .feature-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #111827;
+    }
+    .feature-desc {
+      font-size: 0.875rem;
+      color: #9CA3AF;
+      margin-top: 0.125rem;
+      line-height: 1.6;
+    }
+
+    /* ── Insight Block ── */
+    .insight-block {
+      margin-bottom: 2rem;
+      padding: 1.25rem;
+      background: #F9FAFB;
+      border-radius: 0.75rem;
+      border: 1px solid #F3F4F6;
+    }
+    .insight-title {
+      font-size: 0.65rem;
+      color: #9CA3AF;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .insight-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .insight-row:last-child { margin-bottom: 0; }
+    .insight-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .insight-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .insight-sep {
+      color: #9CA3AF;
+      font-size: 0.875rem;
+      margin-left: 0.25rem;
+    }
+
+    /* ── Tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-size: 0.5625rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid #E5E7EB;
+      color: #9CA3AF;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ── Context Banner ── */
+    .context-banner {
+      background: #FFFBEB;
+      border: 1px dashed #FCD34D;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.75rem;
+      color: #92400E;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="context-banner">
+    📐 Mockup Preview — How CognX will appear in the Featured Work section of somchakravarty.com
+  </div>
+
+  <div class="section">
+    <!-- Section Header -->
+    <div>
+      <p class="section-label">Featured Work</p>
+      <div class="tab-bar">
+        <button class="tab tab-inactive">Mission Control</button>
+        <button class="tab tab-inactive">Whitepaper</button>
+        <button class="tab tab-inactive">AI Agent</button>
+        <button class="tab tab-inactive">Case Study</button>
+        <button class="tab tab-active">CognX</button>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid">
+      <!-- Left: Timeline Visualization -->
+      <div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <span class="timeline-emoji">🧠</span>
+            <h3 class="timeline-title">CognX — Build Timeline</h3>
+          </div>
+
+          <div class="timeline-phase">
+            <div class="timeline-dot dot-green"></div>
+            <div class="timeline-line"></div>
+            <div>
+              <p class="phase-label">Week 1–2</p>
+              <p class="phase-text">Foundation — OAuth, Slack integration, RAG pipeline, document ingestion</p>
+              <span class="phase-stat">3 phases shipped</span>
+            </div>
+          </div>
+
+          <div class="timeline-phase">
+            <div class="timeline-dot dot-blue"></div>
+            <div class="timeline-line"></div>
+            <div>
+              <p class="phase-label">Week 3–4</p>
+              <p class="phase-text">Graph-augmented RAG, work item materialization, billing with Paddle</p>
+              <span class="phase-stat">275 tests</span>
+            </div>
+          </div>
+
+          <div class="timeline-phase">
+            <div class="timeline-dot dot-orange"></div>
+            <div class="timeline-line"></div>
+            <div>
+              <p class="phase-label">Week 5</p>
+              <p class="phase-text">10X Sprint — 8 features overnight. Conversation memory, proactive alerts, onboarding, query router</p>
+              <span class="phase-stat">488+ tests · 0 regressions</span>
+            </div>
+          </div>
+
+          <div class="timeline-phase">
+            <div class="timeline-dot dot-purple"></div>
+            <div class="timeline-line"></div>
+            <div>
+              <p class="phase-label">Week 6</p>
+              <p class="phase-text">Iron Dome — 66 E2E tests, 36 DeepEval evals, stabilization, accuracy upgrades</p>
+              <span class="phase-stat">693 total tests</span>
+            </div>
+          </div>
+
+          <div class="timeline-phase">
+            <div class="timeline-dot dot-red"></div>
+            <div>
+              <p class="phase-label">Decision</p>
+              <p class="phase-text">Killed with conviction — platform AI owns the data and distribution</p>
+            </div>
+          </div>
+
+          <div class="kill-stamp">
+            <span class="kill-badge">⚰️ Killed — Strategic Exit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div>
+        <div class="badges">
+          <span class="badge"><span>🧠</span> Strategy</span>
+          <span class="badge"><span>⚡</span> AI</span>
+          <span class="badge"><span>💻</span> Engineering</span>
+        </div>
+
+        <h2 class="work-title">CognX — AI Chief of Staff</h2>
+
+        <p class="work-desc">
+          Built a full AI-native SaaS product from zero to production in 6 weeks — then killed it. CognX was an AI Chief of Staff that lived inside Slack, turning scattered conversations into structured work items, proactive alerts, and intelligent briefs. The decision to stop wasn't failure — it was the strategic clarity to recognize when the moat doesn't hold.
+        </p>
+
+        <!-- Features -->
+        <div class="features">
+          <div class="feature">
+            <span class="feature-icon">🏗️</span>
+            <div>
+              <p class="feature-label">Zero to Production in 6 Weeks</p>
+              <p class="feature-desc">Sole PM and technical architect. Shipped OAuth, billing, RAG pipeline, graph-augmented search, 10 Inngest functions, 693 tests — with a 10-agent AI dev team orchestrated end-to-end.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🤖</span>
+            <div>
+              <p class="feature-label">AI-Native Architecture</p>
+              <p class="feature-desc">Not AI bolted onto CRUD. Conversation memory, proactive alerts, structured query routing, intelligent scope resolution — the AI was the product interface.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🛡️</span>
+            <div>
+              <p class="feature-label">Iron Dome Quality System</p>
+              <p class="feature-desc">66-test E2E suite spanning auth, billing, integrations, RAG, security, and performance — plus 36 DeepEval tests for RAG quality and red-team probing.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">⚔️</span>
+            <div>
+              <p class="feature-label">The Kill Decision</p>
+              <p class="feature-desc">Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insight Block -->
+        <div class="insight-block">
+          <p class="insight-title">Why I Killed It</p>
+          <div class="insight-row">
+            <div class="insight-dot" style="background: #22c55e;"></div>
+            <div>
+              <span class="insight-label" style="color: #374151;">Built in 6 weeks</span>
+              <span class="insight-sep">— Speed is no longer a moat</span>
+            </div>
+          </div>
+          <div class="insight-row">
+            <div class="insight-dot" style="background: #3b82f6;"></div>
+            <div>
+              <span class="insight-label" style="color: #374151;">Platform AI launching</span>
+              <span class="insight-sep">— Data owners win; middleware gets squeezed</span>
+            </div>
+          </div>
+          <div class="insight-row">
+            <div class="insight-dot" style="background: #a855f7;"></div>
+            <div>
+              <span class="insight-label" style="color: #7c3aed;">Kill decision</span>
+              <span class="insight-sep">— Strategic clarity > sunk cost fallacy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Inngest</span>
+          <span class="tag">RAG / LLM</span>
+          <span class="tag">Paddle</span>
+          <span class="tag">Slack API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
