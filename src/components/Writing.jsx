@@ -72,12 +72,12 @@ const articles = [
 ]
 
 const categoryColors = {
-  Life: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-  Product: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  Philosophy: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-  Work: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  UX: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
-  Strategy: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+  Life: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+  Product: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+  Philosophy: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+  Work: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+  UX: 'bg-pink-500/20 text-pink-300 border-pink-500/40',
+  Strategy: 'bg-slate-500/20 text-slate-300 border-slate-500/40',
 }
 
 export default function Writing() {

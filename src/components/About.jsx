@@ -12,7 +12,7 @@ const metrics = [
 ]
 
 const timeline = [
-  { year: '2025–Now', role: 'Building with AI', desc: 'Career break. Building AI-powered infrastructure, exploring what\'s next. Shipping products at the intersection of Product + UX + AI.' },
+  { year: '2025–Now', role: 'Fractional Product Leader', desc: 'Stepped away from full-time to go deeper into AI. Now helping B2B SaaS companies as a fractional product leader — combining 18 years of product, UX, and AI expertise.' },
   { year: '2016–2025', role: 'Product Manager → Director', desc: 'Strategic/Agile Portfolio Management, Work Management. Roadmaps, GTM, retention/growth, new market entry. Led AI-based product initiatives.' },
   { year: '2013–2014', role: 'Carnegie Mellon University', desc: 'MS in Human-Computer Interaction. Pittsburgh, PA.' },
   { year: '2007–2016', role: 'UX Designer → Lead', desc: 'Enterprise design systems, interaction design, information architecture. Built and led design teams across complex B2B products.' },
@@ -103,8 +103,7 @@ export default function About() {
           <p ref={(el) => (linesRef.current[2] = el)}
             className="text-gray-400 text-lg md:text-xl leading-[1.75]">
             I hold an MS in Human-Computer Interaction from Carnegie Mellon
-            University. Currently on a deliberate career break in Bangalore,
-            building AI-powered infrastructure and exploring what's next.
+            University. After a decade leading product at Planview, I stepped away to go deeper into AI and build at the intersection of product, UX, and machine intelligence. Now I bring that combined perspective to B2B SaaS companies as a fractional product leader — helping teams ship better products, faster.
           </p>
         </div>
 

@@ -117,7 +117,7 @@ export default function Hero() {
           className="text-xs tracking-[0.4em] uppercase font-semibold mb-6 md:mb-8"
         >
           <span className="bg-gradient-to-r from-teal-400 via-indigo-400 to-rose-400 bg-clip-text text-transparent">
-            Product × UX × AI
+            Fractional Product Leader
           </span>
         </p>
 
@@ -140,7 +140,7 @@ export default function Hero() {
           ref={contentRef}
           className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-lg mt-8 md:mt-10"
         >
-          Director-level Product Leader with 18 years across UX design, product management, and AI. Carnegie Mellon HCI '14. Currently building AI-powered infrastructure from Bangalore.
+          I help B2B SaaS companies build product teams, sharpen strategy, and ship what matters. Director-level product leadership, without the full-time commitment. Carnegie Mellon HCI '14.
         </p>
 
         {/* CTA buttons */}
@@ -168,13 +168,15 @@ export default function Hero() {
 
         {/* Credential badges */}
         <div className="mt-8 md:mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[#6366f1]/70 text-[10px] tracking-[0.25em] uppercase">
-          <span>Carnegie Mellon HCI&apos;14</span>
+          <span>CMU HCI</span>
           <span>·</span>
-          <span>Ex-Director of Product</span>
+          <span>18 Yrs Building Products</span>
           <span>·</span>
-          <span>Enterprise SaaS</span>
+          <span>Ex-Director, Planview</span>
           <span>·</span>
-          <span>Bangalore, India</span>
+          <span>B2B SaaS</span>
+          <span>·</span>
+          <span>Bangalore</span>
         </div>
       </div>
 

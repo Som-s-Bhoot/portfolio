@@ -67,7 +67,7 @@ const featuredWorks = [
       { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.' },
     ],
     tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
-  },,
+  },
   {
     id: 'mission-control',
     title: 'Mission Control',
@@ -168,7 +168,7 @@ const otherProjects = [
   {
     title: 'Arduino/RPi Projects',
     desc: 'Hardware tinkering — sensor systems, home automation, 3D-printed enclosures on a Bambu Lab A1.',
-    tech: ['Arduino', 'Raspberry Pi', '3D Printing', 'C++'],
+    tech: ['Arduino', 'Raspberry Pi', '3D Printing'],
   },
 ]
 
@@ -177,24 +177,24 @@ const otherProjects = [
 ═══════════════════════════════════════════════════════════════ */
 function MissionControlContent({ work }) {
   return (
-    <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-      <div className="lg:col-span-7">
+    <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+      <div className="lg:col-span-8">
         <div className="space-y-4">
-          <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+          <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
             <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block shadow-2xl" />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+            <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
               <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block shadow-2xl" />
             </div>
-            <div className="rounded-sm overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
+            <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
               <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block shadow-2xl" />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="lg:col-span-5 flex flex-col justify-center">
+      <div className="lg:col-span-4 flex flex-col justify-center">
         <CapabilityBadges capabilities={work.capabilities} />
         <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
@@ -450,8 +450,8 @@ function CognXContent({ work }) {
         {/* Right: Content */}
         <div>
           <CapabilityBadges capabilities={work.capabilities} />
-          <h2 className="display-medium text-gray-900 mb-4">{work.title}</h2>
-          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
+          <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
+          <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
             {work.description}
           </p>
 
@@ -459,17 +459,17 @@ function CognXContent({ work }) {
           <div className="space-y-5 mb-8">
             {work.features.map((f) => (
               <div key={f.label} className="flex gap-4">
-                <span className="text-gray-900 text-base mt-0.5 shrink-0">{f.icon}</span>
+                <span className="text-white text-base mt-0.5 shrink-0">{f.icon}</span>
                 <div>
-                  <p className="text-gray-900 text-sm font-medium">{f.label}</p>
-                  <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                  <p className="text-white text-sm font-medium">{f.label}</p>
+                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Insight Block */}
-          <div className="mb-8 p-5 bg-gray-50 rounded-xl border border-gray-100">
+          <div className="mb-8 p-5 bg-white/5 rounded-xl border border-white/10">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">{work.insight.title}</p>
             <div className="space-y-3">
               {work.insight.levels.map((level) => (
@@ -480,12 +480,11 @@ function CognXContent({ work }) {
                   />
                   <div className="flex-1">
                     <span
-                      className="text-sm font-medium"
-                      style={{ color: insightColors[level.color]?.text }}
+                      className="text-sm font-medium text-gray-200"
                     >
                       {level.label}
                     </span>
-                    <span className="text-gray-400 text-sm ml-2">— {level.desc}</span>
+                    <span className="text-gray-500 text-sm ml-2">— {level.desc}</span>
                   </div>
                 </div>
               ))}
@@ -495,7 +494,7 @@ function CognXContent({ work }) {
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
             {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-gray-200 text-gray-400 tracking-wider uppercase">
+              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-white/15 text-gray-500 tracking-wider uppercase">
                 {tag}
               </span>
             ))}
@@ -572,7 +571,6 @@ function PulseContent({ work }) {
 export default function CaseStudy() {
   const sectionRef = useRef(null)
   const [activeTab, setActiveTab] = useState(featuredWorks[0].id)
-  const contentRef = useRef(null)
   const otherRef = useRef(null)
 
   useEffect(() => {
@@ -588,15 +586,7 @@ export default function CaseStudy() {
     return () => ctx.revert()
   }, [])
 
-  useEffect(() => {
-    if (contentRef.current) {
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
-      )
-    }
-  }, [activeTab])
+
 
   const activeWork = featuredWorks.find((w) => w.id === activeTab)
 
@@ -644,7 +634,7 @@ export default function CaseStudy() {
         </div>
 
         {/* Active Work Content */}
-        <div ref={contentRef} className="mb-14 md:mb-20">
+        <div className="mb-14 md:mb-20">
           {renderContent()}
         </div>
 

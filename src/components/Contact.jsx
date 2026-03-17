@@ -45,8 +45,7 @@ export default function Contact() {
         </h2>
 
         <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-12">
-          Whether it's product strategy, a new app idea, a UX challenge, or AI integration — 
-          I'd love to hear about it. Open to fractional roles, consulting, and collaborations.
+          Building a B2B SaaS product and need senior product leadership without the full-time hire? Let's talk. I'm currently taking on 1–2 fractional engagements.
         </p>
 
         {/* Contact links */}
@@ -77,7 +76,7 @@ export default function Contact() {
           </div>
           <div className="glass-card p-4">
             <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mb-1">Availability</p>
-            <p className="text-[#6366f1] text-sm font-semibold">Open to work</p>
+            <p className="text-[#6366f1] text-sm font-semibold">Taking on 1–2 engagements</p>
           </div>
           <div className="glass-card p-4">
             <p className="text-gray-600 text-[10px] tracking-[0.2em] uppercase mb-1">Remote</p>
