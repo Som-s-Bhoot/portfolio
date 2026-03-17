@@ -8,7 +8,8 @@ const services = [
   {
     number: '01',
     title: 'Fractional Product Leadership',
-    description: 'Embedded product leadership for startups and scale-ups. Strategy, roadmapping, team building, and execution — without the full-time commitment. I bring director-level experience to your most critical product challenges.',
+    description: 'Your product team needs senior leadership but you\'re not ready for a full-time VP of Product. I step in as a fractional product leader — setting strategy, building your PM team, aligning stakeholders, and driving execution. I\'ve done this across 18 years in enterprise B2B SaaS, most recently as Director of Product at Planview. I embed with your team for 3–6 months and leave you with the systems, processes, and people to run without me.',
+    primary: true,
     details: [
       'Product strategy & vision definition',
       'Roadmap planning & prioritization',
@@ -67,7 +68,7 @@ export default function Services() {
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
   const itemsRef = useRef([])
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(-1)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -106,10 +107,46 @@ export default function Services() {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          {services.map((service, i) => (
+          {/* Primary service — hero card */}
+          {services.filter(s => s.primary).map((service) => (
             <div
               key={service.number}
-              ref={(el) => (itemsRef.current[i] = el)}
+              ref={(el) => (itemsRef.current[0] = el)}
+              className="mb-12 rounded-2xl border border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/[0.08] to-transparent p-8 md:p-12"
+            >
+              <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Primary Offering</p>
+              <h3 className="font-bold text-3xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6">
+                {service.title}
+              </h3>
+              <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-3xl mb-8">
+                {service.description}
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8 max-w-3xl">
+                {service.details.map((detail) => (
+                  <div key={detail} className="flex items-center gap-3 text-sm text-gray-300">
+                    <span className="text-[#6366f1] text-[8px]">●</span>
+                    {detail}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {service.tags.map((tag) => (
+                  <span key={tag} className="text-xs px-4 py-1.5 rounded-full border border-[#6366f1]/30 text-[#6366f1]/80">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Secondary services */}
+          <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6 mt-4">Specialist Engagements</p>
+          {services.filter(s => !s.primary).map((service, i) => (
+            <div
+              key={service.number}
+              ref={(el) => (itemsRef.current[i + 1] = el)}
               className={`service-item ${activeIndex === i ? 'active' : ''}`}
             >
               <button
