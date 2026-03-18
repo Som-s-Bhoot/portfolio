@@ -157,6 +157,31 @@ const featuredWorks = [
     ],
     tags: ['Product Strategy', 'AI Architecture', 'Market Analysis', 'UX Concept'],
   },
+  {
+    id: 'planview-covid',
+    title: 'Planview — Leading Through COVID',
+    type: 'Planview',
+    capabilities: [
+      { icon: '🧠', label: 'Strategy' },
+      { icon: '👥', label: 'Product Leadership' },
+    ],
+    description: 'When COVID-19 forced the world remote, I saw the challenge before it arrived — teams would lose the spontaneous collaboration that made offices work. I led two initiatives that turned a disruption into a competitive advantage.',
+    features: [
+      { icon: '📹', label: 'Zoom Integration', desc: 'Integrated Zoom directly into Planview products, enabling seamless video conversations without leaving the workflow. No more context-switching between tools.' },
+      { icon: '🎨', label: 'Real-Time Whiteboarding', desc: 'Built real-time collaborative whiteboards that mimicked physical brainstorming sessions. Teams could ideate together despite being thousands of miles apart.' },
+      { icon: '🚀', label: 'Day-One Adoption', desc: 'Both solutions were embraced by the customer base immediately — no change management needed. The features solved a pain point customers were actively feeling.' },
+      { icon: '🔄', label: 'Portfolio-Wide Impact', desc: 'The capabilities proved so valuable they were rolled out across the broader Planview product portfolio, benefiting the entire customer base.' },
+    ],
+    insight: {
+      title: 'The Insight',
+      levels: [
+        { label: 'Anticipation', desc: 'Saw the collaboration gap before customers felt it', color: 'green' },
+        { label: 'Execution', desc: 'Two products shipped, adopted from day one', color: 'blue' },
+        { label: 'Amplification', desc: 'Solutions expanded across the entire product portfolio', color: 'purple' },
+      ],
+    },
+    tags: ['Product Strategy', 'Enterprise SaaS', 'COVID Response', 'Collaboration'],
+  },
 ]
 
 const otherProjects = [
@@ -566,6 +591,72 @@ function PulseContent({ work }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   PLANVIEW CONTENT
+═══════════════════════════════════════════════════════════════ */
+function PlanviewContent({ work }) {
+  const insightColors = {
+    green: '#22c55e',
+    blue: '#3b82f6',
+    purple: '#a855f7',
+  }
+
+  return (
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      {/* Left: Initiative Timeline */}
+      <div>
+        <CapabilityBadges capabilities={work.capabilities} />
+        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
+        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
+
+        <div className="space-y-5 mb-8">
+          {work.features.map((f) => (
+            <div key={f.label} className="flex gap-4">
+              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <div>
+                <p className="text-white text-sm font-medium">{f.label}</p>
+                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {work.tags.map((tag) => (
+            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* Right: Insight Block */}
+      <div className="flex flex-col justify-center">
+        <div className="p-8 md:p-10 bg-gradient-to-br from-[#111827] to-[#0a0a0f] rounded-2xl border border-white/10">
+          <p className="text-xs text-gray-400 uppercase tracking-widest mb-6">{work.insight.title}</p>
+          <div className="space-y-6">
+            {work.insight.levels.map((level, idx) => (
+              <div key={level.label} className="flex items-start gap-4 relative">
+                <div className="flex flex-col items-center shrink-0">
+                  <div
+                    className="w-3 h-3 rounded-full mt-0.5"
+                    style={{ background: insightColors[level.color] }}
+                  />
+                  {idx < work.insight.levels.length - 1 && (
+                    <div className="w-0.5 flex-1 mt-1 bg-white/10" style={{ minHeight: '2rem' }} />
+                  )}
+                </div>
+                <div>
+                  <p className="text-white text-sm font-medium">{level.label}</p>
+                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{level.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════
    MAIN COMPONENT
 ═══════════════════════════════════════════════════════════════ */
 export default function CaseStudy() {
@@ -600,6 +691,8 @@ export default function CaseStudy() {
         return <CognXContent work={activeWork} />
       case 'pulse-case-study':
         return <PulseContent work={activeWork} />
+      case 'planview-covid':
+        return <PlanviewContent work={activeWork} />
       default:
         return <WhitepaperContent work={activeWork} />
     }
@@ -610,10 +703,13 @@ export default function CaseStudy() {
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-4">
             <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold">Featured Work</p>
             <div className="flex-1 h-px bg-gradient-to-r from-[#6366f1]/40 to-transparent" />
           </div>
+          <p className="text-gray-400 text-lg md:text-xl mb-6 max-w-2xl leading-[1.75]">
+            Selected projects and case studies — from enterprise product leadership to AI-native builds.
+          </p>
           
           <div className="flex flex-wrap gap-3">
             {featuredWorks.map((work) => (
