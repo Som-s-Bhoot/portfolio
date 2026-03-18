@@ -7,6 +7,7 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
+import Impact from './components/Impact'
 import CaseStudy from './components/CaseStudy'
 import Writing from './components/Writing'
 import Adventures from './components/Adventures'
@@ -83,6 +84,7 @@ export default function App() {
         <Hero />
         <About />
         <Services />
+        <Impact />
         <CaseStudy />
         <Writing />
         <Adventures />

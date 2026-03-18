@@ -8,7 +8,7 @@ const services = [
   {
     number: '01',
     title: 'Fractional Product Leadership',
-    description: 'Your product team needs senior leadership but you\'re not ready for a full-time VP of Product. I step in as a fractional product leader — setting strategy, building your PM team, aligning stakeholders, and driving execution. I\'ve done this across 18 years in enterprise B2B SaaS, most recently as Director of Product at Planview. I embed with your team for 3–6 months and leave you with the systems, processes, and people to run without me.',
+    description: 'Your product team needs senior leadership but you\'re not ready for a full-time VP of Product. I step in as a fractional product leader — setting strategy, building your PM team, aligning stakeholders, and driving execution. I\'ve done this across 18 years in enterprise B2B SaaS, most recently as Director of Product at Planview managing a $170M ARR product line. I typically embed 2–3 days per week, attending your standups, leading planning sessions, and mentoring your PMs — then step back once the team has the muscle memory to run independently.',
     primary: true,
     details: [
       'Product strategy & vision definition',
