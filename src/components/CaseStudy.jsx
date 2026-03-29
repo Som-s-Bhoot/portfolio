@@ -58,10 +58,10 @@ const featuredWorks = [
       'Daily automated briefings — every morning, a summary of all agent activity',
     ],
     features: [
-      { icon: '🤖', label: 'Memory & Context', desc: 'Agents maintain memory across sessions with specialized skills and defined handoff protocols.' },
-      { icon: '🔄', label: 'Autonomous Handoffs', desc: 'When the researcher finishes analysis, the marketeer picks it up. When dev ships, the reviewer audits. No human in the loop for routine operations.' },
-      { icon: '📊', label: 'Real Outputs', desc: 'Competitive intel, LinkedIn content, sprint delivery, daily briefs — all running in production, not a proof of concept.' },
-      { icon: '🏗️', label: 'Production Infrastructure', desc: 'Built on OpenClaw with Slack integration, persistent memory, structured orchestration, and full audit trails.' },
+      { iconSrc: '/icons/memory-context.png', label: 'Memory & Context', desc: 'Agents maintain memory across sessions with specialized skills and defined handoff protocols.' },
+      { iconSrc: '/icons/autonomous-handoffs.png', label: 'Autonomous Handoffs', desc: 'When the researcher finishes analysis, the marketeer picks it up. When dev ships, the reviewer audits. No human in the loop for routine operations.' },
+      { iconSrc: '/icons/real-outputs.png', label: 'Real Outputs', desc: 'Competitive intel, LinkedIn content, sprint delivery, daily briefs — all running in production, not a proof of concept.' },
+      { iconSrc: '/icons/production-infrastructure.png', label: 'Production Infrastructure', desc: 'Built on OpenClaw with Slack integration, persistent memory, structured orchestration, and full audit trails.' },
     ],
     tags: ['Multi-Agent Systems', 'Orchestration', 'Production AI', 'OpenClaw'],
   },
@@ -639,7 +639,11 @@ function MyAITeamContent({ work }) {
           <div className="space-y-5">
             {work.features.map((f) => (
               <div key={f.label} className="flex gap-4">
-                <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+                {f.iconSrc ? (
+                  <img src={f.iconSrc} alt={f.label} className="w-10 h-10 rounded-full object-cover shrink-0 mt-0.5" />
+                ) : (
+                  <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+                )}
                 <div>
                   <p className="text-white text-sm font-medium">{f.label}</p>
                   <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
