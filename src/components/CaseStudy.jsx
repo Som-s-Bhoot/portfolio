@@ -579,10 +579,17 @@ function CognXContent({ work }) {
    MY AI TEAM CONTENT
 ═══════════════════════════════════════════════════════════════ */
 function MyAITeamContent({ work }) {
-  const agentEmojis = {
-    'Chief of Staff': '👻', 'Engineer': '💻', 'Architect': '🏛️',
-    'Researcher': '🔬', 'Marketeer': '📢', 'Designer': '🎨',
-    'Project Manager': '📋', 'QA/Tester': '🧪', 'Reviewer': '🔍', 'Trader': '📈',
+  const agentImages = {
+    'Bhoot': '/images/agent-bhoot.png',
+    'Dev': '/images/agent-dev.png',
+    'Ari': '/images/agent-ari.png',
+    'Ricky': '/images/agent-ricky.png',
+    'Mark': '/images/agent-mark.png',
+    'Dean': '/images/agent-dean.png',
+    'Pam': '/images/agent-pam.png',
+    'Quasi': '/images/agent-quasi.png',
+    'Ravi': '/images/agent-ravi.png',
+    'Tom': '/images/agent-tom.png',
   }
 
   return (
@@ -609,7 +616,11 @@ function MyAITeamContent({ work }) {
               key={agent.name}
               className="rounded-xl border border-white/10 bg-white/[0.03] p-4 hover:border-[#6366f1]/30 transition-colors duration-300"
             >
-              <span className="text-2xl mb-2 block">{agentEmojis[agent.role] || '🤖'}</span>
+              <img
+                src={agentImages[agent.name] || '/images/agent-dev.png'}
+                alt={`${agent.name} — ${agent.role}`}
+                className="w-12 h-12 rounded-lg mb-2 object-cover"
+              />
               <p className="text-white text-sm font-semibold">{agent.name}</p>
               <p className="text-[#6366f1]/70 text-[10px] tracking-wider uppercase mb-2">{agent.role}</p>
               <p className="text-gray-500 text-xs leading-relaxed">{agent.desc}</p>
