@@ -62,7 +62,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="problem" ref={sectionRef} className="py-16 md:py-24 bg-[#111827] relative">
+    <section id="problem" ref={sectionRef} className="py-16 md:py-24 bg-[#0a0a0f] relative">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Header */}
         <div ref={titleRef} className="mb-14 md:mb-20">

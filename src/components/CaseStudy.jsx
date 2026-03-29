@@ -661,6 +661,7 @@ function MyAITeamContent({ work }) {
                   src={featureImages[f.icon] || '/images/feature-memory.png'}
                   alt={f.label}
                   className="w-10 h-10 rounded-lg mt-0.5 shrink-0 object-cover"
+                  style={{ filter: 'drop-shadow(0 0 8px rgba(249, 115, 22, 0.3))' }}
                 />
                 <div>
                   <p className="text-white text-sm font-semibold">{f.label}</p>

@@ -44,7 +44,7 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" ref={sectionRef} className="py-16 md:py-20 bg-[#111827] relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative overflow-hidden">
       <div className="relative w-full px-6 md:px-10 text-center max-w-6xl mx-auto">
         <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-6">Get in Touch</p>
 
