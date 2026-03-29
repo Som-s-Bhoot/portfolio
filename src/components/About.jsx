@@ -111,7 +111,7 @@ export default function About() {
         <div ref={metricsRef}
           className="mt-14 md:mt-18 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 md:ml-[15%] lg:ml-[20%] max-w-4xl">
           {metrics.map((m) => (
-            <div key={m.label} className="metric-item glass-card p-6">
+            <div key={m.label} className="metric-item glass-card p-6 flex flex-col items-start justify-center">
               <p className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-none">{m.value}</p>
               {m.unit && <p className="text-gray-500 text-xs tracking-[0.2em] uppercase mt-2">{m.unit}</p>}
               <p className="text-gray-400 text-sm mt-1">{m.label}</p>
