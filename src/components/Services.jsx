@@ -40,13 +40,45 @@ const phases = [
   },
 ]
 
+const secondaryServices = [
+  {
+    number: '03',
+    title: 'App Development (Human + AI)',
+    description: 'End-to-end product development that leverages AI at every stage — from intelligent features to AI-assisted building. Modern stacks, rapid iteration, production-quality output.',
+    details: [
+      'Full-stack web app development',
+      'AI/LLM feature integration',
+      'React + Supabase + Tailwind',
+      'Rapid prototyping & MVP builds',
+      'API design & architecture',
+      'Deployment & CI/CD setup',
+    ],
+    tags: ['React', 'AI Integration', 'Full-Stack', 'Rapid Prototyping'],
+  },
+  {
+    number: '04',
+    title: 'UX Audits & Design Strategy',
+    description: 'Deep-dive UX evaluations grounded in 9 years of design practice and a CMU HCI foundation. I identify friction, uncover opportunities, and deliver actionable recommendations that move metrics.',
+    details: [
+      'Heuristic evaluation & expert review',
+      'User research & usability testing',
+      'Information architecture review',
+      'Design system audit & strategy',
+      'Accessibility compliance (WCAG)',
+      'Competitive UX analysis',
+    ],
+    tags: ['Heuristic Analysis', 'User Research', 'Design Systems', 'Accessibility'],
+  },
+]
+
 export default function Services() {
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
-  const fplRef = useRef(null)
-  const aiRef = useRef(null)
+  const cardsRef = useRef(null)
   const connectorRef = useRef(null)
+  const accordionRef = useRef([])
   const [expandedPhase, setExpandedPhase] = useState(-1)
+  const [activeAccordion, setActiveAccordion] = useState(-1)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -55,11 +87,26 @@ export default function Services() {
         scrollTrigger: { trigger: titleRef.current, start: 'top 85%', toggleActions: 'play none none reverse' },
       })
 
-      ;[fplRef, aiRef, connectorRef].forEach((ref) => {
-        if (!ref.current) return
-        gsap.from(ref.current, {
-          y: 50, opacity: 0, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: ref.current, start: 'top 90%', toggleActions: 'play none none reverse' },
+      if (cardsRef.current) {
+        gsap.from(cardsRef.current.children, {
+          y: 50, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.15,
+          scrollTrigger: { trigger: cardsRef.current, start: 'top 90%', toggleActions: 'play none none reverse' },
+        })
+      }
+
+      if (connectorRef.current) {
+        gsap.from(connectorRef.current, {
+          y: 30, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: connectorRef.current, start: 'top 90%', toggleActions: 'play none none reverse' },
+        })
+      }
+
+      accordionRef.current.forEach((item, i) => {
+        if (!item) return
+        gsap.from(item, {
+          x: -60, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none reverse' },
+          delay: i * 0.1,
         })
       })
     }, sectionRef)
@@ -78,152 +125,179 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto space-y-8">
-          {/* ═══ Service 01: Fractional Product Leadership ═══ */}
-          <div
-            ref={fplRef}
-            className="rounded-2xl border border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/[0.08] to-transparent p-8 md:p-12"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-gray-600 text-sm font-mono">01</span>
-              <span className="text-[10px] px-3 py-1 rounded-full border border-[#6366f1]/30 text-[#6366f1]/70 tracking-[0.2em] uppercase">
+        <div className="max-w-5xl mx-auto">
+          {/* ═══ Co-Primary Services — Side by Side ═══ */}
+          <div ref={cardsRef} className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* Service 01: Fractional Product Leadership */}
+            <div className="relative rounded-2xl border border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/[0.08] to-transparent p-8 md:p-10 overflow-hidden">
+              <span className="absolute top-6 right-6 text-7xl font-light text-white/[0.04] select-none">01</span>
+              <p className="text-[#6366f1]/70 text-[10px] tracking-[0.2em] uppercase font-semibold mb-3">
                 For teams that need senior leadership without the full-time hire
-              </span>
-            </div>
-            <h3 className="font-bold text-3xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6">
-              Fractional Product Leadership
-            </h3>
-            <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-3xl mb-8">
-              Your product team needs a strategic leader — someone who's run a $170M ARR product line, built PM teams from scratch, and shipped across enterprise B2B SaaS for 18 years. I step in 2–3 days per week: setting strategy, running planning, mentoring PMs, aligning stakeholders. Then I step back once your team has the muscle memory.
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8 max-w-3xl">
-              {[
-                'Product strategy & vision definition',
-                'Roadmap planning & prioritization',
-                'Stakeholder alignment & communication',
-                'Team building & PM mentorship',
-                'OKR/KPI framework setup',
-                'Go-to-market strategy',
-              ].map((detail) => (
-                <div key={detail} className="flex items-center gap-3 text-sm text-gray-300">
-                  <span className="text-[#6366f1] text-[8px]">●</span>
-                  {detail}
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {['Strategy', 'Roadmapping', 'Team Building', 'Stakeholder Alignment'].map((tag) => (
-                <span key={tag} className="text-xs px-4 py-1.5 rounded-full border border-[#6366f1]/30 text-[#6366f1]/80">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* ═══ Service 02: AI Strategy & Consulting ═══ */}
-          <div
-            ref={aiRef}
-            className="rounded-2xl border border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/[0.08] to-transparent p-8 md:p-12"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-gray-600 text-sm font-mono">02</span>
-              <span className="text-[10px] px-3 py-1 rounded-full border border-[#6366f1]/30 text-[#6366f1]/70 tracking-[0.2em] uppercase">
-                For organizations ready to move from chatbots to autonomous AI teams
-              </span>
-            </div>
-            <h3 className="font-bold text-3xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6">
-              AI Strategy &amp; Consulting
-            </h3>
-            <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-3xl mb-8">
-              Most companies plateau at Stage 1 — a chatbot bolted onto existing workflows. The real value is in Stage 3: specialized AI agents with memory, defined roles, structured handoffs, and accountability. I design, build, and operationalize these systems. Not demos — production workflows your team uses from day one.
-            </p>
-
-            {/* Phased Engagement */}
-            <div className="space-y-3 mb-8">
-              {phases.map((phase, i) => (
-                <div
-                  key={phase.title}
-                  className="rounded-xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors duration-300 hover:border-[#6366f1]/20"
-                >
-                  <button
-                    onClick={() => setExpandedPhase(expandedPhase === i ? -1 : i)}
-                    className="w-full flex items-center justify-between p-5 text-left group"
-                    data-cursor-hover
-                  >
-                    <div>
-                      <p className="text-white text-sm md:text-base font-semibold group-hover:text-[#6366f1] transition-colors">
-                        {phase.title}
-                      </p>
-                      <p className="text-gray-500 text-sm mt-1">{phase.description}</p>
-                    </div>
-                    <span className={`text-gray-500 text-xl shrink-0 ml-4 transition-transform duration-300 ${expandedPhase === i ? 'rotate-45' : ''}`}>+</span>
-                  </button>
-
-                  <div
-                    className="overflow-hidden transition-all duration-500 ease-in-out"
-                    style={{
-                      maxHeight: expandedPhase === i ? '500px' : '0',
-                      opacity: expandedPhase === i ? 1 : 0,
-                    }}
-                  >
-                    <div className="px-5 pb-5 pt-0">
-                      <div className="space-y-2 mb-4">
-                        {phase.details.map((detail) => (
-                          <div key={detail} className="flex items-start gap-2 text-sm text-gray-400">
-                            <span className="text-[#6366f1] text-[8px] mt-1.5 shrink-0">→</span>
-                            {detail}
-                          </div>
-                        ))}
-                      </div>
-                      <p className="text-xs text-gray-500 italic border-t border-white/5 pt-3">
-                        Deliverable: {phase.deliverable}
-                      </p>
-                    </div>
+              </p>
+              <h3 className="font-bold text-2xl md:text-3xl text-white tracking-tight mb-4">
+                Fractional Product Leadership
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-[1.75] mb-6">
+                Your product team needs a strategic leader — someone who's run a $170M ARR product line, built PM teams from scratch, and shipped across enterprise B2B SaaS for 18 years. I step in 2–3 days per week: setting strategy, running planning, mentoring PMs, aligning stakeholders. Then I step back once your team has the muscle memory.
+              </p>
+              
+              <div className="space-y-2 mb-6">
+                {[
+                  'Product strategy & vision definition',
+                  'Roadmap planning & prioritization',
+                  'Stakeholder alignment & communication',
+                  'Team building & PM mentorship',
+                  'OKR/KPI framework setup',
+                  'Go-to-market strategy',
+                ].map((detail) => (
+                  <div key={detail} className="flex items-center gap-2 text-sm text-gray-400">
+                    <span className="text-[#6366f1] text-[8px]">●</span>
+                    {detail}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
 
-              {/* Advisory Retainer */}
-              <div className="rounded-xl border border-white/5 bg-white/[0.01] p-5">
-                <div className="flex items-center gap-3">
-                  <p className="text-gray-400 text-sm font-medium">Ongoing: Advisory Retainer</p>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full border border-white/10 text-gray-600 tracking-wider uppercase">Optional</span>
-                </div>
-                <p className="text-gray-500 text-sm mt-2">
-                  Monthly optimization reviews, model upgrades, new workflow development, and priority support.
-                </p>
+              <div className="flex flex-wrap gap-2">
+                {['Strategy', 'Roadmapping', 'Team Building', 'Stakeholder Alignment'].map((tag) => (
+                  <span key={tag} className="text-xs px-3 py-1 rounded-full border border-[#6366f1]/20 text-[#6366f1]/70">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
 
-            <p className="text-gray-500 text-sm italic mb-8">
-              No lock-in. You own the system. Every phase includes documentation and handoff materials.
-            </p>
+            {/* Service 02: AI Strategy & Consulting */}
+            <div className="relative rounded-2xl border border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/[0.08] to-transparent p-8 md:p-10 overflow-hidden">
+              <span className="absolute top-6 right-6 text-7xl font-light text-white/[0.04] select-none">02</span>
+              <p className="text-[#6366f1]/70 text-[10px] tracking-[0.2em] uppercase font-semibold mb-3">
+                For organizations ready to move from chatbots to autonomous AI teams
+              </p>
+              <h3 className="font-bold text-2xl md:text-3xl text-white tracking-tight mb-4">
+                AI Strategy &amp; Consulting
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-[1.75] mb-6">
+                Most companies plateau at Stage 1 — a chatbot bolted onto existing workflows. The real value is in Stage 3: specialized AI agents with memory, defined roles, structured handoffs, and accountability. I design, build, and operationalize these systems. Not demos — production workflows your team uses from day one.
+              </p>
 
-            <div className="flex flex-wrap gap-2">
-              {['AI Architecture', 'Agent Design', 'LLM Integration', 'Systems Thinking'].map((tag) => (
-                <span key={tag} className="text-xs px-4 py-1.5 rounded-full border border-[#6366f1]/30 text-[#6366f1]/80">
-                  {tag}
-                </span>
-              ))}
+              {/* Phased Engagement */}
+              <div className="space-y-0 mb-4">
+                {phases.map((phase, i) => (
+                  <div key={phase.title} className="border-b border-white/5 last:border-0">
+                    <button
+                      onClick={() => setExpandedPhase(expandedPhase === i ? -1 : i)}
+                      className="w-full flex items-center justify-between py-3 text-left group"
+                      data-cursor-hover
+                    >
+                      <p className="text-white text-sm font-semibold group-hover:text-[#6366f1] transition-colors">
+                        {phase.title}
+                      </p>
+                      <span className={`text-gray-600 text-lg shrink-0 ml-3 transition-transform duration-300 ${expandedPhase === i ? 'rotate-45' : ''}`}>+</span>
+                    </button>
+
+                    <div
+                      className="overflow-hidden transition-all duration-500 ease-in-out"
+                      style={{
+                        maxHeight: expandedPhase === i ? '400px' : '0',
+                        opacity: expandedPhase === i ? 1 : 0,
+                      }}
+                    >
+                      <div className="pb-3">
+                        <p className="text-gray-500 text-xs mb-2">{phase.description}</p>
+                        <div className="space-y-1 mb-2">
+                          {phase.details.map((d) => (
+                            <div key={d} className="flex items-start gap-2 text-xs text-gray-400">
+                              <span className="text-[#6366f1] mt-0.5 shrink-0">→</span>
+                              {d}
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-[10px] text-[#6366f1]/60 italic">
+                          Deliverable: {phase.deliverable}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Advisory Retainer */}
+              <div className="flex items-center gap-2 mb-4">
+                <p className="text-gray-500 text-xs">Ongoing: Advisory Retainer</p>
+                <span className="text-[9px] px-2 py-0.5 rounded-full border border-white/10 text-gray-600 tracking-wider uppercase">Optional</span>
+              </div>
+
+              <p className="text-gray-600 text-xs italic mb-6">
+                No lock-in. You own the system. Every phase includes documentation and handoff materials.
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {['AI Architecture', 'Agent Design', 'LLM Integration', 'Systems Thinking'].map((tag) => (
+                  <span key={tag} className="text-xs px-3 py-1 rounded-full border border-[#6366f1]/20 text-[#6366f1]/70">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* ═══ Connector Block ═══ */}
-          <div
-            ref={connectorRef}
-            className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 md:p-12 text-center"
-          >
+          <div ref={connectorRef} className="py-12 mb-8 text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="h-px flex-1 max-w-20 bg-gradient-to-r from-transparent to-[#6366f1]/40" />
-              <span className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold">↔ Better Together</span>
+              <h3 className="text-2xl font-semibold text-white">Better together.</h3>
               <div className="h-px flex-1 max-w-20 bg-gradient-to-l from-transparent to-[#6366f1]/40" />
             </div>
-            <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-2xl mx-auto">
+            <p className="text-gray-300 text-base leading-[1.75] max-w-2xl mx-auto">
               Product teams that understand AI ship faster. AI systems designed with product thinking actually work. Most organizations need both — a human team running with clarity, and an AI team running with autonomy. I bring the rare combination of 18 years building products and hands-on experience architecting autonomous AI systems in production.
             </p>
           </div>
+
+          {/* ═══ Secondary Services — Accordions ═══ */}
+          <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">Specialist Engagements</p>
+          {secondaryServices.map((service, i) => (
+            <div
+              key={service.number}
+              ref={(el) => (accordionRef.current[i] = el)}
+              className={`service-item ${activeAccordion === i ? 'active' : ''}`}
+            >
+              <button
+                onClick={() => setActiveAccordion(activeAccordion === i ? -1 : i)}
+                className="w-full flex items-center gap-6 md:gap-10 py-8 md:py-10 text-left group"
+                data-cursor-hover
+              >
+                <span className="text-gray-600 text-sm font-mono shrink-0 w-8">{service.number}</span>
+                <h3 className="font-bold text-2xl md:text-4xl lg:text-5xl text-white group-hover:text-[#6366f1] transition-colors duration-300 flex-1 tracking-tight">
+                  {service.title}
+                </h3>
+                <span className={`text-gray-500 text-2xl shrink-0 transition-transform duration-500 ${activeAccordion === i ? 'rotate-45' : ''}`}>+</span>
+              </button>
+
+              <div className="service-content">
+                <div className="pb-8 md:pb-10 pl-14 md:pl-[4.5rem] pr-8">
+                  <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-6">
+                    {service.description}
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 mb-6 max-w-2xl">
+                    {service.details.map((detail) => (
+                      <div key={detail} className="flex items-center gap-2 text-sm text-gray-400">
+                        <span className="text-[#6366f1] text-[8px]">●</span>
+                        {detail}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span key={tag} className="text-xs px-4 py-1.5 rounded-full border border-[#1f2937] text-gray-500">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

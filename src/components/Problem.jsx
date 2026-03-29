@@ -99,7 +99,11 @@ export default function Problem() {
             <div
               key={stage.number}
               ref={(el) => (stagesRef.current[i] = el)}
-              className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-8 hover:border-[#6366f1]/30 transition-colors duration-300"
+              className={`relative rounded-2xl p-8 transition-colors duration-300 ${
+                i === 2
+                  ? 'border border-[#6366f1]/30 bg-[#6366f1]/[0.05] shadow-[0_0_30px_rgba(99,102,241,0.08)] hover:border-[#6366f1]/50'
+                  : 'border border-white/10 bg-white/[0.02] hover:border-[#6366f1]/30'
+              }`}
             >
               {/* Stage number */}
               <div className="flex items-center gap-3 mb-4">
@@ -136,14 +140,16 @@ export default function Problem() {
           ))}
         </div>
 
-        {/* Gap Callout */}
-        <div ref={gapRef} className="max-w-3xl mx-auto text-center">
-          <p className="text-gray-300 text-base md:text-lg leading-[1.75]">
-            The jump from Stage 2 to Stage 3 is where most organizations fail. Not because the technology isn't ready — it is. But because it requires{' '}
-            <span className="text-white font-medium">systems thinking</span>,{' '}
-            <span className="text-white font-medium">organizational design</span>, and{' '}
-            <span className="text-white font-medium">hard-won operational knowledge</span>.
-          </p>
+        {/* Gap Callout — blockquote style */}
+        <div ref={gapRef} className="max-w-2xl mx-auto">
+          <div className="border-l-[3px] border-[#6366f1] pl-6">
+            <p className="text-gray-300 text-base md:text-lg leading-[1.75] italic">
+              The jump from Stage 2 to Stage 3 is where most organizations fail. Not because the technology isn't ready — it is. But because it requires{' '}
+              <span className="text-white font-medium not-italic">systems thinking</span>,{' '}
+              <span className="text-white font-medium not-italic">organizational design</span>, and{' '}
+              <span className="text-white font-medium not-italic">hard-won operational knowledge</span>.
+            </p>
+          </div>
         </div>
       </div>
     </section>
