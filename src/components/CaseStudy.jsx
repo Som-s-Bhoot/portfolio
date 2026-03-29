@@ -592,6 +592,13 @@ function MyAITeamContent({ work }) {
     'Tom': '/images/agent-tom.png',
   }
 
+  const featureImages = {
+    '🤖': '/images/feature-memory.png',
+    '🔄': '/images/feature-handoffs.png',
+    '📊': '/images/feature-outputs.png',
+    '🏗️': '/images/feature-infrastructure.png',
+  }
+
   return (
     <div className="space-y-12">
       {/* Header */}
@@ -650,7 +657,11 @@ function MyAITeamContent({ work }) {
           <div className="space-y-5">
             {work.features.map((f) => (
               <div key={f.label} className="flex gap-4">
-                <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+                <img
+                  src={featureImages[f.icon] || '/images/feature-memory.png'}
+                  alt={f.label}
+                  className="w-8 h-8 rounded mt-0.5 shrink-0 object-cover"
+                />
                 <div>
                   <p className="text-white text-sm font-medium">{f.label}</p>
                   <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
