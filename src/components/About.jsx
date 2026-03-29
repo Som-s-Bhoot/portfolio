@@ -8,11 +8,11 @@ const metrics = [
   { value: '18', unit: 'years', label: 'building products' },
   { value: '9', unit: 'yrs', label: 'UX Design' },
   { value: '9', unit: 'yrs', label: 'Product Management' },
-  { value: 'CMU', unit: '', label: 'HCI · MS 2014' },
+  { value: 'CMU', unit: 'HCI', label: 'MS 2014' },
 ]
 
 const timeline = [
-  { year: '2025–Now', role: 'Fractional Product Leader', desc: 'Stepped away from full-time to go deeper into AI. Now helping B2B SaaS companies as a fractional product leader — combining 18 years of product, UX, and AI expertise.' },
+  { year: '2025–Now', role: 'Fractional Product Leader · AI Systems Architect', desc: 'Stepped away from full-time to go deeper into AI. Now helping B2B SaaS companies as a fractional product leader and building autonomous AI systems — combining 18 years of product, UX, and AI expertise.' },
   { year: '2016–2025', role: 'Product Manager → Director', desc: 'Strategic/Agile Portfolio Management, Work Management. Roadmaps, GTM, retention/growth, new market entry. Led AI-based product initiatives.' },
   { year: '2013–2014', role: 'Carnegie Mellon University', desc: 'MS in Human-Computer Interaction. Pittsburgh, PA.' },
   { year: '2007–2016', role: 'UX Designer → Lead', desc: 'Enterprise design systems, interaction design, information architecture. Built and led design teams across complex B2B products.' },

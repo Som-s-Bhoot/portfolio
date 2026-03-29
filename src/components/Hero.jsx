@@ -174,6 +174,8 @@ export default function Hero() {
           <span>·</span>
           <span>Ex-Director, Planview</span>
           <span>·</span>
+          <span>AI Systems Architect</span>
+          <span>·</span>
           <span>B2B SaaS</span>
           <span>·</span>
           <span>Bangalore</span>
