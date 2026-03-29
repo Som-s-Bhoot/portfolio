@@ -120,7 +120,7 @@ export default function Services() {
         <div ref={titleRef} className="mb-10 md:mb-14">
           <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">What I Do</p>
           <h2 className="display-medium text-gray-100">Two ways I work with organizations.</h2>
-          <p className="text-gray-400 text-lg md:text-xl mt-6 max-w-2xl leading-[1.75]">
+          <p className="text-gray-300 text-lg md:text-xl mt-6 max-w-2xl leading-[1.75]">
             Product leadership and AI systems architecture. Often together — always grounded in systems thinking.
           </p>
         </div>
@@ -137,7 +137,7 @@ export default function Services() {
               <h3 className="font-bold text-2xl md:text-3xl text-white tracking-tight mb-4">
                 Fractional Product Leadership
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-[1.75] mb-6">
+              <p className="text-gray-200 text-sm md:text-base leading-[1.75] mb-6">
                 Your product team needs a strategic leader — someone who's run a $170M ARR product line, built PM teams from scratch, and shipped across enterprise B2B SaaS for 18 years. I step in 2–3 days per week: setting strategy, running planning, mentoring PMs, aligning stakeholders. Then I step back once your team has the muscle memory.
               </p>
               
@@ -150,7 +150,7 @@ export default function Services() {
                   'OKR/KPI framework setup',
                   'Go-to-market strategy',
                 ].map((detail) => (
-                  <div key={detail} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={detail} className="flex items-center gap-2 text-sm text-gray-300">
                     <span className="text-[#6366f1] text-[8px]">●</span>
                     {detail}
                   </div>
@@ -159,7 +159,7 @@ export default function Services() {
 
               <div className="flex flex-wrap gap-2">
                 {['Strategy', 'Roadmapping', 'Team Building', 'Stakeholder Alignment'].map((tag) => (
-                  <span key={tag} className="text-xs px-3 py-1 rounded-full border border-[#6366f1]/20 text-[#6366f1]/70">
+                  <span key={tag} className="text-xs px-3 py-1 rounded-full border border-[#6366f1]/30 text-[#818cf8]">
                     {tag}
                   </span>
                 ))}
@@ -175,7 +175,7 @@ export default function Services() {
               <h3 className="font-bold text-2xl md:text-3xl text-white tracking-tight mb-4">
                 AI Strategy &amp; Consulting
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-[1.75] mb-6">
+              <p className="text-gray-200 text-sm md:text-base leading-[1.75] mb-6">
                 Most companies plateau at Stage 1 — a chatbot bolted onto existing workflows. The real value is in Stage 3: specialized AI agents with memory, defined roles, structured handoffs, and accountability. I design, build, and operationalize these systems. Not demos — production workflows your team uses from day one.
               </p>
 
@@ -232,7 +232,7 @@ export default function Services() {
 
               <div className="flex flex-wrap gap-2">
                 {['AI Architecture', 'Agent Design', 'LLM Integration', 'Systems Thinking'].map((tag) => (
-                  <span key={tag} className="text-xs px-3 py-1 rounded-full border border-[#6366f1]/20 text-[#6366f1]/70">
+                  <span key={tag} className="text-xs px-3 py-1 rounded-full border border-[#6366f1]/30 text-[#818cf8]">
                     {tag}
                   </span>
                 ))}
@@ -247,7 +247,7 @@ export default function Services() {
               <h3 className="text-2xl font-semibold text-white">Better together.</h3>
               <div className="h-px flex-1 max-w-20 bg-gradient-to-l from-transparent to-[#6366f1]/40" />
             </div>
-            <p className="text-gray-300 text-base leading-[1.75] max-w-2xl mx-auto">
+            <p className="text-gray-200 text-base leading-[1.75] max-w-2xl mx-auto">
               Product teams that understand AI ship faster. AI systems designed with product thinking actually work. Most organizations need both — a human team running with clarity, and an AI team running with autonomy. I bring the rare combination of 18 years building products and hands-on experience architecting autonomous AI systems in production.
             </p>
           </div>
@@ -274,13 +274,13 @@ export default function Services() {
 
               <div className="service-content">
                 <div className="pb-8 md:pb-10 pl-14 md:pl-[4.5rem] pr-8">
-                  <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-6">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl mb-6">
                     {service.description}
                   </p>
                   
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 mb-6 max-w-2xl">
                     {service.details.map((detail) => (
-                      <div key={detail} className="flex items-center gap-2 text-sm text-gray-400">
+                      <div key={detail} className="flex items-center gap-2 text-sm text-gray-300">
                         <span className="text-[#6366f1] text-[8px]">●</span>
                         {detail}
                       </div>
@@ -289,7 +289,7 @@ export default function Services() {
 
                   <div className="flex flex-wrap gap-2">
                     {service.tags.map((tag) => (
-                      <span key={tag} className="text-xs px-4 py-1.5 rounded-full border border-[#1f2937] text-gray-500">
+                      <span key={tag} className="text-xs px-4 py-1.5 rounded-full border border-[#374151] text-gray-400">
                         {tag}
                       </span>
                     ))}

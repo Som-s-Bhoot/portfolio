@@ -62,7 +62,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="problem" ref={sectionRef} className="py-16 md:py-24 bg-[#0a0a0f] relative">
+    <section id="problem" ref={sectionRef} className="py-16 md:py-24 bg-[#111827] relative">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         {/* Header */}
         <div ref={titleRef} className="mb-14 md:mb-20">
@@ -71,13 +71,13 @@ export default function Problem() {
             You've built a chatbot.{' '}
             <span className="text-gray-500">Not a system.</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-2xl">
+          <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-2xl">
             Your team is experimenting with AI. Someone set up a ChatGPT workspace. Maybe a few Zapier automations. A Slack bot that answers questions.
           </p>
-          <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-2xl mt-4">
+          <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-2xl mt-4">
             You're not behind — you're exactly where 90% of organizations are. But there's a ceiling.
           </p>
-          <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-2xl mt-4">
+          <p className="text-gray-200 text-base md:text-lg leading-[1.75] max-w-2xl mt-4">
             A chatbot answers questions when prompted. An agentic system runs your operations — research, content, development, analysis — end to end, with minimal human intervention.
           </p>
         </div>
@@ -86,7 +86,7 @@ export default function Problem() {
         <div className="mb-16 md:mb-20 text-center">
           <div className="inline-block rounded-2xl border border-[#6366f1]/20 bg-[#6366f1]/[0.05] px-10 py-8 md:px-16 md:py-10">
             <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">89%</p>
-            <p className="text-gray-400 text-sm md:text-base max-w-md leading-relaxed">
+            <p className="text-gray-300 text-sm md:text-base max-w-md leading-relaxed">
               of organizations with agentic AI are stuck in pilots &amp; POCs
             </p>
             <p className="text-gray-600 text-xs mt-3 tracking-wider uppercase">— Deloitte 2025</p>
@@ -127,7 +127,7 @@ export default function Problem() {
               >
                 {stage.label}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{stage.description}</p>
+              <p className="text-gray-300 text-sm leading-relaxed">{stage.description}</p>
 
               {/* Active indicator for Stage 3 */}
               {i === 2 && (

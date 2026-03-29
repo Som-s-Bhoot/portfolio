@@ -44,7 +44,7 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-16 md:py-20 bg-[#111827] relative overflow-hidden">
       <div className="relative w-full px-6 md:px-10 text-center max-w-6xl mx-auto">
         <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-6">Get in Touch</p>
 
@@ -52,21 +52,21 @@ export default function Contact() {
           LET&apos;S BUILD
         </h2>
 
-        <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-10">
+        <p className="text-gray-300 text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-10">
           Whether you need a product leader to sharpen your team's execution or an AI architect to build autonomous systems that run your operations — I do both. Currently taking on 1–2 engagements.
         </p>
 
         {/* Two tracks */}
         <div ref={tracksRef} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
-          <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6 text-left hover:border-[#6366f1]/30 transition-colors duration-300">
-            <p className="text-[10px] text-gray-600 tracking-[0.2em] uppercase mb-2">Product Leadership</p>
-            <p className="text-gray-300 text-sm leading-relaxed">
+          <div className="rounded-xl border border-white/10 bg-white/[0.05] p-6 text-left hover:border-[#6366f1]/30 transition-colors duration-300">
+            <p className="text-[10px] text-gray-500 tracking-[0.2em] uppercase mb-2">Product Leadership</p>
+            <p className="text-gray-200 text-sm leading-relaxed">
               Need a fractional product leader for your B2B SaaS team?
             </p>
           </div>
-          <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6 text-left hover:border-[#6366f1]/30 transition-colors duration-300">
-            <p className="text-[10px] text-gray-600 tracking-[0.2em] uppercase mb-2">AI Consulting</p>
-            <p className="text-gray-300 text-sm leading-relaxed">
+          <div className="rounded-xl border border-white/10 bg-white/[0.05] p-6 text-left hover:border-[#6366f1]/30 transition-colors duration-300">
+            <p className="text-[10px] text-gray-500 tracking-[0.2em] uppercase mb-2">AI Consulting</p>
+            <p className="text-gray-200 text-sm leading-relaxed">
               Ready to move from chatbots to autonomous AI teams?
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function Contact() {
             Start a Conversation
           </a>
           <a href="tel:+919740612224"
-            className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/70 text-sm font-medium rounded-full hover:border-white hover:text-white transition-colors tracking-wide"
+            className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/30 text-white text-sm font-medium rounded-full hover:border-[#6366f1] hover:text-[#818cf8] transition-colors tracking-wide"
             data-cursor-hover>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
@@ -91,7 +91,7 @@ export default function Contact() {
             +91-9740612224
           </a>
           <a href="https://www.linkedin.com/in/somchakravarty/" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/70 text-sm font-medium rounded-full hover:border-white hover:text-white transition-colors tracking-wide"
+            className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/30 text-white text-sm font-medium rounded-full hover:border-[#6366f1] hover:text-[#818cf8] transition-colors tracking-wide"
             data-cursor-hover>
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />

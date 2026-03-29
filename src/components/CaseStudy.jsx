@@ -611,7 +611,7 @@ function MyAITeamContent({ work }) {
             Live — Running Daily
           </span>
         </div>
-        <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-3xl">{work.description}</p>
+        <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-3xl">{work.description}</p>
       </div>
 
       {/* Agent Grid */}
@@ -629,8 +629,8 @@ function MyAITeamContent({ work }) {
                 className="w-12 h-12 rounded-lg mb-2 object-cover"
               />
               <p className="text-white text-sm font-semibold">{agent.name}</p>
-              <p className="text-[#6366f1]/70 text-[10px] tracking-wider uppercase mb-2">{agent.role}</p>
-              <p className="text-gray-500 text-xs leading-relaxed">{agent.desc}</p>
+              <p className="text-[#818cf8] text-[10px] tracking-wider uppercase mb-2">{agent.role}</p>
+              <p className="text-gray-400 text-xs leading-relaxed">{agent.desc}</p>
             </div>
           ))}
         </div>
@@ -645,7 +645,7 @@ function MyAITeamContent({ work }) {
             {work.outputs.map((output) => (
               <div key={output} className="flex items-start gap-3">
                 <span className="text-[#6366f1] text-sm mt-0.5 shrink-0">✓</span>
-                <p className="text-gray-300 text-sm leading-relaxed">{output}</p>
+                <p className="text-gray-200 text-sm leading-relaxed">{output}</p>
               </div>
             ))}
           </div>
@@ -653,18 +653,18 @@ function MyAITeamContent({ work }) {
 
         {/* Features */}
         <div>
-          <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">How It Works</p>
+          <p className="text-gray-300 text-xs tracking-[0.25em] uppercase font-semibold mb-6">How It Works</p>
           <div className="space-y-5">
             {work.features.map((f) => (
-              <div key={f.label} className="flex gap-4">
+              <div key={f.label} className="flex gap-4 rounded-xl bg-white/[0.04] border border-white/[0.06] p-4">
                 <img
                   src={featureImages[f.icon] || '/images/feature-memory.png'}
                   alt={f.label}
-                  className="w-8 h-8 rounded mt-0.5 shrink-0 object-cover"
+                  className="w-10 h-10 rounded-lg mt-0.5 shrink-0 object-cover"
                 />
                 <div>
-                  <p className="text-white text-sm font-medium">{f.label}</p>
-                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                  <p className="text-white text-sm font-semibold">{f.label}</p>
+                  <p className="text-gray-300 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -868,7 +868,7 @@ export default function CaseStudy() {
             <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold">Featured Work</p>
             <div className="flex-1 h-px bg-gradient-to-r from-[#6366f1]/40 to-transparent" />
           </div>
-          <p className="text-gray-400 text-lg md:text-xl mb-6 max-w-2xl leading-[1.75]">
+          <p className="text-gray-300 text-lg md:text-xl mb-6 max-w-2xl leading-[1.75]">
             Selected projects and case studies — from enterprise product leadership to AI-native builds.
           </p>
           

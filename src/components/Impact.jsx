@@ -42,7 +42,7 @@ export default function Impact() {
   }, [])
 
   return (
-    <section id="impact" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative">
+    <section id="impact" ref={sectionRef} className="py-16 md:py-20 bg-[#111827] relative">
       <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
         <div ref={titleRef} className="mb-10 md:mb-14">
           <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Track Record</p>
@@ -72,7 +72,7 @@ export default function Impact() {
                   </span>
                 )}
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-300 text-sm leading-relaxed">
                 {stat.desc}
               </p>
             </div>

@@ -10,12 +10,13 @@
   --color-surface-warm: #0a0a0f;
   --color-surface-card: #111827;
   --color-ink: #ffffff;
-  --color-ink-light: #9CA3AF;
-  --color-ink-muted: #6B7280;
+  --color-ink-light: #d1d5db;
+  --color-ink-muted: #9CA3AF;
   --color-card-bg: #111827;
   --color-card-border: #1f2937;
   --color-hero-bg: #0a0a0f;
-  --color-hero-text: #e5e7eb;
+  --color-hero-text: #f3f4f6;
+  --color-surface-alt: #111827;
   --color-dark-border: #1f2937;
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
@@ -46,7 +47,7 @@ html.lenis, html.lenis body {
 
 body {
   background-color: #0a0a0f;
-  color: #e5e7eb;
+  color: #f3f4f6;
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
