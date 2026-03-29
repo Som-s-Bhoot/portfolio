@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
+import Problem from './components/Problem'
 import Services from './components/Services'
 import Impact from './components/Impact'
 import CaseStudy from './components/CaseStudy'
@@ -83,6 +84,7 @@ export default function App() {
         <Nav />
         <Hero />
         <About />
+        <Problem />
         <Services />
         <Impact />
         <CaseStudy />

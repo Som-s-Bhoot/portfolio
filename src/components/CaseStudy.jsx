@@ -30,6 +30,42 @@ function CapabilityBadges({ capabilities }) {
 ═══════════════════════════════════════════════════════════════ */
 const featuredWorks = [
   {
+    id: 'my-ai-team',
+    title: 'Mission Control: My 10-Agent AI Team',
+    type: 'My AI Team',
+    capabilities: [
+      { icon: '🧠', label: 'Strategy' },
+      { icon: '⚡', label: 'AI' },
+      { icon: '🔧', label: 'Operations' },
+    ],
+    description: 'Before I build your AI team, here\'s mine. I run a 10-agent autonomous system that handles research, marketing, content production, competitive intelligence, and daily operations — with minimal human intervention. This isn\'t a demo. It\'s been in production since early 2026.',
+    agents: [
+      { name: 'Bhoot', role: 'Chief of Staff', desc: 'Orchestrates all agents, manages handoffs, daily briefings, quality control' },
+      { name: 'Dev', role: 'Engineer', desc: 'Writes code, ships features, runs CI/CD pipelines' },
+      { name: 'Ari', role: 'Architect', desc: 'System design, technical decisions, architecture reviews' },
+      { name: 'Ricky', role: 'Researcher', desc: 'Deep research, competitive intelligence, market analysis' },
+      { name: 'Mark', role: 'Marketeer', desc: 'Content strategy, copywriting, SEO, campaign planning' },
+      { name: 'Dean', role: 'Designer', desc: 'Visual design, carousels, brand assets' },
+      { name: 'Pam', role: 'Project Manager', desc: 'Sprint planning, SLA tracking, status reporting' },
+      { name: 'Quasi', role: 'QA/Tester', desc: 'Test plans, quality assurance, regression testing' },
+      { name: 'Ravi', role: 'Reviewer', desc: 'Code review, PR analysis, quality gates' },
+      { name: 'Tom', role: 'Trader', desc: 'Portfolio monitoring, market analysis' },
+    ],
+    outputs: [
+      'Full competitive intelligence reports — 4 markets analyzed in one week',
+      '3-post/week LinkedIn content pipeline — fully orchestrated end-to-end',
+      'Sprint-based development — stories flow through design → dev → test → review → ship',
+      'Daily automated briefings — every morning, a summary of all agent activity',
+    ],
+    features: [
+      { icon: '🤖', label: 'Memory & Context', desc: 'Agents maintain memory across sessions with specialized skills and defined handoff protocols.' },
+      { icon: '🔄', label: 'Autonomous Handoffs', desc: 'When the researcher finishes analysis, the marketeer picks it up. When dev ships, the reviewer audits. No human in the loop for routine operations.' },
+      { icon: '📊', label: 'Real Outputs', desc: 'Competitive intel, LinkedIn content, sprint delivery, daily briefs — all running in production, not a proof of concept.' },
+      { icon: '🏗️', label: 'Production Infrastructure', desc: 'Built on OpenClaw with Slack integration, persistent memory, structured orchestration, and full audit trails.' },
+    ],
+    tags: ['Multi-Agent Systems', 'Orchestration', 'Production AI', 'OpenClaw'],
+  },
+  {
     id: 'cognx',
     title: 'CognX',
     type: 'CognX',
@@ -66,6 +102,7 @@ const featuredWorks = [
       { icon: '🛡️', label: 'Iron Dome Quality System', desc: '66-test E2E suite spanning auth, billing, integrations, RAG, security, and performance — plus 36 DeepEval tests for RAG quality and red-team probing.' },
       { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.' },
     ],
+    consultingConnector: 'The same architectural thinking behind CognX — agent orchestration, memory systems, structured handoffs, production-grade testing — is what I bring to client engagements. CognX proved the system works. The kill decision proved I optimize for outcomes, not sunk costs.',
     tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
   },
   {
@@ -524,7 +561,107 @@ function CognXContent({ work }) {
               </span>
             ))}
           </div>
+
+          {/* Consulting Connector */}
+          {work.consultingConnector && (
+            <div className="mt-8 p-5 rounded-xl border border-[#6366f1]/20 bg-[#6366f1]/[0.05]">
+              <p className="text-[10px] text-[#6366f1]/70 uppercase tracking-[0.2em] mb-2 font-semibold">→ What this means for you</p>
+              <p className="text-gray-300 text-sm leading-relaxed">{work.consultingConnector}</p>
+            </div>
+          )}
         </div>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MY AI TEAM CONTENT
+═══════════════════════════════════════════════════════════════ */
+function MyAITeamContent({ work }) {
+  const agentEmojis = {
+    'Chief of Staff': '👻', 'Engineer': '💻', 'Architect': '🏛️',
+    'Researcher': '🔬', 'Marketeer': '📢', 'Designer': '🎨',
+    'Project Manager': '📋', 'QA/Tester': '🧪', 'Reviewer': '🔍', 'Trader': '📈',
+  }
+
+  return (
+    <div className="space-y-12">
+      {/* Header */}
+      <div>
+        <div className="flex items-center gap-3 mb-4">
+          <CapabilityBadges capabilities={work.capabilities} />
+          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-green-500/10 text-green-400 tracking-wider uppercase border border-green-500/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            Live — Running Daily
+          </span>
+        </div>
+        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
+        <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-3xl">{work.description}</p>
+      </div>
+
+      {/* Agent Grid */}
+      <div>
+        <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">The Team</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          {work.agents.map((agent) => (
+            <div
+              key={agent.name}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-4 hover:border-[#6366f1]/30 transition-colors duration-300"
+            >
+              <span className="text-2xl mb-2 block">{agentEmojis[agent.role] || '🤖'}</span>
+              <p className="text-white text-sm font-semibold">{agent.name}</p>
+              <p className="text-[#6366f1]/70 text-[10px] tracking-wider uppercase mb-2">{agent.role}</p>
+              <p className="text-gray-500 text-xs leading-relaxed">{agent.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Real Outputs + Features side by side */}
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        {/* Outputs */}
+        <div>
+          <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">Real Outputs</p>
+          <div className="space-y-4">
+            {work.outputs.map((output) => (
+              <div key={output} className="flex items-start gap-3">
+                <span className="text-[#6366f1] text-sm mt-0.5 shrink-0">✓</span>
+                <p className="text-gray-300 text-sm leading-relaxed">{output}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Features */}
+        <div>
+          <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">How It Works</p>
+          <div className="space-y-5">
+            {work.features.map((f) => (
+              <div key={f.label} className="flex gap-4">
+                <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+                <div>
+                  <p className="text-white text-sm font-medium">{f.label}</p>
+                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Key Insight */}
+      <div className="p-6 md:p-8 rounded-2xl border border-[#6366f1]/20 bg-[#6366f1]/[0.05] text-center">
+        <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-2xl mx-auto">
+          This system doesn't just execute tasks. Agents have memory, specialized skills, defined handoff protocols, and accountability. No human in the loop for routine operations.
+        </p>
+      </div>
+
+      {/* Tags */}
+      <div className="flex flex-wrap gap-2">
+        {work.tags.map((tag) => (
+          <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
+        ))}
       </div>
     </div>
   )
@@ -683,6 +820,8 @@ export default function CaseStudy() {
 
   const renderContent = () => {
     switch (activeWork.id) {
+      case 'my-ai-team':
+        return <MyAITeamContent work={activeWork} />
       case 'mission-control':
         return <MissionControlContent work={activeWork} />
       case 'bhoot-ai':

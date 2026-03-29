@@ -9,6 +9,7 @@ export default function Contact() {
   const titleRef = useRef(null)
   const linksRef = useRef(null)
   const detailsRef = useRef(null)
+  const tracksRef = useRef(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -16,6 +17,13 @@ export default function Contact() {
         scale: 0.8, opacity: 0, duration: 1.2, ease: 'power3.out',
         scrollTrigger: { trigger: titleRef.current, start: 'top 85%', toggleActions: 'play none none reverse' },
       })
+
+      if (tracksRef.current) {
+        gsap.from(tracksRef.current.children, {
+          y: 25, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1,
+          scrollTrigger: { trigger: tracksRef.current, start: 'top 90%', toggleActions: 'play none none reverse' },
+        })
+      }
 
       if (linksRef.current) {
         gsap.from(linksRef.current.children, {
@@ -41,12 +49,28 @@ export default function Contact() {
         <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-6">Get in Touch</p>
 
         <h2 ref={titleRef} className="display-large text-gray-100 mb-6">
-          LET&apos;S TALK
+          LET&apos;S BUILD
         </h2>
 
-        <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-12">
-          Building a B2B SaaS product and need senior product leadership without the full-time hire? Let's talk. I'm currently taking on 1–2 fractional engagements.
+        <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto leading-[1.75] mb-10">
+          Whether you need a product leader to sharpen your team's execution or an AI architect to build autonomous systems that run your operations — I do both. Currently taking on 1–2 engagements.
         </p>
+
+        {/* Two tracks */}
+        <div ref={tracksRef} className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
+          <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6 text-left hover:border-[#6366f1]/30 transition-colors duration-300">
+            <p className="text-[10px] text-gray-600 tracking-[0.2em] uppercase mb-2">Product Leadership</p>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Need a fractional product leader for your B2B SaaS team?
+            </p>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-white/[0.03] p-6 text-left hover:border-[#6366f1]/30 transition-colors duration-300">
+            <p className="text-[10px] text-gray-600 tracking-[0.2em] uppercase mb-2">AI Consulting</p>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Ready to move from chatbots to autonomous AI teams?
+            </p>
+          </div>
+        </div>
 
         {/* Contact links */}
         <div ref={linksRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -56,7 +80,7 @@ export default function Contact() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
             </svg>
-            somnath686@gmail.com
+            Start a Conversation
           </a>
           <a href="https://www.linkedin.com/in/somchakravarty/" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white/70 text-sm font-medium rounded-full hover:border-white hover:text-white transition-colors tracking-wide"

@@ -5,11 +5,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const stats = [
-  { value: '7 PMs', desc: 'Built and grew the product management team in Bangalore from scratch' },
-  { value: '50%', desc: 'Increased product activation and adoption across the customer base' },
-  { value: '$170M ARR', desc: 'Managed a product line generating $170 million in annual recurring revenue' },
-  { value: 'Fortune 500', desc: 'Served Fortune 500 enterprise customers globally' },
-  { value: 'APAC Launch', desc: 'Led product launch and business development across the APAC region' },
+  { value: '7 PMs', desc: 'Built and grew the product management team in Bangalore from scratch', type: 'product' },
+  { value: '10 Agents', desc: 'Autonomous AI team running daily operations in production', type: 'ai' },
+  { value: '$170M ARR', desc: 'Managed a product line generating $170 million in annual recurring revenue', type: 'product' },
+  { value: '6 Weeks', desc: 'Zero to production AI-native SaaS product (CognX)', type: 'ai' },
+  { value: '50%', desc: 'Increased product activation and adoption across the customer base', type: 'product' },
+  { value: '4 Markets', desc: 'Competitive intelligence reports delivered in a single week', type: 'ai' },
+  { value: 'Fortune 500', desc: 'Served Fortune 500 enterprise customers globally', type: 'product' },
+  { value: '693 Tests', desc: 'Production test suite including 36 AI-specific evaluations', type: 'ai' },
+  { value: 'APAC Launch', desc: 'Led product launch and business development across the APAC region', type: 'product' },
 ]
 
 export default function Impact() {
@@ -29,7 +33,7 @@ export default function Impact() {
         gsap.from(card, {
           y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
           scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none reverse' },
-          delay: i * 0.1,
+          delay: i * 0.08,
         })
       })
     }, sectionRef)
@@ -50,11 +54,22 @@ export default function Impact() {
             <div
               key={stat.value}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 hover:border-[#6366f1]/30 transition-colors duration-300"
+              className={`rounded-2xl border p-8 hover:border-[#6366f1]/30 transition-colors duration-300 ${
+                stat.type === 'ai'
+                  ? 'border-[#6366f1]/15 bg-[#6366f1]/[0.04]'
+                  : 'border-white/10 bg-white/[0.03]'
+              }`}
             >
-              <p className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-3">
-                {stat.value}
-              </p>
+              <div className="flex items-center gap-2 mb-3">
+                <p className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  {stat.value}
+                </p>
+                {stat.type === 'ai' && (
+                  <span className="text-[8px] px-2 py-0.5 rounded-full bg-[#6366f1]/20 text-[#6366f1]/80 tracking-[0.15em] uppercase font-semibold">
+                    AI
+                  </span>
+                )}
+              </div>
               <p className="text-gray-400 text-sm leading-relaxed">
                 {stat.desc}
               </p>

@@ -117,7 +117,7 @@ export default function Hero() {
           className="text-xs tracking-[0.4em] uppercase font-semibold mb-6 md:mb-8"
         >
           <span className="bg-gradient-to-r from-teal-400 via-indigo-400 to-rose-400 bg-clip-text text-transparent">
-            Fractional Product Leader
+            AI Systems Architect · Fractional Product Leader
           </span>
         </p>
 
@@ -140,7 +140,7 @@ export default function Hero() {
           ref={contentRef}
           className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-lg mt-8 md:mt-10"
         >
-          I help B2B SaaS companies build product teams, sharpen strategy, and ship what matters. Director-level product leadership, without the full-time commitment. Carnegie Mellon HCI '14.
+          I help B2B organizations build the products that matter — and the AI teams that accelerate them. 18 years of product and UX leadership. Now building autonomous AI systems that run research, marketing, development, and operations end-to-end. Carnegie Mellon HCI '14.
         </p>
 
         {/* CTA buttons */}
@@ -173,6 +173,8 @@ export default function Hero() {
           <span>18 Yrs Building Products</span>
           <span>·</span>
           <span>Ex-Director, Planview</span>
+          <span>·</span>
+          <span>AI Systems Architect</span>
           <span>·</span>
           <span>B2B SaaS</span>
           <span>·</span>
