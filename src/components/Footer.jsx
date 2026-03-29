@@ -31,7 +31,7 @@ export default function Footer() {
                 className="block text-hero-text/20 hover:text-white transition-colors text-xs py-1 tracking-wide" data-cursor-hover>
                 LinkedIn
               </a>
-              <a href="mailto:somnath686@gmail.com"
+              <a href="mailto:som@somchakravarty.com"
                 className="block text-hero-text/20 hover:text-white transition-colors text-xs py-1 tracking-wide" data-cursor-hover>
                 Email
               </a>
