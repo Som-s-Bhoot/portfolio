@@ -5,14 +5,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const stats = [
-  { value: '7 PMs', desc: 'Built and grew the product management team in Bangalore from scratch', type: 'product' },
+  { value: 'Enterprise Product Team', desc: 'Built and grew the product management team in Bangalore from scratch', type: 'product' },
   { value: '10 Agents', desc: 'Autonomous AI team running daily operations in production', type: 'ai' },
   { value: '$170M ARR', desc: 'Managed a product line generating $170 million in annual recurring revenue', type: 'product' },
-  { value: '6 Weeks', desc: 'Zero to production AI-native SaaS product (CognX)', type: 'ai' },
-  { value: '50%', desc: 'Increased product activation and adoption across the customer base', type: 'product' },
+  { value: '0-1 Product in 6 Weeks', desc: 'Zero to production AI-native SaaS product (CognX)', type: 'ai' },
+  { value: 'Growth', desc: 'Increased product activation and adoption across the customer base', type: 'product' },
   { value: '4 Markets', desc: 'Competitive intelligence reports delivered in a single week', type: 'ai' },
   { value: 'Fortune 500', desc: 'Served Fortune 500 enterprise customers globally', type: 'product' },
-  { value: '693 Tests', desc: 'Production test suite including 36 AI-specific evaluations', type: 'ai' },
+  { value: 'QA for Agentic Systems', desc: 'Production test suite including 36 AI-specific evaluations', type: 'ai' },
   { value: 'APAC Launch', desc: 'Led product launch and business development across the APAC region', type: 'product' },
 ]
 
@@ -61,7 +61,9 @@ export default function Impact() {
               }`}
             >
               <div className="flex items-center gap-2 mb-3">
-                <p className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                <p className={`font-bold text-white tracking-tight ${
+                  stat.value.length > 12 ? 'text-xl md:text-2xl' : 'text-3xl md:text-4xl'
+                }`}>
                   {stat.value}
                 </p>
                 {stat.type === 'ai' && (

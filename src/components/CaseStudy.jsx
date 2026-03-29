@@ -589,14 +589,14 @@ function MyAITeamContent({ work }) {
     <div className="space-y-12">
       {/* Header */}
       <div>
+        <CapabilityBadges capabilities={work.capabilities} />
         <div className="flex items-center gap-3 mb-4">
-          <CapabilityBadges capabilities={work.capabilities} />
-          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-green-500/10 text-green-400 tracking-wider uppercase border border-green-500/20">
+          <h2 className="display-medium text-gray-100">{work.title}</h2>
+          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-green-500/10 text-green-400 tracking-wider uppercase border border-green-500/20 shrink-0 self-center">
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
             Live — Running Daily
           </span>
         </div>
-        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
         <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-3xl">{work.description}</p>
       </div>
 
