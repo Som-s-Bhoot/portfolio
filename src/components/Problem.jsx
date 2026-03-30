@@ -5,27 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const stages = [
-  {
-    number: '01',
-    label: 'Smart Chatbot',
-    description: 'One AI tool, used ad hoc. No memory. Every conversation starts from zero.',
-    color: '#6366f1',
-    opacity: 0.4,
-  },
-  {
-    number: '02',
-    label: 'Automated Workflows',
-    description: 'AI + Zapier/n8n. Triggers fire, actions execute. Brittle. No judgment.',
-    color: '#6366f1',
-    opacity: 0.65,
-  },
-  {
-    number: '03',
-    label: 'Autonomous AI Team',
-    description: 'Specialized agents with memory, roles, handoffs, and accountability.',
-    color: '#6366f1',
-    opacity: 1,
-  },
+  { number: '01', label: 'Smart Chatbot', description: 'One AI tool, used ad hoc. No memory. Every conversation starts from zero.' },
+  { number: '02', label: 'Automated Workflows', description: 'AI + Zapier/n8n. Triggers fire, actions execute. Brittle. No judgment.' },
+  { number: '03', label: 'Autonomous AI Team', description: 'Specialized agents with memory, roles, handoffs, and accountability.', active: true },
 ]
 
 export default function Problem() {
@@ -62,92 +44,87 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="problem" ref={sectionRef} className="py-16 md:py-24 bg-[#0a0a0f] relative">
-      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
+    <section id="problem" ref={sectionRef} className="py-[120px] bg-[#FAFAF7] relative">
+      <div className="w-full px-6 md:px-16 max-w-[1280px] mx-auto">
         {/* Header */}
         <div ref={titleRef} className="mb-14 md:mb-20">
-          <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">The Problem</p>
-          <h2 className="display-medium text-gray-100 mb-8">
+          <div className="accent-bar mb-5"></div>
+          <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-4">The Problem</p>
+          <h2 className="display-medium text-[#1A1A1A] mb-8">
             You've built a chatbot.{' '}
-            <span className="text-gray-500">Not a system.</span>
+            <span className="text-[#86868B]">Not a system.</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-2xl">
+          <p className="text-[#2D2D2D] text-[17px] font-normal leading-[1.8] max-w-2xl">
             Your team is experimenting with AI. Someone set up a ChatGPT workspace. Maybe a few Zapier automations. A Slack bot that answers questions.
           </p>
-          <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-2xl mt-4">
+          <p className="text-[#2D2D2D] text-[17px] font-normal leading-[1.8] max-w-2xl mt-4">
             You're not behind — you're exactly where 90% of organizations are. But there's a ceiling.
-          </p>
-          <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-2xl mt-4">
-            A chatbot answers questions when prompted. An agentic system runs your operations — research, content, development, analysis — end to end, with minimal human intervention.
           </p>
         </div>
 
-        {/* Stat Callout */}
-        <div className="mb-16 md:mb-20 text-center">
-          <div className="inline-block rounded-2xl border border-[#6366f1]/20 bg-[#6366f1]/[0.05] px-10 py-8 md:px-16 md:py-10">
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">89%</p>
-            <p className="text-gray-400 text-sm md:text-base max-w-md leading-relaxed">
-              of organizations with agentic AI are stuck in pilots &amp; POCs
+        {/* White card container */}
+        <div className="bg-white rounded-3xl border border-[#E8E8ED] p-10 md:p-20">
+          {/* Problem body */}
+          <div className="max-w-[620px] mb-12">
+            <p className="text-[17px] font-normal text-[#2D2D2D] leading-[1.8] mb-4">
+              A chatbot answers questions when prompted. An agentic system runs your operations — research, content, development, analysis — end to end, with minimal human intervention.
             </p>
-            <p className="text-gray-600 text-xs mt-3 tracking-wider uppercase">— Deloitte 2025</p>
+          </div>
+
+          {/* 89% stat highlight */}
+          <div className="flex items-baseline gap-5 py-9 border-t border-b border-[#E8E8ED] mb-12">
+            <span className="text-[64px] font-light text-[#D4A574] tracking-[-0.03em]">89%</span>
+            <div>
+              <p className="text-[16px] font-normal text-[#3A3A3A] leading-[1.6]">of organizations with agentic AI are stuck in pilots & POCs</p>
+              <p className="text-[12px] font-medium text-[#5A5A5A] mt-1">— Deloitte 2025</p>
+            </div>
+          </div>
+
+          {/* 3-stage cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {stages.map((stage, i) => (
+              <div
+                key={stage.number}
+                ref={(el) => (stagesRef.current[i] = el)}
+                className={`p-8 rounded-2xl transition-colors duration-300 ${
+                  stage.active
+                    ? 'bg-[#1D1D1F] text-[#FAFAF7] border border-[#1D1D1F]'
+                    : 'bg-[#FAFAF7] border border-[#E8E8ED]'
+                }`}
+              >
+                <p className={`text-[11px] font-semibold tracking-[0.14em] uppercase mb-4 ${
+                  stage.active ? 'text-white/60' : 'text-[#5A5A5A]'
+                }`}>
+                  Stage {stage.number}
+                </p>
+                <h3 className={`text-2xl font-normal mb-3 ${
+                  stage.active ? 'text-[#FAFAF7]' : 'text-[#1A1A1A]'
+                }`}>
+                  {stage.label}
+                </h3>
+                <p className={`text-[15px] font-normal leading-[1.65] ${
+                  stage.active ? 'text-white/60' : 'text-[#3A3A3A]'
+                }`}>
+                  {stage.description}
+                </p>
+                {stage.active && (
+                  <span className="inline-block mt-4 px-3.5 py-1.5 bg-[#D4A574] text-[#1D1D1F] text-[11px] font-medium tracking-[0.06em] rounded-[20px]">
+                    Where the value is
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* 3-Stage Progression */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16 md:mb-20">
-          {stages.map((stage, i) => (
-            <div
-              key={stage.number}
-              ref={(el) => (stagesRef.current[i] = el)}
-              className={`relative rounded-2xl p-8 transition-colors duration-300 ${
-                i === 2
-                  ? 'border border-[#6366f1]/30 bg-[#6366f1]/[0.05] shadow-[0_0_30px_rgba(99,102,241,0.08)] hover:border-[#6366f1]/50'
-                  : 'border border-white/10 bg-white/[0.02] hover:border-[#6366f1]/30'
-              }`}
-            >
-              {/* Stage number */}
-              <div className="flex items-center gap-3 mb-4">
-                <span
-                  className="text-xs font-mono tracking-wider"
-                  style={{ color: stage.color, opacity: stage.opacity }}
-                >
-                  STAGE {stage.number}
-                </span>
-                {i < stages.length - 1 && (
-                  <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                    <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-              <h3
-                className="text-xl md:text-2xl font-bold text-white tracking-tight mb-3"
-                style={{ opacity: stage.opacity }}
-              >
-                {stage.label}
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{stage.description}</p>
-
-              {/* Active indicator for Stage 3 */}
-              {i === 2 && (
-                <div className="mt-4 inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-[#6366f1] font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6366f1] animate-pulse" />
-                  Where the value is
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Gap Callout — blockquote style */}
-        <div ref={gapRef} className="max-w-2xl mx-auto">
-          <div className="border-l-[3px] border-[#6366f1] pl-6">
-            <p className="text-gray-300 text-base md:text-lg leading-[1.75] italic">
+        {/* Gap callout */}
+        <div ref={gapRef} className="max-w-2xl mx-auto mt-16">
+          <div className="border-l-[3px] border-[#D4A574] pl-6">
+            <p className="text-[#3A3A3A] text-base md:text-lg leading-[1.75] italic">
               The jump from Stage 2 to Stage 3 is where most organizations fail. Not because the technology isn't ready — it is. But because it requires{' '}
-              <span className="text-white font-medium not-italic">systems thinking</span>,{' '}
-              <span className="text-white font-medium not-italic">organizational design</span>, and{' '}
-              <span className="text-white font-medium not-italic">hard-won operational knowledge</span>.
+              <span className="text-[#1A1A1A] font-medium not-italic">systems thinking</span>,{' '}
+              <span className="text-[#1A1A1A] font-medium not-italic">organizational design</span>, and{' '}
+              <span className="text-[#1A1A1A] font-medium not-italic">hard-won operational knowledge</span>.
             </p>
           </div>
         </div>

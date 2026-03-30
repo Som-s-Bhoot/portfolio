@@ -1,14 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Home, User, Briefcase, FolderOpen, PenTool, Mountain, Mail } from 'lucide-react'
 
 const links = [
-  { href: '#', label: 'Home', icon: Home },
-  { href: '#about', label: 'About', icon: User },
-  { href: '#services', label: 'Services', icon: Briefcase },
-  { href: '#work', label: 'Work', icon: FolderOpen },
-  { href: '#writing', label: 'Writing', icon: PenTool },
-  { href: '#adventures', label: 'Adventures', icon: Mountain },
-  { href: '#contact', label: 'Contact', icon: Mail },
+  { href: '#', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#services', label: 'Services' },
+  { href: '#work', label: 'Work' },
+  { href: '#writing', label: 'Writing' },
+  { href: '#adventures', label: 'Adventures' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Nav() {
@@ -66,42 +65,48 @@ export default function Nav() {
 
   return (
     <>
-      {/* Desktop floating pill nav */}
-      <nav className="pill-nav hidden sm:flex" role="navigation" aria-label="Main navigation">
-        {links.map((link) => {
-          const Icon = link.icon
-          const isActive = activeSection === link.href
-          return (
+      {/* Desktop frosted glass nav */}
+      <nav className="frosted-nav hidden sm:flex" role="navigation" aria-label="Main navigation">
+        <a
+          href="#"
+          onClick={() => handleClick('#')}
+          className="font-semibold text-[15px] tracking-[0.04em] text-[#1A1A1A] uppercase"
+          data-cursor-hover
+        >
+          Som Chakravarty
+        </a>
+        <div className="flex items-center gap-9">
+          {links.filter(l => l.href !== '#').map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => handleClick(link.href)}
-              className={`pill-nav-btn ${isActive ? 'active' : ''}`}
-              aria-label={link.label}
-              title={link.label}
+              className={`text-[13px] font-medium tracking-[0.03em] transition-colors duration-200 ${
+                activeSection === link.href ? 'text-[#1A1A1A]' : 'text-[#5A5A5A] hover:text-[#1A1A1A]'
+              }`}
               data-cursor-hover
             >
-              <Icon size={18} strokeWidth={2} />
+              {link.label}
             </a>
-          )
-        })}
+          ))}
+        </div>
       </nav>
 
       {/* Mobile: hamburger toggle */}
       <div className="sm:hidden fixed top-4 right-4 z-50">
         <button
-          className="w-10 h-10 rounded-full bg-[#111827] border border-[#1f2937] shadow-lg flex flex-col justify-center items-center gap-1"
+          className="w-10 h-10 rounded-full bg-white border border-[#E8E8ED] shadow-sm flex flex-col justify-center items-center gap-1"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           data-cursor-hover
         >
           <span
-            className={`block h-[1.5px] w-4 bg-white transition-all duration-300 ${
+            className={`block h-[1.5px] w-4 bg-[#1A1A1A] transition-all duration-300 ${
               mobileOpen ? 'rotate-45 translate-y-[3px]' : ''
             }`}
           />
           <span
-            className={`block h-[1.5px] w-4 bg-white transition-all duration-300 ${
+            className={`block h-[1.5px] w-4 bg-[#1A1A1A] transition-all duration-300 ${
               mobileOpen ? '-rotate-45 -translate-y-[3px]' : ''
             }`}
           />
@@ -110,35 +115,16 @@ export default function Nav() {
 
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${mobileOpen ? 'open' : ''}`}>
-        <div className="flex flex-wrap justify-center gap-3 mb-10 w-full">
-          {links.map((link) => {
-            const Icon = link.icon
-            const isActive = activeSection === link.href
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => handleClick(link.href)}
-                className={`w-14 h-14 rounded-full flex flex-col items-center justify-center gap-1 border transition-colors duration-200 ${
-                  isActive
-                    ? 'bg-[#6366f1] text-white border-[#6366f1]'
-                    : 'bg-[#111827] text-gray-400 border-[#1f2937] hover:bg-[#1f2937]'
-                }`}
-                aria-label={link.label}
-                data-cursor-hover
-              >
-                <Icon size={20} strokeWidth={2} />
-              </a>
-            )
-          })}
-        </div>
-        <div className="flex flex-col items-center gap-2 w-full">
+        <div className="flex flex-col items-center gap-4 w-full">
           {links.map((link) => (
             <a
-              key={`label-${link.href}`}
+              key={link.href}
               href={link.href}
               onClick={() => handleClick(link.href)}
-              className="text-white text-lg font-semibold tracking-tight hover:text-[#6366f1] transition-colors"
+              className={`text-2xl font-light tracking-tight transition-colors ${
+                activeSection === link.href ? 'text-[#D4A574]' : 'text-[#1A1A1A] hover:text-[#D4A574]'
+              }`}
+              data-cursor-hover
             >
               {link.label}
             </a>

@@ -5,9 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const metrics = [
-  { value: '18', unit: 'years', label: 'building products' },
-  { value: '9', unit: 'yrs', label: 'UX Design' },
-  { value: '9', unit: 'yrs', label: 'Product Management' },
+  { value: '18', unit: 'Years', label: 'Building Products' },
+  { value: '9', unit: 'Years', label: 'UX Design' },
+  { value: '9', unit: 'Years', label: 'Product Management' },
   { value: 'CMU', unit: 'HCI', label: 'MS 2014' },
 ]
 
@@ -75,64 +75,67 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={sectionRef} className="py-12 md:py-16 bg-[#0a0a0f] relative">
-      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
+    <section id="about" ref={sectionRef} className="py-[120px] bg-[#FAFAF7] relative">
+      <div className="w-full px-6 md:px-16 max-w-[1280px] mx-auto">
         <div ref={titleRef} className="mb-10 md:mb-14">
-          <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">About</p>
-          <h2 className="display-medium text-gray-100">The arc.</h2>
+          <div className="accent-bar mb-5"></div>
+          <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-4">About</p>
+          <h2 className="display-medium text-[#1A1A1A]">The arc.</h2>
         </div>
 
-        <div className="md:ml-[15%] lg:ml-[20%] max-w-4xl space-y-8">
-          <p ref={(el) => (linesRef.current[0] = el)}
-            className="font-bold text-2xl md:text-3xl lg:text-[2.2rem] text-white leading-[1.4] tracking-tight">
-            I've spent 18 years building and shaping digital products — first as a{' '}
-            <span className="underline decoration-[#6366f1]/40 underline-offset-4">UX designer</span> obsessing over every
-            interaction, then as a <span className="underline decoration-[#6366f1]/40 underline-offset-4">product leader</span>{' '}
-            driving strategy at the director level, and now as an{' '}
-            <span className="underline decoration-[#6366f1]/40 underline-offset-4">AI builder</span> crafting the next wave of intelligent tools.
-          </p>
-
-          <p ref={(el) => (linesRef.current[1] = el)}
-            className="text-gray-400 text-lg md:text-xl leading-[1.75]">
-            This unusual career arc — from pixels to product-market fit to
-            machine learning pipelines — gives me a rare perspective. I don't just
-            understand what to build; I understand <em>how</em> it should feel,{' '}
-            <em>why</em> it matters, and <em>how to ship it</em>.
-          </p>
-
-          <p ref={(el) => (linesRef.current[2] = el)}
-            className="text-gray-400 text-lg md:text-xl leading-[1.75]">
-            I hold an MS in Human-Computer Interaction from Carnegie Mellon
-            University. After a decade leading product at Planview, I stepped away to go deeper into AI and build at the intersection of product, UX, and machine intelligence. Now I bring that combined perspective to B2B SaaS companies as a fractional product leader — helping teams ship better products, faster.
-          </p>
+        {/* Two-column text grid */}
+        <div className="grid md:grid-cols-2 gap-20 mb-12">
+          <div>
+            <p ref={(el) => (linesRef.current[0] = el)}
+              className="text-[17px] font-normal text-[#2D2D2D] leading-[1.8] mb-5">
+              I've spent 18 years building and shaping digital products — first as a{' '}
+              <em className="font-medium text-[#1A1A1A] not-italic">UX designer</em> obsessing over every
+              interaction, then as a <em className="font-medium text-[#1A1A1A] not-italic">product leader</em>{' '}
+              driving strategy at the director level, and now as an{' '}
+              <em className="font-medium text-[#1A1A1A] not-italic">AI builder</em> crafting the next wave of intelligent tools.
+            </p>
+            <p ref={(el) => (linesRef.current[1] = el)}
+              className="text-[17px] font-normal text-[#2D2D2D] leading-[1.8]">
+              This unusual career arc — from pixels to product-market fit to
+              machine learning pipelines — gives me a rare perspective. I don't just
+              understand what to build; I understand <em>how</em> it should feel,{' '}
+              <em>why</em> it matters, and <em>how to ship it</em>.
+            </p>
+          </div>
+          <div>
+            <p ref={(el) => (linesRef.current[2] = el)}
+              className="text-[17px] font-normal text-[#2D2D2D] leading-[1.8]">
+              I hold an MS in Human-Computer Interaction from Carnegie Mellon
+              University. After a decade leading product at Planview, I stepped away to go deeper into AI and build at the intersection of product, UX, and machine intelligence. Now I bring that combined perspective to B2B SaaS companies as a fractional product leader — helping teams ship better products, faster.
+            </p>
+          </div>
         </div>
 
-        {/* Metrics row */}
-        <div ref={metricsRef}
-          className="mt-14 md:mt-18 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 md:ml-[15%] lg:ml-[20%] max-w-4xl">
-          {metrics.map((m) => (
-            <div key={m.label} className="metric-item glass-card p-6 flex flex-col items-start justify-center">
-              <p className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-white tracking-tight leading-none">{m.value}</p>
-              {m.unit && <p className="text-gray-500 text-xs tracking-[0.2em] uppercase mt-2">{m.unit}</p>}
-              <p className="text-gray-400 text-sm mt-1">{m.label}</p>
+        {/* Stats row */}
+        <div ref={metricsRef} className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-12">
+          {metrics.map((m, i) => (
+            <div key={m.label} className={`metric-item text-center py-9 px-4 ${i > 0 ? 'border-l border-[#E8E8ED]' : ''}`}>
+              <p className="text-[40px] font-light text-[#1A1A1A] tracking-[-0.03em] leading-none">{m.value}</p>
+              <p className="text-[11px] font-semibold text-[#5A5A5A] uppercase tracking-[0.12em] mt-1">{m.unit}</p>
+              <p className="text-[13px] font-normal text-[#4A4A4A] mt-2">{m.label}</p>
             </div>
           ))}
         </div>
 
         {/* Career Timeline */}
-        <div ref={timelineRef} className="mt-16 md:mt-20 md:ml-[15%] lg:ml-[20%] max-w-4xl">
-          <h3 className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-10">Career Journey</h3>
+        <div ref={timelineRef} className="mt-16 md:mt-20">
+          <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-10">Career Journey</p>
           <div className="space-y-0">
             {timeline.map((item) => (
-              <div key={item.year} className="timeline-item grid md:grid-cols-12 gap-4 py-6 border-b border-[#1f2937] first:border-t first:border-[#1f2937]">
+              <div key={item.year} className="timeline-item grid md:grid-cols-12 gap-4 py-6 border-b border-[#E8E8ED] first:border-t first:border-[#E8E8ED]">
                 <div className="md:col-span-3">
-                  <p className="text-white text-sm font-mono tracking-wide font-semibold">{item.year}</p>
+                  <p className="text-[#1A1A1A] text-sm font-mono tracking-wide font-medium">{item.year}</p>
                 </div>
                 <div className="md:col-span-3">
-                  <p className="text-white/80 font-medium text-sm">{item.role}</p>
+                  <p className="text-[#2D2D2D] font-medium text-sm">{item.role}</p>
                 </div>
                 <div className="md:col-span-6">
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  <p className="text-[#5A5A5A] text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -140,11 +143,11 @@ export default function About() {
         </div>
 
         {/* Skills */}
-        <div ref={skillsRef} className="mt-14 md:mt-18 md:ml-[15%] lg:ml-[20%] max-w-4xl">
-          <h3 className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-8">Skills & Tools</h3>
+        <div ref={skillsRef} className="mt-14 md:mt-18">
+          <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-8">Skills & Tools</p>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <span key={skill} className="skill-tag text-xs px-4 py-2 rounded-full border border-[#1f2937] text-gray-400 hover:border-[#6366f1] hover:text-[#6366f1] transition-colors duration-300">
+              <span key={skill} className="skill-tag text-xs px-4 py-2 rounded-full border border-[#E8E8ED] text-[#3A3A3A] bg-[#F5F5F0] hover:border-[#D4A574] hover:text-[#D4A574] transition-colors duration-300">
                 {skill}
               </span>
             ))}
