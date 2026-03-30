@@ -426,9 +426,9 @@ function MyAITeamContent({ work }) {
     <div className="space-y-12">
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <div className="flex items-center gap-3 mb-4">
-          <h2 className="display-medium text-[#1A1A1A]">{work.title}</h2>
-          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-green-50 text-green-700 tracking-wider uppercase border border-green-200 shrink-0 self-center">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
+          <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-light tracking-[-0.03em] leading-[1] text-[#1A1A1A] whitespace-nowrap">{work.title}</h2>
+          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-green-50 text-green-700 tracking-wider uppercase border border-green-200 shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
             Live — Running Daily
           </span>
@@ -595,14 +595,24 @@ export default function CaseStudy() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (otherRef.current) {
+        // No ScrollTrigger — animate immediately so cards are always visible
+        // This prevents the "blank screen" issue when switching from a short tab
         gsap.from(otherRef.current.querySelectorAll('.project-card'), {
-          y: 40, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.12,
-          scrollTrigger: { trigger: otherRef.current, start: 'top 85%', toggleActions: 'play none none reverse' },
+          y: 30, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.12,
+          scrollTrigger: { trigger: otherRef.current, start: 'top 95%', toggleActions: 'play none none none' },
         })
       }
     }, sectionRef)
     return () => ctx.revert()
   }, [])
+
+  // Refresh ScrollTrigger when tab changes so positions recalculate for new content height
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [activeTab])
 
   const activeWork = featuredWorks.find((w) => w.id === activeTab)
 
