@@ -80,7 +80,7 @@ export default function App() {
       <div ref={cursorRef} className="custom-cursor" />
       <div className="grain-overlay" />
 
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-[#FAFAF7]">
         <Nav />
         <Hero />
         <About />

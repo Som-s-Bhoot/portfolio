@@ -4,19 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/* ═══════════════════════════════════════════════════════════════
-   CAPABILITY BADGE COMPONENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ CAPABILITY BADGE ═══ */
 function CapabilityBadges({ capabilities }) {
   if (!capabilities || capabilities.length === 0) return null
-  
   return (
     <div className="flex flex-wrap gap-2 mb-4">
       {capabilities.map((cap) => (
-        <span
-          key={cap.label}
-          className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-white/5 text-gray-400 tracking-wider uppercase border border-white/10"
-        >
+        <span key={cap.label} className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-[#F5F5F0] text-[#5A5A5A] tracking-wider uppercase border border-[#E8E8ED]">
           <span>{cap.icon}</span>
           {cap.label}
         </span>
@@ -25,19 +19,11 @@ function CapabilityBadges({ capabilities }) {
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   FEATURED WORK DATA
-═══════════════════════════════════════════════════════════════ */
+/* ═══ FEATURED WORK DATA ═══ */
 const featuredWorks = [
   {
-    id: 'my-ai-team',
-    title: 'Mission Control: My 10-Agent AI Team',
-    type: 'My AI Team',
-    capabilities: [
-      { icon: '🧠', label: 'Strategy' },
-      { icon: '⚡', label: 'AI' },
-      { icon: '🔧', label: 'Operations' },
-    ],
+    id: 'my-ai-team', title: 'Mission Control: My 10-Agent AI Team', type: 'My AI Team',
+    capabilities: [{ icon: '🧠', label: 'Strategy' }, { icon: '⚡', label: 'AI' }, { icon: '🔧', label: 'Operations' }],
     description: 'Before I build your AI team, here\'s mine. I run a 10-agent autonomous system that handles research, marketing, content production, competitive intelligence, and daily operations — with minimal human intervention. This isn\'t a demo. It\'s been in production since early 2026.',
     agents: [
       { name: 'Bhoot', role: 'Chief of Staff', desc: 'Orchestrates all agents, manages handoffs, daily briefings, quality control' },
@@ -59,105 +45,84 @@ const featuredWorks = [
     ],
     features: [
       { icon: '🤖', label: 'Memory & Context', desc: 'Agents maintain memory across sessions with specialized skills and defined handoff protocols.' },
-      { icon: '🔄', label: 'Autonomous Handoffs', desc: 'When the researcher finishes analysis, the marketeer picks it up. When dev ships, the reviewer audits. No human in the loop for routine operations.' },
-      { icon: '📊', label: 'Real Outputs', desc: 'Competitive intel, LinkedIn content, sprint delivery, daily briefs — all running in production, not a proof of concept.' },
+      { icon: '🔄', label: 'Autonomous Handoffs', desc: 'When the researcher finishes analysis, the marketeer picks it up. No human in the loop for routine operations.' },
+      { icon: '📊', label: 'Real Outputs', desc: 'Competitive intel, LinkedIn content, sprint delivery, daily briefs — all running in production.' },
       { icon: '🏗️', label: 'Production Infrastructure', desc: 'Built on OpenClaw with Slack integration, persistent memory, structured orchestration, and full audit trails.' },
     ],
     tags: ['Multi-Agent Systems', 'Orchestration', 'Production AI', 'OpenClaw'],
   },
   {
-    id: 'cognx',
-    title: 'CognX',
-    type: 'CognX',
-    capabilities: [
-      { icon: '🧠', label: 'Strategy' },
-      { icon: '⚡', label: 'AI' },
-      { icon: '💻', label: 'Engineering' },
-    ],
-    description: 'Built a full AI-native SaaS product from zero to production in 6 weeks — then killed it. CognX was an AI Chief of Staff that lived inside Slack, turning scattered conversations into structured work items, proactive alerts, and intelligent briefs. The decision to stop wasn\'t failure — it was the strategic clarity to recognize when the moat doesn\'t hold.',
+    id: 'cognx', title: 'CognX', type: 'CognX',
+    capabilities: [{ icon: '🧠', label: 'Strategy' }, { icon: '⚡', label: 'AI' }, { icon: '💻', label: 'Engineering' }],
+    description: 'Built a full AI-native SaaS product from zero to production in 6 weeks — then killed it. CognX was an AI Chief of Staff that lived inside Slack. The decision to stop wasn\'t failure — it was strategic clarity.',
     images: [
-      { src: '/cognx-morning-brief.png', alt: 'CognX Morning Brief — automated daily digest', size: 'large' },
-      { src: '/cognx-contextual-qa.png', alt: 'CognX Contextual Q&A with citations', size: 'small' },
-      { src: '/cognx-onboarding.png', alt: 'CognX Onboarding — integrations setup', size: 'small' },
-      { src: '/cognx-welcome.png', alt: 'CognX Welcome — workspace analysis', size: 'small' },
+      { src: '/cognx-morning-brief.png', alt: 'CognX Morning Brief', size: 'large' },
+      { src: '/cognx-contextual-qa.png', alt: 'CognX Contextual Q&A', size: 'small' },
+      { src: '/cognx-onboarding.png', alt: 'CognX Onboarding', size: 'small' },
+      { src: '/cognx-welcome.png', alt: 'CognX Welcome', size: 'small' },
     ],
     timeline: [
-      { phase: 'Week 1–2', text: 'Foundation — OAuth, Slack integration, RAG pipeline, document ingestion', stat: '3 phases shipped', color: 'green' },
-      { phase: 'Week 3–4', text: 'Graph-augmented RAG, work item materialization, billing with Paddle', stat: '275 tests', color: 'blue' },
-      { phase: 'Week 5', text: '10X Sprint — 8 features overnight. Conversation memory, proactive alerts, query router', stat: '488+ tests · 0 regressions', color: 'orange' },
-      { phase: 'Week 6', text: 'Iron Dome — 66 E2E tests, 36 DeepEval evals, stabilization, accuracy upgrades', stat: '693 total tests', color: 'purple' },
-      { phase: 'Decision', text: 'Killed with conviction — platform AI owns the data and distribution', stat: null, color: 'red' },
+      { phase: 'Week 1–2', text: 'Foundation — OAuth, Slack integration, RAG pipeline', stat: '3 phases shipped', color: 'green' },
+      { phase: 'Week 3–4', text: 'Graph-augmented RAG, work item materialization, billing', stat: '275 tests', color: 'blue' },
+      { phase: 'Week 5', text: '10X Sprint — 8 features overnight', stat: '488+ tests · 0 regressions', color: 'orange' },
+      { phase: 'Week 6', text: 'Iron Dome — 66 E2E tests, 36 DeepEval evals', stat: '693 total tests', color: 'purple' },
+      { phase: 'Decision', text: 'Killed with conviction — platform AI owns the data', stat: null, color: 'red' },
     ],
     insight: {
       title: 'Why I Killed It',
       levels: [
-        { label: 'Built in 6 weeks', desc: 'Speed is no longer a moat — AI levels the field', color: 'green' },
+        { label: 'Built in 6 weeks', desc: 'Speed is no longer a moat', color: 'green' },
         { label: 'Platform AI launching', desc: 'Data owners win; middleware gets squeezed', color: 'blue' },
         { label: 'Kill decision', desc: 'Strategic clarity > sunk cost fallacy', color: 'purple' },
       ],
     },
     features: [
-      { icon: '🏗️', label: 'Zero to Production in 6 Weeks', desc: 'Sole PM and technical architect. Shipped OAuth, billing, RAG pipeline, graph-augmented search, 10 Inngest functions, 693 tests — with a 10-agent AI dev team orchestrated end-to-end.' },
-      { icon: '🤖', label: 'AI-Native Architecture', desc: 'Not AI bolted onto CRUD. Conversation memory, proactive alerts, structured query routing, intelligent scope resolution — the AI was the product interface.' },
-      { icon: '🛡️', label: 'Iron Dome Quality System', desc: '66-test E2E suite spanning auth, billing, integrations, RAG, security, and performance — plus 36 DeepEval tests for RAG quality and red-team probing.' },
-      { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. If AI agents can build your product in a sprint, competitors can too. Moats are non-technical now.' },
+      { icon: '🏗️', label: 'Zero to Production in 6 Weeks', desc: 'Sole PM and technical architect. 693 tests — with a 10-agent AI dev team.' },
+      { icon: '🤖', label: 'AI-Native Architecture', desc: 'Conversation memory, proactive alerts, structured query routing.' },
+      { icon: '🛡️', label: 'Iron Dome Quality System', desc: '66-test E2E suite plus 36 DeepEval tests for RAG quality.' },
+      { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. Moats are non-technical now.' },
     ],
-    consultingConnector: 'The same architectural thinking behind CognX — agent orchestration, memory systems, structured handoffs, production-grade testing — is what I bring to client engagements. CognX proved the system works. The kill decision proved I optimize for outcomes, not sunk costs.',
+    consultingConnector: 'The same architectural thinking behind CognX is what I bring to client engagements. The kill decision proved I optimize for outcomes, not sunk costs.',
     tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
   },
   {
-    id: 'mission-control',
-    title: 'Mission Control',
-    type: 'Product',
-    capabilities: [
-      { icon: '🧠', label: 'Strategy' },
-      { icon: '🎨', label: 'Design' },
-      { icon: '⚡', label: 'AI' },
-    ],
-    description: 'A second-brain app built from scratch — product strategy, UX architecture, and AI integration all in one. Designed the information hierarchy, crafted the interaction patterns, and built an AI agent that collaborates as a teammate.',
+    id: 'mission-control', title: 'Mission Control', type: 'Product',
+    capabilities: [{ icon: '🧠', label: 'Strategy' }, { icon: '🎨', label: 'Design' }, { icon: '⚡', label: 'AI' }],
+    description: 'A second-brain app built from scratch — product strategy, UX architecture, and AI integration all in one.',
     images: [
       { src: '/mc-kanban.png', alt: 'Mission Control Kanban board', size: 'large' },
       { src: '/mc-documents.png', alt: 'Mission Control Documents', size: 'small' },
       { src: '/mc-overview.png', alt: 'Mission Control Overview', size: 'small' },
     ],
     features: [
-      { icon: '✦', label: 'AI Agent Collaboration', desc: 'Built-in AI that reads context, creates content, and acts on tasks — not just a chatbot' },
-      { icon: '◫', label: 'Information Architecture', desc: 'Documents + Kanban unified under a coherent mental model for knowledge work' },
-      { icon: '⟐', label: 'Real-Time Experience', desc: 'Optimistic UI, cross-platform sync, and instant feedback loops' },
-      { icon: '◎', label: 'Design System', desc: 'Consistent component library with accessibility and responsive behavior built-in' },
+      { icon: '✦', label: 'AI Agent Collaboration', desc: 'Built-in AI that reads context, creates content, and acts on tasks' },
+      { icon: '◫', label: 'Information Architecture', desc: 'Documents + Kanban unified under a coherent mental model' },
+      { icon: '⟐', label: 'Real-Time Experience', desc: 'Optimistic UI, cross-platform sync, instant feedback loops' },
+      { icon: '◎', label: 'Design System', desc: 'Consistent component library with accessibility built-in' },
     ],
     tags: ['React 19', 'Supabase', 'Tailwind', 'AI / LLM'],
   },
   {
-    id: 'tripartite-whitepaper',
-    title: 'The Tripartite Architecture of Product Value',
-    type: 'Whitepaper',
-    capabilities: [
-      { icon: '🧠', label: 'Strategy' },
-    ],
+    id: 'tripartite-whitepaper', title: 'The Tripartite Architecture of Product Value', type: 'Whitepaper',
+    capabilities: [{ icon: '🧠', label: 'Strategy' }],
     description: 'A definitive analysis of Actual, Perceived, and Relative Value drivers in Strategic Product Management.',
     coverImage: '/whitepaper-cover.png',
     features: [
-      { icon: '◉', label: 'Actual Value', desc: 'Functional utility, reliability, and efficiency — the measurable outcomes' },
-      { icon: '◎', label: 'Perceived Value', desc: 'Brand perception, UX quality, and emotional resonance' },
-      { icon: '◈', label: 'Relative Value', desc: 'Competitive positioning and market context dynamics' },
+      { icon: '◉', label: 'Actual Value', desc: 'Functional utility, reliability, and efficiency' },
+      { icon: '◎', label: 'Perceived Value', desc: 'Brand perception, UX quality, emotional resonance' },
+      { icon: '◈', label: 'Relative Value', desc: 'Competitive positioning and market context' },
     ],
     cta: { label: 'Download PDF', url: '/tripartite-whitepaper.pdf', icon: 'download' },
     tags: ['Product Strategy', 'Value Framework', 'AI-Assisted'],
   },
   {
-    id: 'bhoot-ai',
-    title: 'Bhoot AI Agent',
-    type: 'AI Agent',
-    capabilities: [
-      { icon: '⚡', label: 'AI' },
-      { icon: '🧠', label: 'Strategy' },
-    ],
-    description: 'A personal AI infrastructure that actually does things — manages email, calendar, tasks, code, and notifications. Not a chatbot; an autonomous agent with memory, tools, and judgment.',
+    id: 'bhoot-ai', title: 'Bhoot AI Agent', type: 'AI Agent',
+    capabilities: [{ icon: '⚡', label: 'AI' }, { icon: '🧠', label: 'Strategy' }],
+    description: 'A personal AI infrastructure that actually does things — manages email, calendar, tasks, code. Not a chatbot; an autonomous agent.',
     features: [
-      { icon: '🔗', label: 'Tool Integration', desc: 'Email, calendar, GitHub, Notion, browser automation, shell access — all via natural language' },
-      { icon: '🧠', label: 'Persistent Memory', desc: 'Maintains context across sessions with structured memory files and semantic search' },
-      { icon: '⚙️', label: 'Autonomous Actions', desc: 'Proactive monitoring, scheduled tasks, and multi-step workflows without hand-holding' },
+      { icon: '🔗', label: 'Tool Integration', desc: 'Email, calendar, GitHub, browser automation — via natural language' },
+      { icon: '🧠', label: 'Persistent Memory', desc: 'Maintains context across sessions with structured memory' },
+      { icon: '⚙️', label: 'Autonomous Actions', desc: 'Proactive monitoring, scheduled tasks, multi-step workflows' },
       { icon: '💬', label: 'Multi-Channel', desc: 'Telegram, Discord, Signal — same agent, any surface' },
     ],
     architecture: [
@@ -169,14 +134,9 @@ const featuredWorks = [
     tags: ['Node.js', 'Claude API', 'Telegram', 'Supabase', 'MCP'],
   },
   {
-    id: 'pulse-case-study',
-    title: 'PULSE — AI Disrupts Inventory',
-    type: 'Pulse',
-    capabilities: [
-      { icon: '🧠', label: 'Strategy' },
-      { icon: '⚡', label: 'AI' },
-    ],
-    description: 'A strategic teardown of the $5B inventory management market. Not AI bolted onto legacy software — an AI that IS the interface, handling 80% of decisions autonomously.',
+    id: 'pulse-case-study', title: 'PULSE — AI Disrupts Inventory', type: 'Pulse',
+    capabilities: [{ icon: '🧠', label: 'Strategy' }, { icon: '⚡', label: 'AI' }],
+    description: 'A strategic teardown of the $5B inventory management market. An AI that IS the interface, handling 80% of decisions autonomously.',
     mockupImage: '/pulse-mockup.png',
     insight: {
       title: 'The AI-First Difference',
@@ -187,27 +147,22 @@ const featuredWorks = [
       ],
     },
     features: [
-      { icon: '💬', label: 'Conversation, Not Navigation', desc: 'Primary interface is natural language. No training required.' },
-      { icon: '🔔', label: 'Proactive, Not Reactive', desc: 'Monitors, predicts, and alerts — doesn\'t wait to be asked.' },
-      { icon: '🤖', label: 'Autonomous with Guardrails', desc: 'Define your rules once. Pulse handles the rest.' },
-      { icon: '🎯', label: 'Context-Aware Intelligence', desc: 'Understands your business, not just your inventory.' },
+      { icon: '💬', label: 'Conversation, Not Navigation', desc: 'Primary interface is natural language.' },
+      { icon: '🔔', label: 'Proactive, Not Reactive', desc: 'Monitors, predicts, and alerts.' },
+      { icon: '🤖', label: 'Autonomous with Guardrails', desc: 'Define rules once. Pulse handles the rest.' },
+      { icon: '🎯', label: 'Context-Aware Intelligence', desc: 'Understands your business, not just inventory.' },
     ],
     tags: ['Product Strategy', 'AI Architecture', 'Market Analysis', 'UX Concept'],
   },
   {
-    id: 'planview-covid',
-    title: 'Planview — Leading Through COVID',
-    type: 'Planview',
-    capabilities: [
-      { icon: '🧠', label: 'Strategy' },
-      { icon: '👥', label: 'Product Leadership' },
-    ],
-    description: 'When COVID-19 forced the world remote, I saw the challenge before it arrived — teams would lose the spontaneous collaboration that made offices work. I led two initiatives that turned a disruption into a competitive advantage.',
+    id: 'planview-covid', title: 'Planview — Leading Through COVID', type: 'Planview',
+    capabilities: [{ icon: '🧠', label: 'Strategy' }, { icon: '👥', label: 'Product Leadership' }],
+    description: 'When COVID-19 forced the world remote, I led two initiatives that turned a disruption into a competitive advantage.',
     features: [
-      { icon: '📹', label: 'Zoom Integration', desc: 'Integrated Zoom directly into Planview products, enabling seamless video conversations without leaving the workflow. No more context-switching between tools.' },
-      { icon: '🎨', label: 'Real-Time Whiteboarding', desc: 'Built real-time collaborative whiteboards that mimicked physical brainstorming sessions. Teams could ideate together despite being thousands of miles apart.' },
-      { icon: '🚀', label: 'Day-One Adoption', desc: 'Both solutions were embraced by the customer base immediately — no change management needed. The features solved a pain point customers were actively feeling.' },
-      { icon: '🔄', label: 'Portfolio-Wide Impact', desc: 'The capabilities proved so valuable they were rolled out across the broader Planview product portfolio, benefiting the entire customer base.' },
+      { icon: '📹', label: 'Zoom Integration', desc: 'Integrated Zoom directly into Planview products.' },
+      { icon: '🎨', label: 'Real-Time Whiteboarding', desc: 'Collaborative whiteboards that mimicked physical brainstorming.' },
+      { icon: '🚀', label: 'Day-One Adoption', desc: 'Both solutions embraced immediately by customers.' },
+      { icon: '🔄', label: 'Portfolio-Wide Impact', desc: 'Capabilities rolled out across the broader product portfolio.' },
     ],
     insight: {
       title: 'The Insight',
@@ -222,72 +177,52 @@ const featuredWorks = [
 ]
 
 const otherProjects = [
-  {
-    title: 'Portfolio Site',
-    desc: 'This very site — built with Vite, React, GSAP, and Tailwind. Awwwards-inspired editorial design.',
-    tech: ['React', 'GSAP', 'Lenis', 'Tailwind'],
-  },
-  {
-    title: 'Arduino/RPi Projects',
-    desc: 'Hardware tinkering — sensor systems, home automation, 3D-printed enclosures on a Bambu Lab A1.',
-    tech: ['Arduino', 'Raspberry Pi', '3D Printing'],
-  },
+  { title: 'Portfolio Site', desc: 'This very site — built with Vite, React, GSAP, and Tailwind. Scandinavian minimalist design.', tech: ['React', 'GSAP', 'Lenis', 'Tailwind'] },
+  { title: 'Arduino/RPi Projects', desc: 'Hardware tinkering — sensor systems, home automation, 3D-printed enclosures on a Bambu Lab A1.', tech: ['Arduino', 'Raspberry Pi', '3D Printing'] },
 ]
 
-/* ═══════════════════════════════════════════════════════════════
-   MISSION CONTROL CONTENT (with image collage)
-═══════════════════════════════════════════════════════════════ */
+/* ═══ MISSION CONTROL CONTENT ═══ */
 function MissionControlContent({ work }) {
   return (
     <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
       <div className="lg:col-span-8">
         <div className="space-y-4">
-          <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-            <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block shadow-2xl" />
+          <div className="rounded-2xl overflow-hidden border border-[#E8E8ED] shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block" />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-              <img src={work.images[1].src} alt={work.images[1].alt} className="w-full h-auto block shadow-2xl" />
-            </div>
-            <div className="rounded overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:shadow-[#6366f1]/5 transition-shadow duration-300">
-              <img src={work.images[2].src} alt={work.images[2].alt} className="w-full h-auto block shadow-2xl" />
-            </div>
+            {work.images.slice(1).map((img) => (
+              <div key={img.alt} className="rounded-2xl overflow-hidden border border-[#E8E8ED] shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <img src={img.src} alt={img.alt} className="w-full h-auto block" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
       <div className="lg:col-span-4 flex flex-col justify-center">
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
-
+        <h2 className="display-medium text-[#1A1A1A] mb-4">{work.title}</h2>
+        <p className="text-[#3A3A3A] text-base leading-relaxed mb-8 max-w-lg font-normal">{work.description}</p>
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-white text-sm font-medium">{f.label}</p>
-                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
+                <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
-
         <div className="flex flex-wrap items-center gap-4">
           {work.cta && (
             <a href={work.cta.url} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#6366f1] text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-[#4f46e5] transition-colors"
-              data-cursor-hover>
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white text-xs tracking-[0.1em] uppercase rounded-[48px] hover:bg-[#48484A] transition-colors" data-cursor-hover>
               {work.cta.label}
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
             </a>
           )}
           <div className="flex flex-wrap gap-2">
-            {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
-            ))}
+            {work.tags.map((tag) => (<span key={tag} className="text-[9px] px-3 py-1.5 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{tag}</span>))}
           </div>
         </div>
       </div>
@@ -295,59 +230,42 @@ function MissionControlContent({ work }) {
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   WHITEPAPER CONTENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ WHITEPAPER CONTENT ═══ */
 function WhitepaperContent({ work }) {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div>
         <a href={work.cta.url} target="_blank" rel="noopener noreferrer" className="block group" data-cursor-hover>
-          <div className="relative bg-gradient-to-br from-[#111827] to-[#1f2937] rounded-2xl p-8 md:p-12 overflow-hidden">
-            <img src={work.coverImage} alt="Whitepaper Cover"
-              className="w-full max-w-md mx-auto rounded-sm shadow-2xl group-hover:scale-[1.02] transition-transform duration-500" />
+          <div className="relative bg-gradient-to-br from-[#F5F5F0] to-[#E8E8ED] rounded-2xl p-8 md:p-12 overflow-hidden">
+            <img src={work.coverImage} alt="Whitepaper Cover" className="w-full max-w-md mx-auto rounded-sm shadow-xl group-hover:scale-[1.02] transition-transform duration-500" />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="bg-[#6366f1] px-5 py-2.5 rounded-full text-xs text-white shadow-lg flex items-center gap-2 font-medium">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Read PDF
-              </span>
+              <span className="bg-[#1D1D1F] px-5 py-2.5 rounded-full text-xs text-white shadow-lg flex items-center gap-2 font-medium">Read PDF</span>
             </div>
           </div>
         </a>
       </div>
-
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
-
+        <h2 className="display-medium text-[#1A1A1A] mb-4">{work.title}</h2>
+        <p className="text-[#3A3A3A] text-base leading-relaxed mb-8 max-w-lg font-normal">{work.description}</p>
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-white text-sm font-medium">{f.label}</p>
-                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
+                <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
-
         <div className="flex flex-wrap items-center gap-4">
           <a href={work.cta.url} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#6366f1] text-white text-xs tracking-[0.1em] uppercase rounded-full hover:bg-[#4f46e5] transition-colors"
-            data-cursor-hover>
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white text-xs tracking-[0.1em] uppercase rounded-[48px] hover:bg-[#48484A] transition-colors" data-cursor-hover>
             {work.cta.label}
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
           </a>
           <div className="flex flex-wrap gap-2">
-            {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
-            ))}
+            {work.tags.map((tag) => (<span key={tag} className="text-[9px] px-3 py-1.5 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{tag}</span>))}
           </div>
         </div>
       </div>
@@ -355,28 +273,23 @@ function WhitepaperContent({ work }) {
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   BHOOT AI AGENT CONTENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ BHOOT CONTENT ═══ */
 function BhootContent({ work }) {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
       <div>
-        <div className="bg-gradient-to-br from-[#111827] to-[#0a0a0f] rounded-2xl p-8 md:p-10 text-white border border-white/10">
+        <div className="bg-gradient-to-br from-[#1D1D1F] to-[#2D2D2D] rounded-2xl p-8 md:p-10 text-white border border-[#3A3A3A]">
           <div className="text-center mb-8">
             <span className="text-5xl mb-3 block">👻</span>
-            <h3 className="text-lg font-semibold tracking-tight">Bhoot Architecture</h3>
+            <h3 className="text-lg font-medium tracking-tight">Bhoot Architecture</h3>
           </div>
-          
           <div className="space-y-4">
             {work.architecture.map((tier, idx) => (
               <div key={tier.layer}>
-                <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">{tier.layer}</p>
+                <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-2">{tier.layer}</p>
                 <div className="flex flex-wrap gap-2">
                   {tier.items.map((item) => (
-                    <span key={item} className="text-xs px-3 py-1.5 rounded-lg bg-white/10 text-gray-300 border border-white/5">
-                      {item}
-                    </span>
+                    <span key={item} className="text-xs px-3 py-1.5 rounded-lg bg-white/10 text-gray-300 border border-white/5">{item}</span>
                   ))}
                 </div>
                 {idx < work.architecture.length - 1 && (
@@ -391,182 +304,113 @@ function BhootContent({ work }) {
           </div>
         </div>
       </div>
-
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
-
+        <h2 className="display-medium text-[#1A1A1A] mb-4">{work.title}</h2>
+        <p className="text-[#3A3A3A] text-base leading-relaxed mb-8 max-w-lg font-normal">{work.description}</p>
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-white text-sm font-medium">{f.label}</p>
-                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
+                <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
-
         <div className="flex flex-wrap gap-2">
-          {work.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
-          ))}
+          {work.tags.map((tag) => (<span key={tag} className="text-[9px] px-3 py-1.5 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{tag}</span>))}
         </div>
       </div>
     </div>
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   COGNX CONTENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ COGNX CONTENT ═══ */
 function CognXContent({ work }) {
-  const timelineColors = {
-    green: '#22c55e',
-    blue: '#3b82f6',
-    orange: '#f97316',
-    purple: '#a855f7',
-    red: '#ef4444',
-  }
-
-  const insightColors = {
-    green: { dot: '#22c55e', text: '#374151' },
-    blue: { dot: '#3b82f6', text: '#374151' },
-    purple: { dot: '#a855f7', text: '#7c3aed' },
-  }
+  const timelineColors = { green: '#22c55e', blue: '#3b82f6', orange: '#f97316', purple: '#a855f7', red: '#ef4444' }
+  const insightColors = { green: { dot: '#22c55e' }, blue: { dot: '#3b82f6' }, purple: { dot: '#a855f7' } }
 
   return (
     <div className="space-y-16">
-      {/* Top: Screenshot Collage */}
       <div>
         <div className="space-y-4">
-          {/* Hero: Morning Brief (full width) */}
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
-            <img
-              src={work.images[0].src}
-              alt={work.images[0].alt}
-              className="w-full h-auto block"
-            />
+          <div className="rounded-2xl overflow-hidden border border-[#E8E8ED] shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <img src={work.images[0].src} alt={work.images[0].alt} className="w-full h-auto block" />
           </div>
-          {/* Bottom row: 3 screens */}
           <div className="grid grid-cols-3 gap-4">
             {work.images.slice(1).map((img) => (
-              <div key={img.alt} className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-auto block"
-                />
+              <div key={img.alt} className="rounded-2xl overflow-hidden border border-[#E8E8ED] shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <img src={img.src} alt={img.alt} className="w-full h-auto block" />
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Bottom: Timeline + Content side by side */}
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        {/* Left: Timeline Card */}
-        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-10 text-white">
+        <div className="bg-gradient-to-br from-[#1D1D1F] to-[#2D2D2D] rounded-2xl p-8 md:p-10 text-white">
           <div className="text-center mb-8">
             <span className="text-5xl mb-3 block">🧠</span>
-            <h3 className="text-lg font-semibold tracking-tight">Build Timeline</h3>
+            <h3 className="text-lg font-medium tracking-tight">Build Timeline</h3>
           </div>
-
           <div className="space-y-0">
             {work.timeline.map((step, idx) => (
               <div key={step.phase} className="flex items-start gap-4 relative pb-5">
-                {/* Dot + Line */}
                 <div className="flex flex-col items-center shrink-0">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full mt-1.5"
-                    style={{ background: timelineColors[step.color] }}
-                  />
-                  {idx < work.timeline.length - 1 && (
-                    <div className="w-0.5 flex-1 mt-1 bg-white/10" style={{ minHeight: '2rem' }} />
-                  )}
+                  <div className="w-2.5 h-2.5 rounded-full mt-1.5" style={{ background: timelineColors[step.color] }} />
+                  {idx < work.timeline.length - 1 && <div className="w-0.5 flex-1 mt-1 bg-white/10" style={{ minHeight: '2rem' }} />}
                 </div>
-                {/* Content */}
                 <div className="pb-1">
                   <p className="text-[10px] text-gray-400 uppercase tracking-[0.15em] mb-0.5">{step.phase}</p>
                   <p className="text-[13px] text-gray-200 leading-relaxed">{step.text}</p>
-                  {step.stat && (
-                    <span className="inline-block text-[11px] px-2.5 py-1 rounded-lg bg-white/8 text-gray-400 border border-white/5 mt-1.5">
-                      {step.stat}
-                    </span>
-                  )}
+                  {step.stat && <span className="inline-block text-[11px] px-2.5 py-1 rounded-lg bg-white/10 text-gray-400 border border-white/5 mt-1.5">{step.stat}</span>}
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Kill stamp */}
           <div className="mt-4 pt-5 border-t border-white/10 text-center">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.1em] uppercase text-red-400 px-5 py-2 border border-red-400/30 rounded-full bg-red-400/8">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.1em] uppercase text-red-400 px-5 py-2 border border-red-400/30 rounded-full bg-red-400/10">
               ⚰️ Killed — Strategic Exit
             </span>
           </div>
         </div>
-
-        {/* Right: Content */}
         <div>
           <CapabilityBadges capabilities={work.capabilities} />
-          <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-          <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
-            {work.description}
-          </p>
-
-          {/* Features */}
+          <h2 className="display-medium text-[#1A1A1A] mb-4">{work.title}</h2>
+          <p className="text-[#3A3A3A] text-base leading-relaxed mb-8 max-w-lg font-normal">{work.description}</p>
           <div className="space-y-5 mb-8">
             {work.features.map((f) => (
               <div key={f.label} className="flex gap-4">
-                <span className="text-white text-base mt-0.5 shrink-0">{f.icon}</span>
+                <span className="text-[#1A1A1A] text-base mt-0.5 shrink-0">{f.icon}</span>
                 <div>
-                  <p className="text-white text-sm font-medium">{f.label}</p>
-                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                  <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
+                  <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Insight Block */}
-          <div className="mb-8 p-5 bg-white/5 rounded-xl border border-white/10">
-            <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">{work.insight.title}</p>
+          <div className="mb-8 p-5 bg-[#F5F5F0] rounded-xl border border-[#E8E8ED]">
+            <p className="text-xs text-[#5A5A5A] uppercase tracking-widest mb-4">{work.insight.title}</p>
             <div className="space-y-3">
               {work.insight.levels.map((level) => (
                 <div key={level.label} className="flex items-center gap-3">
-                  <div
-                    className="w-2 h-2 rounded-full shrink-0"
-                    style={{ background: insightColors[level.color]?.dot }}
-                  />
+                  <div className="w-2 h-2 rounded-full shrink-0" style={{ background: insightColors[level.color]?.dot || '#86868B' }} />
                   <div className="flex-1">
-                    <span
-                      className="text-sm font-medium text-gray-200"
-                    >
-                      {level.label}
-                    </span>
-                    <span className="text-gray-500 text-sm ml-2">— {level.desc}</span>
+                    <span className="text-sm font-medium text-[#1A1A1A]">{level.label}</span>
+                    <span className="text-[#5A5A5A] text-sm ml-2">— {level.desc}</span>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Tags */}
           <div className="flex flex-wrap gap-2">
-            {work.tags.map((tag) => (
-              <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full border border-white/15 text-gray-500 tracking-wider uppercase">
-                {tag}
-              </span>
-            ))}
+            {work.tags.map((tag) => (<span key={tag} className="text-[9px] px-3 py-1.5 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{tag}</span>))}
           </div>
-
-          {/* Consulting Connector */}
           {work.consultingConnector && (
-            <div className="mt-8 p-5 rounded-xl border border-[#6366f1]/20 bg-[#6366f1]/[0.05]">
-              <p className="text-[10px] text-[#6366f1]/70 uppercase tracking-[0.2em] mb-2 font-semibold">→ What this means for you</p>
-              <p className="text-gray-300 text-sm leading-relaxed">{work.consultingConnector}</p>
+            <div className="mt-8 p-5 rounded-xl border border-[#D4A574]/30 bg-[#D4A574]/[0.05]">
+              <p className="text-[10px] text-[#D4A574] uppercase tracking-[0.2em] mb-2 font-semibold">→ What this means for you</p>
+              <p className="text-[#3A3A3A] text-sm leading-relaxed">{work.consultingConnector}</p>
             </div>
           )}
         </div>
@@ -575,96 +419,69 @@ function CognXContent({ work }) {
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   MY AI TEAM CONTENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ MY AI TEAM CONTENT ═══ */
 function MyAITeamContent({ work }) {
   const agentImages = {
-    'Bhoot': '/images/agent-bhoot.png',
-    'Dev': '/images/agent-dev.png',
-    'Ari': '/images/agent-ari.png',
-    'Ricky': '/images/agent-ricky.png',
-    'Mark': '/images/agent-mark.png',
-    'Dean': '/images/agent-dean.png',
-    'Pam': '/images/agent-pam.png',
-    'Quasi': '/images/agent-quasi.png',
-    'Ravi': '/images/agent-ravi.png',
-    'Tom': '/images/agent-tom.png',
+    'Bhoot': '/images/agent-bhoot.png', 'Dev': '/images/agent-dev.png', 'Ari': '/images/agent-ari.png',
+    'Ricky': '/images/agent-ricky.png', 'Mark': '/images/agent-mark.png', 'Dean': '/images/agent-dean.png',
+    'Pam': '/images/agent-pam.png', 'Quasi': '/images/agent-quasi.png', 'Ravi': '/images/agent-ravi.png', 'Tom': '/images/agent-tom.png',
   }
-
   const featureImages = {
-    '🤖': '/images/feature-memory.png',
-    '🔄': '/images/feature-handoffs.png',
-    '📊': '/images/feature-outputs.png',
-    '🏗️': '/images/feature-infrastructure.png',
+    '🤖': '/images/feature-memory.png', '🔄': '/images/feature-handoffs.png',
+    '📊': '/images/feature-outputs.png', '🏗️': '/images/feature-infrastructure.png',
   }
 
   return (
     <div className="space-y-12">
-      {/* Header */}
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
         <div className="flex items-center gap-3 mb-4">
-          <h2 className="display-medium text-gray-100">{work.title}</h2>
-          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-green-500/10 text-green-400 tracking-wider uppercase border border-green-500/20 shrink-0 self-center">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+          <h2 className="display-medium text-[#1A1A1A]">{work.title}</h2>
+          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full bg-green-50 text-green-700 tracking-wider uppercase border border-green-200 shrink-0 self-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
             Live — Running Daily
           </span>
         </div>
-        <p className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-3xl">{work.description}</p>
+        <p className="text-[#2D2D2D] text-base md:text-lg leading-[1.75] max-w-3xl font-normal">{work.description}</p>
       </div>
 
-      {/* Agent Grid */}
       <div>
-        <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">The Team</p>
+        <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-6">The Team</p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {work.agents.map((agent) => (
-            <div
-              key={agent.name}
-              className="rounded-xl border border-white/10 bg-white/[0.03] p-4 hover:border-[#6366f1]/30 transition-colors duration-300"
-            >
-              <img
-                src={agentImages[agent.name] || '/images/agent-dev.png'}
-                alt={`${agent.name} — ${agent.role}`}
-                className="w-12 h-12 rounded-lg mb-2 object-cover"
-              />
-              <p className="text-white text-sm font-semibold">{agent.name}</p>
-              <p className="text-[#6366f1]/70 text-[10px] tracking-wider uppercase mb-2">{agent.role}</p>
-              <p className="text-gray-500 text-xs leading-relaxed">{agent.desc}</p>
+            <div key={agent.name} className="nordic-card p-4 hover:shadow-lg transition-shadow duration-300">
+              <img src={agentImages[agent.name] || '/images/agent-dev.png'} alt={`${agent.name} — ${agent.role}`}
+                className="w-12 h-12 rounded-lg mb-2 object-cover" />
+              <p className="text-[#1A1A1A] text-sm font-medium">{agent.name}</p>
+              <p className="text-[#D4A574] text-[10px] tracking-wider uppercase mb-2">{agent.role}</p>
+              <p className="text-[#5A5A5A] text-xs leading-relaxed">{agent.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Real Outputs + Features side by side */}
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-        {/* Outputs */}
         <div>
-          <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">Real Outputs</p>
+          <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-6">Real Outputs</p>
           <div className="space-y-4">
             {work.outputs.map((output) => (
               <div key={output} className="flex items-start gap-3">
-                <span className="text-[#6366f1] text-sm mt-0.5 shrink-0">✓</span>
-                <p className="text-gray-300 text-sm leading-relaxed">{output}</p>
+                <div className="w-[18px] h-[18px] rounded-full bg-[#D4A574] text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5">✓</div>
+                <p className="text-[#2D2D2D] text-sm leading-relaxed">{output}</p>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Features */}
         <div>
-          <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-semibold mb-6">How It Works</p>
+          <p className="text-[#1A1A1A] text-xs tracking-[0.18em] uppercase font-semibold mb-6">How It Works</p>
           <div className="space-y-5">
             {work.features.map((f) => (
-              <div key={f.label} className="flex gap-4">
-                <img
-                  src={featureImages[f.icon] || '/images/feature-memory.png'}
-                  alt={f.label}
-                  className="w-8 h-8 rounded mt-0.5 shrink-0 object-cover"
-                />
+              <div key={f.label} className="flex gap-4 nordic-card p-4">
+                <img src={featureImages[f.icon] || '/images/feature-memory.png'} alt={f.label}
+                  className="w-10 h-10 rounded-lg mt-0.5 shrink-0 object-cover" />
                 <div>
-                  <p className="text-white text-sm font-medium">{f.label}</p>
-                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                  <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
+                  <p className="text-[#3A3A3A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -672,139 +489,102 @@ function MyAITeamContent({ work }) {
         </div>
       </div>
 
-      {/* Key Insight */}
-      <div className="p-6 md:p-8 rounded-2xl border border-[#6366f1]/20 bg-[#6366f1]/[0.05] text-center">
-        <p className="text-gray-300 text-base md:text-lg leading-[1.75] max-w-2xl mx-auto">
-          This system doesn't just execute tasks. Agents have memory, specialized skills, defined handoff protocols, and accountability. No human in the loop for routine operations.
+      <div className="p-6 md:p-8 rounded-2xl border border-[#D4A574]/20 bg-[#D4A574]/[0.05] text-center">
+        <p className="text-[#2D2D2D] text-base md:text-lg leading-[1.75] max-w-2xl mx-auto font-normal">
+          This system doesn't just execute tasks. Agents have memory, specialized skills, defined handoff protocols, and accountability.
         </p>
       </div>
 
-      {/* Tags */}
       <div className="flex flex-wrap gap-2">
-        {work.tags.map((tag) => (
-          <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
-        ))}
+        {work.tags.map((tag) => (<span key={tag} className="text-[9px] px-3 py-1.5 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{tag}</span>))}
       </div>
     </div>
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PULSE CASE STUDY CONTENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ PULSE CONTENT ═══ */
 function PulseContent({ work }) {
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
       <div>
-        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg bg-[#0a0a0a]">
-          <img src={work.mockupImage} alt="PULSE AI Inventory Mockup" className="w-full h-auto block shadow-2xl" />
+        <div className="rounded-2xl overflow-hidden border border-[#E8E8ED] shadow-lg bg-white">
+          <img src={work.mockupImage} alt="PULSE AI Inventory Mockup" className="w-full h-auto block" />
         </div>
       </div>
-
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
-
-        {/* AI Evolution Insight */}
-        <div className="mb-8 p-5 glass-card">
-          <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">{work.insight.title}</p>
+        <h2 className="display-medium text-[#1A1A1A] mb-4">{work.title}</h2>
+        <p className="text-[#3A3A3A] text-base leading-relaxed mb-8 max-w-lg font-normal">{work.description}</p>
+        <div className="mb-8 p-5 nordic-card">
+          <p className="text-xs text-[#5A5A5A] uppercase tracking-widest mb-4">{work.insight.title}</p>
           <div className="space-y-3">
             {work.insight.levels.map((level) => (
               <div key={level.label} className="flex items-center gap-3">
-                <div className={`w-2 h-2 rounded-full ${
-                  level.color === 'purple' ? 'bg-purple-500' : 
-                  level.color === 'blue' ? 'bg-blue-400' : 'bg-gray-500'
-                }`} />
+                <div className={`w-2 h-2 rounded-full ${level.color === 'purple' ? 'bg-purple-500' : level.color === 'blue' ? 'bg-blue-400' : 'bg-gray-400'}`} />
                 <div className="flex-1">
-                  <span className={`text-sm font-medium ${
-                    level.color === 'purple' ? 'text-purple-400' : 'text-gray-300'
-                  }`}>{level.label}</span>
-                  <span className="text-gray-500 text-sm ml-2">— {level.desc}</span>
+                  <span className={`text-sm font-medium ${level.color === 'purple' ? 'text-purple-600' : 'text-[#1A1A1A]'}`}>{level.label}</span>
+                  <span className="text-[#5A5A5A] text-sm ml-2">— {level.desc}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
         <div className="space-y-4 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-white text-sm font-medium">{f.label}</p>
-                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
+                <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
-
         <div className="flex flex-wrap gap-2">
-          {work.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
-          ))}
+          {work.tags.map((tag) => (<span key={tag} className="text-[9px] px-3 py-1.5 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{tag}</span>))}
         </div>
       </div>
     </div>
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PLANVIEW CONTENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ PLANVIEW CONTENT ═══ */
 function PlanviewContent({ work }) {
-  const insightColors = {
-    green: '#22c55e',
-    blue: '#3b82f6',
-    purple: '#a855f7',
-  }
-
+  const insightColors = { green: '#22c55e', blue: '#3b82f6', purple: '#a855f7' }
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-      {/* Left: Initiative Timeline */}
       <div>
         <CapabilityBadges capabilities={work.capabilities} />
-        <h2 className="display-medium text-gray-100 mb-4">{work.title}</h2>
-        <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">{work.description}</p>
-
+        <h2 className="display-medium text-[#1A1A1A] mb-4">{work.title}</h2>
+        <p className="text-[#3A3A3A] text-base leading-relaxed mb-8 max-w-lg font-normal">{work.description}</p>
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#6366f1] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
               <div>
-                <p className="text-white text-sm font-medium">{f.label}</p>
-                <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{f.desc}</p>
+                <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
+                <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
-
         <div className="flex flex-wrap gap-2">
-          {work.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{tag}</span>
-          ))}
+          {work.tags.map((tag) => (<span key={tag} className="text-[9px] px-3 py-1.5 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{tag}</span>))}
         </div>
       </div>
-
-      {/* Right: Insight Block */}
       <div className="flex flex-col justify-center">
-        <div className="p-8 md:p-10 bg-gradient-to-br from-[#111827] to-[#0a0a0f] rounded-2xl border border-white/10">
+        <div className="p-8 md:p-10 bg-gradient-to-br from-[#1D1D1F] to-[#2D2D2D] rounded-2xl border border-[#3A3A3A]">
           <p className="text-xs text-gray-400 uppercase tracking-widest mb-6">{work.insight.title}</p>
           <div className="space-y-6">
             {work.insight.levels.map((level, idx) => (
               <div key={level.label} className="flex items-start gap-4 relative">
                 <div className="flex flex-col items-center shrink-0">
-                  <div
-                    className="w-3 h-3 rounded-full mt-0.5"
-                    style={{ background: insightColors[level.color] }}
-                  />
-                  {idx < work.insight.levels.length - 1 && (
-                    <div className="w-0.5 flex-1 mt-1 bg-white/10" style={{ minHeight: '2rem' }} />
-                  )}
+                  <div className="w-3 h-3 rounded-full mt-0.5" style={{ background: insightColors[level.color] }} />
+                  {idx < work.insight.levels.length - 1 && <div className="w-0.5 flex-1 mt-1 bg-white/10" style={{ minHeight: '2rem' }} />}
                 </div>
                 <div>
                   <p className="text-white text-sm font-medium">{level.label}</p>
-                  <p className="text-gray-500 text-sm mt-0.5 leading-relaxed">{level.desc}</p>
+                  <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{level.desc}</p>
                 </div>
               </div>
             ))}
@@ -815,9 +595,7 @@ function PlanviewContent({ work }) {
   )
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   MAIN COMPONENT
-═══════════════════════════════════════════════════════════════ */
+/* ═══ MAIN COMPONENT ═══ */
 export default function CaseStudy() {
   const sectionRef = useRef(null)
   const [activeTab, setActiveTab] = useState(featuredWorks[0].id)
@@ -832,55 +610,47 @@ export default function CaseStudy() {
         })
       }
     }, sectionRef)
-
     return () => ctx.revert()
   }, [])
-
-
 
   const activeWork = featuredWorks.find((w) => w.id === activeTab)
 
   const renderContent = () => {
     switch (activeWork.id) {
-      case 'my-ai-team':
-        return <MyAITeamContent work={activeWork} />
-      case 'mission-control':
-        return <MissionControlContent work={activeWork} />
-      case 'bhoot-ai':
-        return <BhootContent work={activeWork} />
-      case 'cognx':
-        return <CognXContent work={activeWork} />
-      case 'pulse-case-study':
-        return <PulseContent work={activeWork} />
-      case 'planview-covid':
-        return <PlanviewContent work={activeWork} />
-      default:
-        return <WhitepaperContent work={activeWork} />
+      case 'my-ai-team': return <MyAITeamContent work={activeWork} />
+      case 'mission-control': return <MissionControlContent work={activeWork} />
+      case 'bhoot-ai': return <BhootContent work={activeWork} />
+      case 'cognx': return <CognXContent work={activeWork} />
+      case 'pulse-case-study': return <PulseContent work={activeWork} />
+      case 'planview-covid': return <PlanviewContent work={activeWork} />
+      default: return <WhitepaperContent work={activeWork} />
     }
   }
 
   return (
-    <section id="work" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative overflow-hidden">
-      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
+    <section id="work" ref={sectionRef} className="py-[120px] bg-[#FAFAF7] relative overflow-hidden">
+      <div className="w-full px-6 md:px-16 max-w-[1280px] mx-auto">
         {/* Section Header */}
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-4">
-            <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold">Featured Work</p>
-            <div className="flex-1 h-px bg-gradient-to-r from-[#6366f1]/40 to-transparent" />
+            <div className="accent-bar"></div>
+            <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold">Featured Work</p>
+            <div className="flex-1 h-px bg-gradient-to-r from-[#D4A574]/40 to-transparent" />
           </div>
-          <p className="text-gray-400 text-lg md:text-xl mb-6 max-w-2xl leading-[1.75]">
+          <p className="text-[#3A3A3A] text-lg md:text-xl mb-6 max-w-2xl leading-[1.75] font-normal">
             Selected projects and case studies — from enterprise product leadership to AI-native builds.
           </p>
-          
+
+          {/* Work tabs — pill style */}
           <div className="flex flex-wrap gap-3">
             {featuredWorks.map((work) => (
               <button
                 key={work.id}
                 onClick={() => setActiveTab(work.id)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-[24px] text-[13px] font-medium transition-all duration-300 ${
                   activeTab === work.id
-                    ? 'bg-[#6366f1] text-white'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
+                    ? 'bg-[#1D1D1F] text-[#FAFAF7] border border-[#1D1D1F]'
+                    : 'bg-transparent text-[#5A5A5A] hover:text-[#1A1A1A] border border-[#E8E8ED] hover:border-[#1A1A1A]'
                 }`}
                 data-cursor-hover
               >
@@ -896,16 +666,16 @@ export default function CaseStudy() {
         </div>
 
         {/* Other Projects */}
-        <div ref={otherRef} className="pt-16 border-t border-[#1f2937]">
-          <h3 className="text-gray-500 text-xs tracking-[0.35em] uppercase font-semibold mb-10">Other Projects</h3>
+        <div ref={otherRef} className="pt-16 border-t border-[#E8E8ED]">
+          <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-10">Other Projects</p>
           <div className="grid md:grid-cols-2 gap-6">
             {otherProjects.map((project) => (
-              <div key={project.title} className="project-card glass-card p-6 hover:border-[#6366f1]/30 transition-colors duration-300">
-                <h4 className="font-bold text-xl text-white mb-3 tracking-tight">{project.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.desc}</p>
+              <div key={project.title} className="project-card nordic-card p-6 hover:shadow-lg transition-shadow duration-300">
+                <h4 className="font-medium text-xl text-[#1A1A1A] mb-3 tracking-tight">{project.title}</h4>
+                <p className="text-[#5A5A5A] text-sm leading-relaxed mb-4 font-normal">{project.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="text-[10px] px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-gray-400 tracking-wider uppercase">{t}</span>
+                    <span key={t} className="text-[10px] px-3 py-1 rounded-[20px] bg-[#F5F5F0] border border-[#E8E8ED] text-[#5A5A5A] tracking-wider uppercase">{t}</span>
                   ))}
                 </div>
               </div>

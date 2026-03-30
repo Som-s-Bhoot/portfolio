@@ -8,7 +8,7 @@ const articles = [
   {
     title: 'Downshift to Discover',
     date: 'Jul 2025',
-    excerpt: 'On the power of slowing down to find what matters. Why a deliberate career break might be the most productive thing you ever do. Motorcycles as a lens for life.',
+    excerpt: 'On the power of slowing down to find what matters. Why a deliberate career break might be the most productive thing you ever do.',
     url: 'https://www.linkedin.com/pulse/downshift-discover-epiphany-wheels-som-chakravarty-zaouc',
     category: 'Life',
     image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=200&fit=crop',
@@ -16,7 +16,7 @@ const articles = [
   {
     title: 'The Art of Crafting the Right Friction',
     date: 'Dec 2024',
-    excerpt: 'Not all friction is bad. How intentional resistance in product design leads to better outcomes and deeper engagement. Analysis of Shapr3D, Excalidraw, and more.',
+    excerpt: 'Not all friction is bad. How intentional resistance in product design leads to better outcomes and deeper engagement.',
     url: 'https://www.linkedin.com/pulse/art-crafting-right-friction-turning-free-users-paying-som-chakravarty-0qtbc',
     category: 'Product',
     image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=400&h=200&fit=crop',
@@ -24,7 +24,7 @@ const articles = [
   {
     title: 'How Our Identities Shape Our Lives',
     date: 'Nov 2024',
-    excerpt: 'Exploring the invisible narratives we carry — the identity-action-habit loop. How our self-stories define the products we build, teams we lead, and decisions we make.',
+    excerpt: 'Exploring the invisible narratives we carry — the identity-action-habit loop.',
     url: 'https://www.linkedin.com/pulse/how-our-identities-shape-lives-som-chakravarty-q7smc',
     category: 'Philosophy',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop',
@@ -32,7 +32,7 @@ const articles = [
   {
     title: 'We Need to Change How We Look at Work and People',
     date: 'Nov 2023',
-    excerpt: 'A critique of the "70 hours/week" mindset. Camp A vs Camp B workers. Why outcomes matter more than hours — always.',
+    excerpt: 'A critique of the "70 hours/week" mindset. Camp A vs Camp B workers.',
     url: 'https://www.linkedin.com/pulse/we-need-change-how-look-work-people-som-chakravarty-giqac',
     category: 'Work',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=200&fit=crop',
@@ -40,7 +40,7 @@ const articles = [
   {
     title: 'Metrics that Matter',
     date: '2024',
-    excerpt: 'How to move beyond vanity metrics and focus on what actually drives product success. A framework for meaningful measurement.',
+    excerpt: 'How to move beyond vanity metrics and focus on what actually drives product success.',
     url: 'https://www.linkedin.com/pulse/metrics-matter-how-move-beyond-vanity-product-som-chakravarty-39zrc',
     category: 'Product',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop',
@@ -48,7 +48,7 @@ const articles = [
   {
     title: 'The Technical Art of UX Design',
     date: '2024',
-    excerpt: 'A product manager\'s journey through the technical foundations of UX. Why understanding implementation makes you a better designer.',
+    excerpt: 'A product manager\'s journey through the technical foundations of UX.',
     url: 'https://www.linkedin.com/pulse/technical-art-ux-design-product-managers-journey-som-chakravarty-72l8c',
     category: 'UX',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop',
@@ -56,7 +56,7 @@ const articles = [
   {
     title: 'User Story Mapping',
     date: '2024',
-    excerpt: 'A practical guide to user story mapping — turning user needs into actionable product roadmaps. From discovery to delivery.',
+    excerpt: 'A practical guide to user story mapping — turning user needs into actionable product roadmaps.',
     url: 'https://www.linkedin.com/pulse/user-story-mapping-som-chakravarty',
     category: 'Product',
     image: 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=400&h=200&fit=crop',
@@ -64,7 +64,7 @@ const articles = [
   {
     title: 'The Art of Process Consulting',
     date: '2024',
-    excerpt: 'Why your digital transformation might be turning into a disaster. The hidden art of process consulting and organizational change.',
+    excerpt: 'Why your digital transformation might be turning into a disaster.',
     url: 'https://www.linkedin.com/pulse/art-process-consulting-why-your-digital-might-turning-som-chakravarty-tflwc',
     category: 'Strategy',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop',
@@ -72,12 +72,12 @@ const articles = [
 ]
 
 const categoryColors = {
-  Life: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-  Product: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
-  Philosophy: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
-  Work: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-  UX: 'bg-pink-500/20 text-pink-300 border-pink-500/40',
-  Strategy: 'bg-slate-500/20 text-slate-300 border-slate-500/40',
+  Life: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  Product: 'bg-blue-50 text-blue-700 border-blue-200',
+  Philosophy: 'bg-purple-50 text-purple-700 border-purple-200',
+  Work: 'bg-amber-50 text-amber-700 border-amber-200',
+  UX: 'bg-pink-50 text-pink-700 border-pink-200',
+  Strategy: 'bg-slate-50 text-slate-700 border-slate-200',
 }
 
 export default function Writing() {
@@ -106,22 +106,22 @@ export default function Writing() {
   }, [])
 
   return (
-    <section id="writing" ref={sectionRef} className="py-16 md:py-20 bg-[#0a0a0f] relative">
-      <div className="w-full px-6 md:px-10 max-w-6xl mx-auto">
+    <section id="writing" ref={sectionRef} className="py-[120px] bg-[#FAFAF7] relative">
+      <div className="w-full px-6 md:px-16 max-w-[1280px] mx-auto">
         <div ref={titleRef} className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
           <div>
-            <p className="text-[#6366f1] text-xs tracking-[0.35em] uppercase font-semibold mb-4">Writing</p>
-            <h2 className="display-medium text-gray-100">Thinking out loud.</h2>
-            <p className="text-gray-400 text-base md:text-lg mt-4 max-w-xl leading-[1.75]">
-              I write about product craft, UX philosophy, identity, and life. Conversational but substantive — 
-              musing rather than lecturing, with analogies from motorcycles and symphonies.
+            <div className="accent-bar mb-5"></div>
+            <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-4">Writing</p>
+            <h2 className="display-medium text-[#1A1A1A]">Thinking out loud.</h2>
+            <p className="text-[#3A3A3A] text-base md:text-lg mt-4 max-w-xl leading-[1.7] font-normal">
+              I write about product craft, UX philosophy, identity, and life.
             </p>
           </div>
           <a
             href="https://www.linkedin.com/in/somchakravarty/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 text-xs text-gray-500 hover:text-[#6366f1] transition-colors duration-300 tracking-[0.15em] uppercase mt-4 md:mt-0"
+            className="hidden md:inline-flex items-center gap-2 text-xs text-[#86868B] hover:text-[#D4A574] transition-colors duration-300 tracking-[0.15em] uppercase mt-4 md:mt-0"
             data-cursor-hover
           >
             All on LinkedIn
@@ -140,34 +140,34 @@ export default function Writing() {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block glass-card overflow-hidden hover:border-[#6366f1]/30 transition-all duration-300 hover:-translate-y-1"
+              className="group block nordic-card overflow-hidden hover:-translate-y-1 transition-all duration-300"
               data-cursor-hover
             >
               {/* Image preview */}
               <div className="relative h-36 overflow-hidden">
-                <img 
-                  src={article.image} 
+                <img
+                  src={article.image}
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
                 <span className={`absolute top-3 left-3 text-[10px] tracking-[0.15em] uppercase font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm ${categoryColors[article.category]}`}>
                   {article.category}
                 </span>
               </div>
-              
+
               <div className="p-5">
-                <h3 className="font-bold text-lg text-white leading-snug tracking-tight group-hover:text-[#6366f1] transition-colors mb-2">
+                <h3 className="font-medium text-lg text-[#1A1A1A] leading-snug tracking-tight group-hover:text-[#D4A574] transition-colors mb-2">
                   {article.title}
                 </h3>
-                
-                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
+
+                <p className="text-[#5A5A5A] text-sm leading-relaxed line-clamp-2 mb-4 font-normal">
                   {article.excerpt}
                 </p>
-                
-                <div className="flex items-center justify-between pt-3 border-t border-white/10">
-                  <span className="text-gray-600 text-xs tracking-wide">{article.date}</span>
-                  <span className="text-gray-600 group-hover:text-[#6366f1] transition-colors">
+
+                <div className="flex items-center justify-between pt-3 border-t border-[#E8E8ED]">
+                  <span className="text-[#86868B] text-xs tracking-wide">{article.date}</span>
+                  <span className="text-[#86868B] group-hover:text-[#D4A574] transition-colors">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
@@ -180,7 +180,7 @@ export default function Writing() {
 
         <div className="mt-12 md:hidden text-center">
           <a href="https://www.linkedin.com/in/somchakravarty/" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-[#6366f1] font-medium">
+            className="inline-flex items-center gap-1 text-sm text-[#D4A574] font-medium">
             All articles on LinkedIn →
           </a>
         </div>
