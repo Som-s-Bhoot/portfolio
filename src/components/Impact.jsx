@@ -5,12 +5,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const stats = [
-  { value: '$170M ARR', desc: 'Managed a product line at this scale', type: 'product' },
-  { value: '10 Agents', desc: 'Autonomous AI team running daily operations', type: 'ai' },
-  { value: '0→1 in 6 Weeks', desc: 'Zero to production AI-native SaaS product', type: 'ai' },
-  { value: 'Enterprise PM Team', desc: 'Built the product management team from scratch', type: 'product' },
-  { value: '4 Markets', desc: 'Competitive intelligence reports in one week', type: 'ai' },
-  { value: 'Fortune 500', desc: 'Served enterprise customers globally', type: 'product' },
+  { value: 'Enterprise PM Team', desc: 'Built and grew the product management team in Bangalore from scratch', type: 'product' },
+  { value: '10 Agents', desc: 'Autonomous AI team running daily operations in production', type: 'ai' },
+  { value: '$170M ARR', desc: 'Managed a product line generating $170 million in annual recurring revenue', type: 'product' },
+  { value: '0→1 in 6 Weeks', desc: 'Zero to production AI-native SaaS product (CognX)', type: 'ai' },
+  { value: 'Growth', desc: 'Increased product activation and adoption across the customer base', type: 'product' },
+  { value: '4 Markets', desc: 'Competitive intelligence reports delivered in a single week', type: 'ai' },
+  { value: 'Fortune 500', desc: 'Served Fortune 500 enterprise customers globally', type: 'product' },
+  { value: 'QA for Agentic Systems', desc: 'Production test suite including 36 AI-specific evaluations', type: 'ai' },
+  { value: 'APAC Launch', desc: 'Led product launch and business development across the APAC region', type: 'product' },
 ]
 
 export default function Impact() {

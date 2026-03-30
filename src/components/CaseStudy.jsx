@@ -4,6 +4,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+/* ═══ ICON RENDERER — image or emoji ═══ */
+function FeatureIcon({ icon, className = '' }) {
+  if (typeof icon === 'string' && icon.startsWith('/')) {
+    return <img src={icon} alt="" className={`w-6 h-6 rounded object-cover shrink-0 ${className}`} />
+  }
+  return <span className={`shrink-0 ${className}`}>{icon}</span>
+}
+
 /* ═══ CAPABILITY BADGE ═══ */
 function CapabilityBadges({ capabilities }) {
   if (!capabilities || capabilities.length === 0) return null
@@ -77,10 +85,10 @@ const featuredWorks = [
       ],
     },
     features: [
-      { icon: '🏗️', label: 'Zero to Production in 6 Weeks', desc: 'Sole PM and technical architect. 693 tests — with a 10-agent AI dev team.' },
-      { icon: '🤖', label: 'AI-Native Architecture', desc: 'Conversation memory, proactive alerts, structured query routing.' },
-      { icon: '🛡️', label: 'Iron Dome Quality System', desc: '66-test E2E suite plus 36 DeepEval tests for RAG quality.' },
-      { icon: '⚔️', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. Moats are non-technical now.' },
+      { icon: '/images/icon-zero-to-prod.png', label: 'Zero to Production in 6 Weeks', desc: 'Sole PM and technical architect. 693 tests — with a 10-agent AI dev team.' },
+      { icon: '/images/icon-ai-native.png', label: 'AI-Native Architecture', desc: 'Conversation memory, proactive alerts, structured query routing.' },
+      { icon: '/images/icon-iron-dome.png', label: 'Iron Dome Quality System', desc: '66-test E2E suite plus 36 DeepEval tests for RAG quality.' },
+      { icon: '/images/icon-kill-decision.png', label: 'The Kill Decision', desc: 'Platform AI owns both the data and distribution. Moats are non-technical now.' },
     ],
     consultingConnector: 'The same architectural thinking behind CognX is what I bring to client engagements. The kill decision proved I optimize for outcomes, not sunk costs.',
     tags: ['Next.js', 'Supabase', 'Inngest', 'RAG / LLM', 'Paddle', 'Slack API'],
@@ -95,10 +103,10 @@ const featuredWorks = [
       { src: '/mc-overview.png', alt: 'Mission Control Overview', size: 'small' },
     ],
     features: [
-      { icon: '✦', label: 'AI Agent Collaboration', desc: 'Built-in AI that reads context, creates content, and acts on tasks' },
-      { icon: '◫', label: 'Information Architecture', desc: 'Documents + Kanban unified under a coherent mental model' },
-      { icon: '⟐', label: 'Real-Time Experience', desc: 'Optimistic UI, cross-platform sync, instant feedback loops' },
-      { icon: '◎', label: 'Design System', desc: 'Consistent component library with accessibility built-in' },
+      { icon: '/images/icon-ai-collab.png', label: 'AI Agent Collaboration', desc: 'Built-in AI that reads context, creates content, and acts on tasks' },
+      { icon: '/images/icon-info-arch.png', label: 'Information Architecture', desc: 'Documents + Kanban unified under a coherent mental model' },
+      { icon: '/images/icon-realtime.png', label: 'Real-Time Experience', desc: 'Optimistic UI, cross-platform sync, instant feedback loops' },
+      { icon: '/images/icon-design-system.png', label: 'Design System', desc: 'Consistent component library with accessibility built-in' },
     ],
     tags: ['React 19', 'Supabase', 'Tailwind', 'AI / LLM'],
   },
@@ -108,31 +116,14 @@ const featuredWorks = [
     description: 'A definitive analysis of Actual, Perceived, and Relative Value drivers in Strategic Product Management.',
     coverImage: '/whitepaper-cover.png',
     features: [
-      { icon: '◉', label: 'Actual Value', desc: 'Functional utility, reliability, and efficiency' },
-      { icon: '◎', label: 'Perceived Value', desc: 'Brand perception, UX quality, emotional resonance' },
-      { icon: '◈', label: 'Relative Value', desc: 'Competitive positioning and market context' },
+      { icon: '/images/icon-actual-value.png', label: 'Actual Value', desc: 'Functional utility, reliability, and efficiency' },
+      { icon: '/images/icon-perceived-value.png', label: 'Perceived Value', desc: 'Brand perception, UX quality, emotional resonance' },
+      { icon: '/images/icon-relative-value.png', label: 'Relative Value', desc: 'Competitive positioning and market context' },
     ],
     cta: { label: 'Download PDF', url: '/tripartite-whitepaper.pdf', icon: 'download' },
     tags: ['Product Strategy', 'Value Framework', 'AI-Assisted'],
   },
-  {
-    id: 'bhoot-ai', title: 'Bhoot AI Agent', type: 'AI Agent',
-    capabilities: [{ icon: '⚡', label: 'AI' }, { icon: '🧠', label: 'Strategy' }],
-    description: 'A personal AI infrastructure that actually does things — manages email, calendar, tasks, code. Not a chatbot; an autonomous agent.',
-    features: [
-      { icon: '🔗', label: 'Tool Integration', desc: 'Email, calendar, GitHub, browser automation — via natural language' },
-      { icon: '🧠', label: 'Persistent Memory', desc: 'Maintains context across sessions with structured memory' },
-      { icon: '⚙️', label: 'Autonomous Actions', desc: 'Proactive monitoring, scheduled tasks, multi-step workflows' },
-      { icon: '💬', label: 'Multi-Channel', desc: 'Telegram, Discord, Signal — same agent, any surface' },
-    ],
-    architecture: [
-      { layer: 'Interface', items: ['Telegram', 'Discord', 'Signal', 'CLI'] },
-      { layer: 'Core', items: ['Clawdbot Gateway', 'Claude API', 'Memory System'] },
-      { layer: 'Tools', items: ['Email/Calendar', 'GitHub', 'Browser', 'Shell', 'Cron'] },
-      { layer: 'Storage', items: ['Supabase', 'Local Files', 'Keychain'] },
-    ],
-    tags: ['Node.js', 'Claude API', 'Telegram', 'Supabase', 'MCP'],
-  },
+
   {
     id: 'pulse-case-study', title: 'PULSE — AI Disrupts Inventory', type: 'Pulse',
     capabilities: [{ icon: '🧠', label: 'Strategy' }, { icon: '⚡', label: 'AI' }],
@@ -147,10 +138,10 @@ const featuredWorks = [
       ],
     },
     features: [
-      { icon: '💬', label: 'Conversation, Not Navigation', desc: 'Primary interface is natural language.' },
-      { icon: '🔔', label: 'Proactive, Not Reactive', desc: 'Monitors, predicts, and alerts.' },
-      { icon: '🤖', label: 'Autonomous with Guardrails', desc: 'Define rules once. Pulse handles the rest.' },
-      { icon: '🎯', label: 'Context-Aware Intelligence', desc: 'Understands your business, not just inventory.' },
+      { icon: '/images/icon-conversation.png', label: 'Conversation, Not Navigation', desc: 'Primary interface is natural language.' },
+      { icon: '/images/icon-proactive.png', label: 'Proactive, Not Reactive', desc: 'Monitors, predicts, and alerts.' },
+      { icon: '/images/icon-autonomous.png', label: 'Autonomous with Guardrails', desc: 'Define rules once. Pulse handles the rest.' },
+      { icon: '/images/icon-context-aware.png', label: 'Context-Aware Intelligence', desc: 'Understands your business, not just inventory.' },
     ],
     tags: ['Product Strategy', 'AI Architecture', 'Market Analysis', 'UX Concept'],
   },
@@ -159,10 +150,10 @@ const featuredWorks = [
     capabilities: [{ icon: '🧠', label: 'Strategy' }, { icon: '👥', label: 'Product Leadership' }],
     description: 'When COVID-19 forced the world remote, I led two initiatives that turned a disruption into a competitive advantage.',
     features: [
-      { icon: '📹', label: 'Zoom Integration', desc: 'Integrated Zoom directly into Planview products.' },
-      { icon: '🎨', label: 'Real-Time Whiteboarding', desc: 'Collaborative whiteboards that mimicked physical brainstorming.' },
-      { icon: '🚀', label: 'Day-One Adoption', desc: 'Both solutions embraced immediately by customers.' },
-      { icon: '🔄', label: 'Portfolio-Wide Impact', desc: 'Capabilities rolled out across the broader product portfolio.' },
+      { icon: '/images/icon-zoom.png', label: 'Zoom Integration', desc: 'Integrated Zoom directly into Planview products.' },
+      { icon: '/images/icon-whiteboard.png', label: 'Real-Time Whiteboarding', desc: 'Collaborative whiteboards that mimicked physical brainstorming.' },
+      { icon: '/images/icon-adoption.png', label: 'Day-One Adoption', desc: 'Both solutions embraced immediately by customers.' },
+      { icon: '/images/icon-portfolio-impact.png', label: 'Portfolio-Wide Impact', desc: 'Capabilities rolled out across the broader product portfolio.' },
     ],
     insight: {
       title: 'The Insight',
@@ -206,7 +197,7 @@ function MissionControlContent({ work }) {
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <FeatureIcon icon={f.icon} className="text-[#D4A574] text-base mt-0.5" />
               <div>
                 <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
                 <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
@@ -251,7 +242,7 @@ function WhitepaperContent({ work }) {
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <FeatureIcon icon={f.icon} className="text-[#D4A574] text-base mt-0.5" />
               <div>
                 <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
                 <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
@@ -311,7 +302,7 @@ function BhootContent({ work }) {
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <FeatureIcon icon={f.icon} className="text-[#D4A574] text-base mt-0.5" />
               <div>
                 <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
                 <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
@@ -382,7 +373,7 @@ function CognXContent({ work }) {
           <div className="space-y-5 mb-8">
             {work.features.map((f) => (
               <div key={f.label} className="flex gap-4">
-                <span className="text-[#1A1A1A] text-base mt-0.5 shrink-0">{f.icon}</span>
+                <FeatureIcon icon={f.icon} className="text-[#1A1A1A] text-base mt-0.5" />
                 <div>
                   <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
                   <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
@@ -422,13 +413,13 @@ function CognXContent({ work }) {
 /* ═══ MY AI TEAM CONTENT ═══ */
 function MyAITeamContent({ work }) {
   const agentImages = {
-    'Bhoot': '/images/agent-bhoot.png', 'Dev': '/images/agent-dev.png', 'Ari': '/images/agent-ari.png',
-    'Ricky': '/images/agent-ricky.png', 'Mark': '/images/agent-mark.png', 'Dean': '/images/agent-dean.png',
-    'Pam': '/images/agent-pam.png', 'Quasi': '/images/agent-quasi.png', 'Ravi': '/images/agent-ravi.png', 'Tom': '/images/agent-tom.png',
+    'Bhoot': '/images/agent-bhoot-light.png', 'Dev': '/images/agent-dev-light.png', 'Ari': '/images/agent-ari-light.png',
+    'Ricky': '/images/agent-ricky-light.png', 'Mark': '/images/agent-mark-light.png', 'Dean': '/images/agent-dean-light.png',
+    'Pam': '/images/agent-pam-light.png', 'Quasi': '/images/agent-quasi-light.png', 'Ravi': '/images/agent-ravi-light.png', 'Tom': '/images/agent-tom-light.png',
   }
   const featureImages = {
-    '🤖': '/images/feature-memory.png', '🔄': '/images/feature-handoffs.png',
-    '📊': '/images/feature-outputs.png', '🏗️': '/images/feature-infrastructure.png',
+    '🤖': '/images/feature-memory-light.png', '🔄': '/images/feature-handoffs-light.png',
+    '📊': '/images/feature-outputs-light.png', '🏗️': '/images/feature-infrastructure-light.png',
   }
 
   return (
@@ -532,7 +523,7 @@ function PulseContent({ work }) {
         <div className="space-y-4 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <FeatureIcon icon={f.icon} className="text-[#D4A574] text-base mt-0.5" />
               <div>
                 <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
                 <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
@@ -560,7 +551,7 @@ function PlanviewContent({ work }) {
         <div className="space-y-5 mb-8">
           {work.features.map((f) => (
             <div key={f.label} className="flex gap-4">
-              <span className="text-[#D4A574] text-base mt-0.5 shrink-0">{f.icon}</span>
+              <FeatureIcon icon={f.icon} className="text-[#D4A574] text-base mt-0.5" />
               <div>
                 <p className="text-[#1A1A1A] text-sm font-medium">{f.label}</p>
                 <p className="text-[#5A5A5A] text-sm mt-0.5 leading-relaxed">{f.desc}</p>
@@ -619,7 +610,7 @@ export default function CaseStudy() {
     switch (activeWork.id) {
       case 'my-ai-team': return <MyAITeamContent work={activeWork} />
       case 'mission-control': return <MissionControlContent work={activeWork} />
-      case 'bhoot-ai': return <BhootContent work={activeWork} />
+
       case 'cognx': return <CognXContent work={activeWork} />
       case 'pulse-case-study': return <PulseContent work={activeWork} />
       case 'planview-covid': return <PlanviewContent work={activeWork} />
@@ -660,13 +651,13 @@ export default function CaseStudy() {
           </div>
         </div>
 
-        {/* Active Work Content */}
-        <div className="mb-14 md:mb-20">
+        {/* Active Work Content — no extra bottom margin so shorter tabs don't create scroll gaps */}
+        <div className="mb-0">
           {renderContent()}
         </div>
 
         {/* Other Projects */}
-        <div ref={otherRef} className="pt-16 border-t border-[#E8E8ED]">
+        <div ref={otherRef} className="pt-12 mt-12 border-t border-[#E8E8ED]">
           <p className="text-[#D4A574] text-xs tracking-[0.18em] uppercase font-semibold mb-10">Other Projects</p>
           <div className="grid md:grid-cols-2 gap-6">
             {otherProjects.map((project) => (
